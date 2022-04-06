@@ -1,0 +1,1 @@
+export const players=["JaylyPlays","ItsDominicPlays"];export const whitelist=!1;

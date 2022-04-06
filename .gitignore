@@ -1,0 +1,14 @@
+# Ignore any file extensions that used to open Minecraft app
+*.mcaddon
+*.mcpack
+*.mcworld
+*.mcperf
+*.mcshortcut
+*.mctemplate
+
+# Ignore the developer directory
+developer
+
+# Don't upload cache folder thanks
+tests/bin
+build/compile

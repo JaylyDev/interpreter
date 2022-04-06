@@ -1,0 +1,13 @@
+Attributions
+These are the packages used in GameTest Interpreter add-on
+
+- TypeScript
+- JSON Schema
+- JavaScript MD5
+- base64
+- clonejson
+- viewObj
+- SHA256
+- @types/mojang-minecraft
+- @types/mojang-gametest
+- mojang-minecraft-ui typings

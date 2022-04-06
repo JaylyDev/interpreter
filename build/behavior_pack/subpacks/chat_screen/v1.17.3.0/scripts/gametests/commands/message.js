@@ -1,0 +1,1 @@
+import{World as t,Commands as e}from"Minecraft";export function client(r,n){e.run(`tellraw ${r} {"rawtext":[{"text":"§7${n}"}]}`,t.getDimension("overworld"))}export function server(r,n){e.run(`tellraw @a {"rawtext":[{"text":"[${r}: ${n}]"}]}`,t.getDimension("overworld"))}

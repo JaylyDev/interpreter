@@ -1,0 +1,1 @@
+export const viewObj_d_ts="declare function viewObj(input: any): string[];\nexport function getClassName(o: any): string;\nexport function getConstructorName(o: any): string;\nexport function getType(o: any): any;\n";

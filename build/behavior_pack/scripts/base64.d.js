@@ -1,0 +1,1 @@
+export const base64_d_ts="declare namespace Base64 {\n    const _keyStr: string;\n    export function encode(input: string): string;\n    export function decode(input: string): string;\n}";

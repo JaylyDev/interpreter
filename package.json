@@ -1,0 +1,26 @@
+{
+  "name": "interpreter",
+  "version": "1.18.30",
+  "description": "Interpreter in Minecraft",
+  "main": "src/behavior_pack/scripts/gametests/terminal.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaylydev/interpreter.git"
+  },
+  "keywords": [
+    "gametest",
+    "minecraft"
+  ],
+  "author": "JaylyMC",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/jaylydev/interpreter/issues"
+  },
+  "homepage": "https://github.com/jaylydev/interpreter#readme"
+}
