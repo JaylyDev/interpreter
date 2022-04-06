@@ -6,6 +6,9 @@
 *.mcshortcut
 *.mctemplate
 
+# Don't ignore .mcaddon in build directory
+!build/*.mcaddon
+
 # Ignore the developer directory
 developer
 
