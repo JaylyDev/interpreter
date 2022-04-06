@@ -16,7 +16,7 @@ Creator: JaylyMC - https://www.youtube.com/c/JaylyMC
 
 Questions, Bugs and Feedbacks:
 Report a bug or suggest new features for the addon: https://github.com/JaylyDev/interpreter/issues/new/choose
-Please ask and answer questions here: https://discord.gg/Xn8TCJWA
+Please ask and answer questions here: https://discord.gg/5m6GqM7vYN
 
 License:
 

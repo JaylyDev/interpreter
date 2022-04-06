@@ -24,7 +24,7 @@ GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written i
 
 Want to report a bug or suggest new features for the addon? [Click Here](https://github.com/JaylyDev/interpreter/issues/new/choose)
 
-Please ask and answer questions <a href="https://discord.gg/Xn8TCJWA"/>here <img src="https://img.shields.io/discord/570758760373420033" alt="Online members"></a>
+Please ask and answer questions <a href="https://discord.gg/5m6GqM7vYN"/>here <img src="https://img.shields.io/discord/570758760373420033" alt="Online members"></a>
 
 ## License
 
