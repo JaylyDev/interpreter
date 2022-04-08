@@ -1,5 +1,560 @@
-/********************************************************
-+*   (c) JaylyMC. All rights reserved.                    *
-+*********************************************************/
-
-{}
+{
+   "content" : [
+      {
+         "path" : "scripts/blueimp-md5/package.json"
+      },
+      {
+         "path" : "scripts/typescript/typescript.js"
+      },
+      {
+         "path" : "scripts/typescript/package.json"
+      },
+      {
+         "path" : "scripts/typescript/lib.esnext.full.d.js"
+      },
+      {
+         "path" : ".mcattributes"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2022.object.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2016.d.js"
+      },
+      {
+         "path" : "README.txt"
+      },
+      {
+         "path" : "Attributions.txt"
+      },
+      {
+         "path" : "scripts/jsonschema/LICENSE"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.symbol.wellknown.d.js"
+      },
+      {
+         "path" : "pack_icon.png"
+      },
+      {
+         "path" : "scripts/blueimp-md5/LICENSE.txt"
+      },
+      {
+         "path" : "contents.json"
+      },
+      {
+         "path" : "scripts/base64.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.sharedmemory.d.js"
+      },
+      {
+         "path" : "LICENSE.txt"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/scan.js"
+      },
+      {
+         "path" : "manifest.json"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2016.full.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.iterable.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/gametests/commands/help.js"
+      },
+      {
+         "path" : "scripts/base64.js"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/attribute.js"
+      },
+      {
+         "path" : "scripts/jsonschema/.editorconfig"
+      },
+      {
+         "path" : "scripts/blueimp-md5/index.d.js"
+      },
+      {
+         "path" : "scripts/blueimp-md5/README.md"
+      },
+      {
+         "path" : "scripts/blueimp-md5/index.d.ts"
+      },
+      {
+         "path" : "scripts/gametests/atrributions.js"
+      },
+      {
+         "path" : "scripts/blueimp-md5/md5.js"
+      },
+      {
+         "path" : "scripts/blueimp-md5/md5.min.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/brainfuck.js"
+      },
+      {
+         "path" : "scripts/blueimp-md5/md5.min.js.map"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2016.array.include.d.js"
+      },
+      {
+         "path" : "scripts/clonejson.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.proxy.d.js"
+      },
+      {
+         "path" : "scripts/clonejson.js"
+      },
+      {
+         "path" : "scripts/credentials/access.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-gametest/index.js"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/helpers.js"
+      },
+      {
+         "path" : "scripts/typescript/CopyrightNotice.txt"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/index.d.ts"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/index.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/package.json"
+      },
+      {
+         "path" : "scripts/jsonschema/lib/validator.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-minecraft/README.md"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.d.js"
+      },
+      {
+         "path" : "scripts/jsonschema/package.json"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.generator.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.full.d.js"
+      },
+      {
+         "path" : "scripts/jsonschema/README.md"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.collection.d.js"
+      },
+      {
+         "path" : "scripts/sha256.d.js"
+      },
+      {
+         "path" : "scripts/sha256.js"
+      },
+      {
+         "path" : "scripts/typescript/AUTHORS.md"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.core.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-minecraft/index.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.d.js"
+      },
+      {
+         "path" : "scripts/viewObj.js"
+      },
+      {
+         "path" : "scripts/typescript/CODE_OF_CONDUCT.md"
+      },
+      {
+         "path" : "scripts/typescript/lib.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.dom.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.full.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.dom.iterable.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.promise.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.reflect.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.asynciterable.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2015.symbol.d.js"
+      },
+      {
+         "path" : "scripts/typescript/tsserverlibrary.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.typedarrays.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2019.full.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.intl.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.object.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-minecraft/README.md"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2017.string.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.asyncgenerator.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.intl.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.promise.d.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-gametest/package.json"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2018.regexp.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2019.array.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2019.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2019.object.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2019.string.d.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-minecraft/LICENSE"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2019.symbol.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.bigint.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.full.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.intl.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.promise.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.esnext.weakref.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.sharedmemory.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.string.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2020.symbol.wellknown.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2021.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2021.full.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2021.intl.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2021.promise.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2021.string.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2021.weakref.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2022.array.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2022.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2022.error.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2022.full.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es2022.string.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es5.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.es6.d.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-gametest/index.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.esnext.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.esnext.intl.d.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-minecraft/LICENSE"
+      },
+      {
+         "path" : "scripts/typescript/lib.esnext.promise.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.esnext.string.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.scripthost.d.js"
+      },
+      {
+         "path" : "scripts/typescript/lib.webworker.importscripts.d.js"
+      },
+      {
+         "path" : "scripts/typescript/ThirdPartyNoticeText.txt"
+      },
+      {
+         "path" : "scripts/typescript/lib.webworker.iterable.d.js"
+      },
+      {
+         "path" : "scripts/typescript/LICENSE.txt"
+      },
+      {
+         "path" : "scripts/typescript/protocol.d.js"
+      },
+      {
+         "path" : "scripts/typescript/README.md"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/@types/mojang-minecraft/index.d.js"
+      },
+      {
+         "path" : "scripts/typescript/SECURITY.md"
+      },
+      {
+         "path" : "scripts/typescript/typescript.d.js"
+      },
+      {
+         "path" : "scripts/typescript/typescript.d.ts"
+      },
+      {
+         "path" : "scripts/typescript/typescriptServices.d.js"
+      },
+      {
+         "path" : "scripts/viewObj.d.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-gametest/LICENSE"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-gametest/LICENSE"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-gametest/package.json"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-gametest/README.md"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-minecraft/index.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-minecraft/LICENSE"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/typescript.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-minecraft/package.json"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/@types/mojang-minecraft/README.md"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.17.3004.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-gametest/index.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-gametest/LICENSE"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-gametest/README.md"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-minecraft/index.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-minecraft/package.json"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/@types/mojang-minecraft/README.md"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.1027.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-gametest/index.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-gametest/LICENSE"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-gametest/package.json"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-gametest/README.md"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-minecraft/index.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-minecraft/package.json"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/@types/mojang-minecraft-ui/index.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/chat_screen/v1.18.2028.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-gametest/package.json"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-gametest/README.md"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-minecraft/LICENSE"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-minecraft/package.json"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/@types/mojang-minecraft-ui/index.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.2028.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/@types/mojang-gametest/index.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/@types/mojang-gametest/index.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/@types/mojang-minecraft/index.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/@types/mojang-minecraft/index.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/@types/mojang-minecraft-ui/index.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/@types/mojang-minecraft-ui/index.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/gametests/commands/help.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/gametests/commands/version.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/gametests/terminal.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.18.3021.0/scripts/javascript.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/@types/mojang-gametest/index.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/@types/mojang-minecraft-ui/index.d.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/@types/notes.txt"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/brainfuck.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/gametests/commands/message.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/gametests/commands/version.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/javascript.js"
+      },
+      {
+         "path" : "subpacks/modal_form/v1.19.21.0/scripts/typescript.js"
+      }
+   ],
+   "version" : 1
+}

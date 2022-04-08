@@ -1,11 +1,11 @@
 {
-  "configurations": [
-      {
-        "name": "Launch",
-        "cwd": "${workspaceFolder}/src/compile",
-        "type": "node",
-        "request": "attach",
-        "preLaunchTask": "echotest", // The name of the task defined above
-      }
-  ]   
+    "configurations": [
+        {
+            "name": "Launch",
+            "cwd": "${workspaceFolder}/src/compile",
+            "type": "node",
+            "request": "attach",
+            "preLaunchTask": "compiler", // The name of the task defined above
+        }
+    ]
 }

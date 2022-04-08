@@ -1,1 +1,0 @@
-import{world as r}from"mojang-minecraft";r.events.worldInitialize.subscribe((r=>{const{propertyRegistry:e}=r}));
