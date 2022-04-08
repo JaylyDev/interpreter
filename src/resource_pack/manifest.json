@@ -2,18 +2,18 @@
   "format_version": 2,
   "header": {
     "name": "GameTest interpreter [RP]",
-    "description": "§6Interpreter in Minecraft.§r\nVersion §21.18.30§r | By §9JaylyMC§r",
+    "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.0§r | By §9JaylyMC§r",
     "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
     // Version format: [MC minor, MC patch, Addon patch]
-    "version": [18, 30, 582],
+    "version": [19, 0, 41],
     "min_engine_version": [1, 17, 0]
   },
   "modules": [
     {
-      "description": "§6Interpreter in Minecraft.§r\nVersion §21.18.30§r | By §9JaylyMC§r",
+      "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.0§r | By §9JaylyMC§r",
       "type": "resources",
       "uuid": "7bf127eb-8348-493a-a525-66abfa00812c",
-      "version": [18, 30, 582]
+      "version": [19, 0, 41]
     }
   ],
   "metadata": {
@@ -23,7 +23,7 @@
   "dependencies": [
     {
       "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
-      "version": [18, 30, 582]
+      "version": [19, 0, 41]
     }
   ]
 }

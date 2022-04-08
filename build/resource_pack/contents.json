@@ -1,32 +1,5 @@
-{
-   "content" : [
-      {
-         "path" : ".mcattributes"
-      },
-      {
-         "path" : "contents.json"
-      },
-      {
-         "path" : "ui/chat_screen.json"
-      },
-      {
-         "path" : "pack_icon.png"
-      },
-      {
-         "path" : "ui/server_form.json"
-      },
-      {
-         "path" : "LICENSE.txt"
-      },
-      {
-         "path" : "manifest.json"
-      },
-      {
-         "path" : "README.txt"
-      },
-      {
-         "path" : "ui/ui_common.json"
-      }
-   ],
-   "version" : 1
-}
+/********************************************************
++*   (c) JaylyMC. All rights reserved.                    *
++*********************************************************/
+
+{}

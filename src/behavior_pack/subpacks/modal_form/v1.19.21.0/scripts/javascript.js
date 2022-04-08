@@ -15,9 +15,6 @@ import * as UI from "mojang-minecraft-ui";
 import { viewObj } from 'scripts/viewObj.js';
 import { md5 } from 'scripts/blueimp-md5/md5.js';
 import { SHA256 as sha256 } from 'scripts/sha256.js';
-import * as mojangminecraft from "scripts/@types/mojang-minecraft/index.js";
-import * as mojanggametest from "scripts/@types/mojang-gametest/index.js";
-import * as mojangminecraftui from "scripts/@types/mojang-minecraft-ui/index.js";
 import { ModalFormData, MessageFormData } from "mojang-minecraft-ui";
 import { cloneJSON } from "scripts/clonejson.js";
 import { Base64 } from "scripts/base64.js";
@@ -33,16 +30,6 @@ export const formSettings = {
     toggle: { defaultValue: null }
   }
 }
-
-function getIndex (module) {
-  if (module == "mojang-minecraft") {
-    return mojangminecraft;
-  } else if (module == "mojang-gametest") {
-    return mojanggametest;
-  } else if (module == "mojang-minecraft-ui") {
-    return mojangminecraftui;
-  }
-};
 
 world.events.beforeChat.subscribe(data => {
   const { message, sender } = data;
@@ -99,7 +86,8 @@ export function codeExecute (source, playerName, formSetting) {
              * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
              */
             // Enumerations
-            "Direction", "GameMode",
+            "Direction",
+            "GameMode",
     
             // Classes (in alphabetical order)
             "BeforeChatEvent",
@@ -114,7 +102,6 @@ export function codeExecute (source, playerName, formSetting) {
             "BeforeItemUseEventSignal",
             "BeforeItemUseOnEvent",
             "BeforeItemUseOnEventSignal",
-            "BlockEvent",
             "BeforePistonActivateEvent",
             "BeforePistonActivateEventSignal",
             "Block",
@@ -122,10 +109,11 @@ export function codeExecute (source, playerName, formSetting) {
             "BlockBreakEvent",
             "BlockBreakEventSignal",
             "BlockComponent",
+            "BlockEvent",
             "BlockExplodeEvent",
             "BlockExplodeEventSignal",
+            "BlockHitInformation",
             "BlockInventoryComponent",
-            "Container",
             "BlockInventoryComponentContainer",
             "BlockLavaContainerComponent",
             "BlockLocation",
@@ -140,15 +128,16 @@ export function codeExecute (source, playerName, formSetting) {
             "BlockSnowContainerComponent",
             "BlockType",
             "BlockWaterContainerComponent",
-            "IBlockProperty",
             "BoolBlockProperty",
             "ChatEvent",
             "ChatEventSignal",
             "Color",
+            "Container",
             "DataDrivenEntityTriggerEvent",
             "DataDrivenEntityTriggerEventSignal",
             "DefinitionModifier",
             "Dimension",
+            "DynamicPropertiesDefinition",
             "Effect",
             "EffectAddEvent",
             "EffectAddEventSignal",
@@ -157,11 +146,7 @@ export function codeExecute (source, playerName, formSetting) {
             "EnchantmentList",
             "EnchantmentSlot",
             "EnchantmentType",
-            "EntityType",
-            "EntityTypes",
-            "MinecraftEntityTypes",
             "Entity",
-            "IEntityComponent",
             "EntityAddRiderComponent",
             "EntityAgeableComponent",
             "EntityBreathableComponent",
@@ -183,6 +168,9 @@ export function codeExecute (source, playerName, formSetting) {
             "EntityHealthComponent",
             "EntityHitEvent",
             "EntityHitEventSignal",
+            "EntityHitInformation",
+            "EntityHurtEvent",
+            "EntityHurtEventSignal",
             "EntityInventoryComponent",
             "EntityIsBabyComponent",
             "EntityIsChargedComponent",
@@ -228,6 +216,9 @@ export function codeExecute (source, playerName, formSetting) {
             "EntitySkinIdComponent",
             "EntityStrengthComponent",
             "EntityTameableComponent",
+            "EntityType",
+            "EntityTypeIterator",
+            "EntityTypes",
             "EntityUnderwaterMovementComponent",
             "EntityVariantComponent",
             "EntityWantsJockeyComponent",
@@ -239,26 +230,43 @@ export function codeExecute (source, playerName, formSetting) {
             "FeedItemEffect",
             "FilterGroup",
             "FluidContainer",
+            "IBlockProperty",
+            "IEntityComponent",
             "IntBlockProperty",
             "InventoryComponentContainer",
+            "ItemCompleteChargeEvent",
+            "ItemCompleteChargeEventSignal",
             "ItemCooldownComponent",
             "ItemDefinitionEventSignal",
             "ItemDefinitionTriggeredEvent",
             "ItemDurabilityComponent",
             "ItemEnchantsComponent",
             "ItemFoodComponent",
+            "ItemReleaseChargeEvent",
+            "ItemReleaseChargeEventSignal",
             "Items",
             "ItemStack",
+            "ItemStartChargeEvent",
+            "ItemStartChargeEventSignal",
+            "ItemStartUseOnEvent",
+            "ItemStartUseOnEventSignal",
+            "ItemStopChargeEvent",
+            "ItemStopChargeEventSignal",
+            "ItemStopUseOnEvent",
+            "ItemStopUseOnEventSignal",
             "ItemType",
             "ItemUseEvent",
             "ItemUseEventSignal",
             "ItemUseOnEvent",
             "ItemUseOnEventSignal",
+            "LeverActionEvent",
+            "LeverActivateEventSignal",
             "Location",
             "MinecraftBlockTypes",
             "MinecraftDimensionTypes",
             "MinecraftEffectTypes",
             "MinecraftEnchantmentTypes",
+            "MinecraftEntityTypes",
             "MinecraftItemTypes",
             "MolangVariableMap",
             "MusicOptions",
@@ -274,17 +282,25 @@ export function codeExecute (source, playerName, formSetting) {
             "PlayerJoinEventSignal",
             "PlayerLeaveEvent",
             "PlayerLeaveEventSignal",
+            "ProjectileHitEvent",
+            "ProjectileHitEventSignal",
+            "PropertyRegistry",
+            "ScreenDisplay",
+            "SculkSpreader",
             "Seat",
             "SoundOptions",
             "StringBlockProperty",
             "TickEvent",
             "TickEventSignal",
+            "TitleDisplayOptions",
             "Trigger",
             "Vector",
             "WeatherChangeEvent",
             "WeatherChangeEventSignal",
             "World",
-    
+            "WorldInitializeEvent",
+            "WorldInitializeEventSignal",
+
             // Constants
             "TicksPerSecond",
             "world",
@@ -304,7 +320,7 @@ export function codeExecute (source, playerName, formSetting) {
             "ActionFormData", "ActionFormResponse", "FormResponse", "MessageFormData", "MessageFormResponse", "ModalFormData", "ModalFormResponse",
     
             // Additional variables
-            "viewObj",  "md5",  "sha256",  "getIndex", "cloneJSON", "Base64",
+            "viewObj",  "md5",  "sha256", "cloneJSON", "Base64",
     
             // Response
             `return (function () { ${input} });`
@@ -332,7 +348,6 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.BeforeItemUseEventSignal,
           Minecraft.BeforeItemUseOnEvent,
           Minecraft.BeforeItemUseOnEventSignal,
-          Minecraft.BlockEvent,
           Minecraft.BeforePistonActivateEvent,
           Minecraft.BeforePistonActivateEventSignal,
           Minecraft.Block,
@@ -340,10 +355,11 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.BlockBreakEvent,
           Minecraft.BlockBreakEventSignal,
           Minecraft.BlockComponent,
+          Minecraft.BlockEvent,
           Minecraft.BlockExplodeEvent,
           Minecraft.BlockExplodeEventSignal,
+          Minecraft.BlockHitInformation,
           Minecraft.BlockInventoryComponent,
-          Minecraft.Container,
           Minecraft.BlockInventoryComponentContainer,
           Minecraft.BlockLavaContainerComponent,
           Minecraft.BlockLocation,
@@ -358,15 +374,16 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.BlockSnowContainerComponent,
           Minecraft.BlockType,
           Minecraft.BlockWaterContainerComponent,
-          Minecraft.IBlockProperty,
           Minecraft.BoolBlockProperty,
           Minecraft.ChatEvent,
           Minecraft.ChatEventSignal,
           Minecraft.Color,
+          Minecraft.Container,
           Minecraft.DataDrivenEntityTriggerEvent,
           Minecraft.DataDrivenEntityTriggerEventSignal,
           Minecraft.DefinitionModifier,
           Minecraft.Dimension,
+          Minecraft.DynamicPropertiesDefinition,
           Minecraft.Effect,
           Minecraft.EffectAddEvent,
           Minecraft.EffectAddEventSignal,
@@ -375,11 +392,7 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.EnchantmentList,
           Minecraft.EnchantmentSlot,
           Minecraft.EnchantmentType,
-          Minecraft.EntityType,
-          Minecraft.EntityTypes,
-          Minecraft.MinecraftEntityTypes,
           Minecraft.Entity,
-          Minecraft.IEntityComponent,
           Minecraft.EntityAddRiderComponent,
           Minecraft.EntityAgeableComponent,
           Minecraft.EntityBreathableComponent,
@@ -401,6 +414,9 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.EntityHealthComponent,
           Minecraft.EntityHitEvent,
           Minecraft.EntityHitEventSignal,
+          Minecraft.EntityHitInformation,
+          Minecraft.EntityHurtEvent,
+          Minecraft.EntityHurtEventSignal,
           Minecraft.EntityInventoryComponent,
           Minecraft.EntityIsBabyComponent,
           Minecraft.EntityIsChargedComponent,
@@ -446,6 +462,9 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.EntitySkinIdComponent,
           Minecraft.EntityStrengthComponent,
           Minecraft.EntityTameableComponent,
+          Minecraft.EntityType,
+          Minecraft.EntityTypeIterator,
+          Minecraft.EntityTypes,
           Minecraft.EntityUnderwaterMovementComponent,
           Minecraft.EntityVariantComponent,
           Minecraft.EntityWantsJockeyComponent,
@@ -457,26 +476,43 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.FeedItemEffect,
           Minecraft.FilterGroup,
           Minecraft.FluidContainer,
+          Minecraft.IBlockProperty,
+          Minecraft.IEntityComponent,
           Minecraft.IntBlockProperty,
           Minecraft.InventoryComponentContainer,
+          Minecraft.ItemCompleteChargeEvent,
+          Minecraft.ItemCompleteChargeEventSignal,
           Minecraft.ItemCooldownComponent,
           Minecraft.ItemDefinitionEventSignal,
           Minecraft.ItemDefinitionTriggeredEvent,
           Minecraft.ItemDurabilityComponent,
           Minecraft.ItemEnchantsComponent,
           Minecraft.ItemFoodComponent,
+          Minecraft.ItemReleaseChargeEvent,
+          Minecraft.ItemReleaseChargeEventSignal,
           Minecraft.Items,
           Minecraft.ItemStack,
+          Minecraft.ItemStartChargeEvent,
+          Minecraft.ItemStartChargeEventSignal,
+          Minecraft.ItemStartUseOnEvent,
+          Minecraft.ItemStartUseOnEventSignal,
+          Minecraft.ItemStopChargeEvent,
+          Minecraft.ItemStopChargeEventSignal,
+          Minecraft.ItemStopUseOnEvent,
+          Minecraft.ItemStopUseOnEventSignal,
           Minecraft.ItemType,
           Minecraft.ItemUseEvent,
           Minecraft.ItemUseEventSignal,
           Minecraft.ItemUseOnEvent,
           Minecraft.ItemUseOnEventSignal,
+          Minecraft.LeverActionEvent,
+          Minecraft.LeverActivateEventSignal,
           Minecraft.Location,
           Minecraft.MinecraftBlockTypes,
           Minecraft.MinecraftDimensionTypes,
           Minecraft.MinecraftEffectTypes,
           Minecraft.MinecraftEnchantmentTypes,
+          Minecraft.MinecraftEntityTypes,
           Minecraft.MinecraftItemTypes,
           Minecraft.MolangVariableMap,
           Minecraft.MusicOptions,
@@ -492,21 +528,29 @@ export function codeExecute (source, playerName, formSetting) {
           Minecraft.PlayerJoinEventSignal,
           Minecraft.PlayerLeaveEvent,
           Minecraft.PlayerLeaveEventSignal,
+          Minecraft.ProjectileHitEvent,
+          Minecraft.ProjectileHitEventSignal,
+          Minecraft.PropertyRegistry,
+          Minecraft.ScreenDisplay,
+          Minecraft.SculkSpreader,
           Minecraft.Seat,
           Minecraft.SoundOptions,
           Minecraft.StringBlockProperty,
           Minecraft.TickEvent,
           Minecraft.TickEventSignal,
+          Minecraft.TitleDisplayOptions,
           Minecraft.Trigger,
           Minecraft.Vector,
           Minecraft.WeatherChangeEvent,
           Minecraft.WeatherChangeEventSignal,
           Minecraft.World,
-          
+          Minecraft.WorldInitializeEvent,
+          Minecraft.WorldInitializeEventSignal,
+
           // Constants
           Minecraft.TicksPerSecond,
           Minecraft.world,
-          
+
           /**
            * @module
            * mojang-gametest
@@ -534,10 +578,38 @@ export function codeExecute (source, playerName, formSetting) {
           UI.ModalFormData,
           UI.ModalFormResponse,  
     
-          // Additional variables      
-          viewObj, md5, sha256, getIndex, cloneJSON, Base64
+          // Additional packages
+          viewObj, md5, sha256, cloneJSON, Base64
         );
-        callback();
+        try { callback() } catch (error) {
+          // This section must be included to display in-game errors
+          // The first layer checks if the code is able to execute or not
+          // This layer catches errors throw by GameTest API
+          // like world.getDimension("overworld").runCommand("execute undefined ~~~ say this player does not exists")
+          // This returns {"statusCode": -2147352576, "statusMessage": "No targets matched selector"}
+          var stackError = error.stack ? `\n${error.stack}` : ""
+          console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
+          client(playerName, `§c${String(error + stackError)}`);
+          
+          let MessageForm = new MessageFormData();
+    
+          // MessageForm settings
+          MessageForm.title("Scripting Error");
+          MessageForm.body(String(error + stackError));
+          MessageForm.button1("Exit");
+          MessageForm.button2("Fix Your Code");
+        
+          // MessageForm display (Recommend put below MessageForm settings)
+          MessageForm.show(source).then(MessageFormResponse => {
+            const { selection } = MessageFormResponse;
+    
+            if (selection == 0) {
+              setting.ModalForm.toggle.defaultValue = toggle;
+              setting.ModalForm.textField.defaultValue = input;
+              codeExecute(source, playerName, setting)
+            }
+          });
+        };
         if (devBuild === true) console.warn(`JavaScript: §aAll checks have passed. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
@@ -590,13 +662,42 @@ export function codeExecute (source, playerName, formSetting) {
     } else {
       try {
         const callback = (
-          new Function( "mojangminecraft", "mojanggametest", "mojangminecraftui", "viewObj", "md5", "sha256",  "getIndex", "cloneJSON", "Base64",
+          new Function( "mojangminecraft", "mojanggametest", "mojangminecraftui", "viewObj", "md5", "sha256", "cloneJSON", "Base64",
             `return (function () { ${input} });`
           )
-        )(Minecraft, GameTest, UI, viewObj, md5, sha256, getIndex, cloneJSON, Base64);
+        )(Minecraft, GameTest, UI, viewObj, md5, sha256, cloneJSON, Base64);
+
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
-        callback();
+        try { callback() } catch (error) {
+          // This section must be included to display in-game errors
+          // The first layer checks if the code is able to execute or not
+          // This layer catches errors throw by GameTest API
+          // like world.getDimension("overworld").runCommand("execute undefined ~~~ say this player does not exists")
+          // This returns {"statusCode": -2147352576, "statusMessage": "No targets matched selector"}
+          var stackError = error.stack ? `\n${error.stack}` : ""
+          console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
+          client(playerName, `§c${String(error + stackError)}`);
+          
+          let MessageForm = new MessageFormData();
+    
+          // MessageForm settings
+          MessageForm.title("Scripting Error");
+          MessageForm.body(String(error + stackError));
+          MessageForm.button1("Exit");
+          MessageForm.button2("Fix Your Code");
+        
+          // MessageForm display (Recommend put below MessageForm settings)
+          MessageForm.show(source).then(MessageFormResponse => {
+            const { selection } = MessageFormResponse;
+    
+            if (selection == 0) {
+              setting.ModalForm.toggle.defaultValue = toggle;
+              setting.ModalForm.textField.defaultValue = input;
+              codeExecute(source, playerName, setting)
+            }
+          });
+        };
       } catch (error) {
         if (error.stack && devBuild == true) {
           client(playerName, `§c${String(error)+"\n"+String(error.stack)}`);

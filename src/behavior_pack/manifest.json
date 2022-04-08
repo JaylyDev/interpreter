@@ -2,23 +2,23 @@
   "format_version": 2,
   "header": {
     "name": "GameTest interpreter [BP]",
-    "description": "§6Interpreter in Minecraft.§r\nVersion §21.18.30§r | By §9JaylyMC§r",
+    "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.0§r | By §9JaylyMC§r",
     "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
     // Version format: [MC minor, MC patch, Addon patch]
-    "version": [18, 30, 582],
+    "version": [19, 0, 41],
     "min_engine_version": [1, 17, 0]
   },
   "modules": [
     {
-      "description": "§6Interpreter in Minecraft.§r\nVersion §21.18.30§r | By §9JaylyMC§r",
+      "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.0§r | By §9JaylyMC§r",
       "type": "data",
       "uuid": "4c321bd7-ea43-402e-80d7-0811c7df49e1",
-      "version": [18, 30, 582]
+      "version": [19, 0, 41]
     },
     {
       "description": "",
       "uuid": "256ff791-5c1e-453c-b905-e9be2b297966",
-      "version": [18, 30, 582],
+      "version": [19, 0, 41],
       "type": "javascript",
       "language": "JavaScript",
       "entry": "scripts/gametests/terminal.js"
@@ -55,8 +55,13 @@
 			"memory_tier": 1
     },
     {
-			"folder_name": "modal_form/v1.18.3021.0",
-			"name": "GameTest Framework v1.18.30",
+			"folder_name": "modal_form/v1.19.021.0",
+			"name": "GameTest Framework v1.19.0",
+			"memory_tier": 1
+    },
+    {
+			"folder_name": "modal_form/v1.19.21.0",
+			"name": "GameTest Framework v1.19.0 [Beta]",
 			"memory_tier": 1
     }
   ],
@@ -78,7 +83,7 @@
     },
     {
       "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
-      "version": [18, 30, 582]
+      "version": [19, 0, 41]
     }
   ]
 }

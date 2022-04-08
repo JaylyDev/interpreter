@@ -1,0 +1,9 @@
+This directory contains archives of declaration files from
+
+@types/mojang-minecraft
+ - NPM: https://www.npmjs.com/package/@types/mojang-minecraft
+ - DefinitelyTyped: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mojang-minecraft
+
+@types/mojang-gametest
+ - NPM: https://www.npmjs.com/package/@types/mojang-gametest
+ - DefinitelyTyped: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mojang-gametest
