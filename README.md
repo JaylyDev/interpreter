@@ -1,4 +1,5 @@
 # GameTest Interpreter
+> It's like using scratch in education edition in-game, but you code javascript in bedrock edition in-game
 
 <p align="center">
   <img src="https://img.shields.io/github/downloads/jaylydev/interpreter/total.svg" alt="GitHub All Releases"/>
@@ -8,17 +9,20 @@
   <img src="https://img.shields.io/github/commit-activity/m/jaylydev/interpreter" alt="Commit Activity"/>
 </p>
 
-<!-- **Documentation**: Available on [MCPEDL](https://mcpedl.com/gametest-interpreter/) -->
+### Now Available on [MCPEDL](https://mcpedl.com/gametest-interpreter/)
 
 GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written in a programming language. The add-on currenly supports JavaScript, TypeScript and *BrainFuck*.
 
-![image](https://media.discordapp.net/attachments/867015810312962063/961332921791311912/Untitled.png?width=904&height=565)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/65847850/162752425-5ce8764b-c569-4d58-95c4-9d80a8e705ec.png" alt="JavaScript">
+  <img src="https://user-images.githubusercontent.com/65847850/162749474-475d664c-db59-4db3-aa59-6b5698b2542b.png" alt="TypeScript">
+</p>
 
 ## Latest Versions
 
-**Release**: <a href="https://github.com/JaylyDev/interpreter/releases/latest"/>v1.18.30 <img src="https://img.shields.io/github/release-date/jaylydev/interpreter" alt="Release date"/></a>
+**Release**: <a href="https://github.com/JaylyDev/interpreter/releases/latest"/>v1.19.0 <img src="https://img.shields.io/github/release-date/jaylydev/interpreter" alt="Release date"/></a>
 
-**Development**: v1.19.0 <img src="https://img.shields.io/github/release-date-pre/jaylydev/interpreter" alt="Release date pre"/>
+**Development**: (when the next beta releases) <img src="https://img.shields.io/github/release-date-pre/jaylydev/interpreter" alt="Release date pre"/>
 
 ## Questions, Bugs and Feedbacks
 
