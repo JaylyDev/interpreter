@@ -9,6 +9,7 @@
   <img src="https://img.shields.io/github/commit-activity/m/jaylydev/interpreter" alt="Commit Activity"/>
 </p>
 
+### Documentation: [Click Here](./docs/README.md)
 ### Now Available on [MCPEDL](https://mcpedl.com/gametest-interpreter/)
 
 GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written in a programming language. The add-on currenly supports JavaScript, TypeScript and *BrainFuck*.
