@@ -1,6 +1,6 @@
 {
   "name": "interpreter",
-  "version": "1.18.30",
+  "version": "1.19.0",
   "description": "Interpreter in Minecraft",
   "main": "src/behavior_pack/scripts/gametests/terminal.js",
   "directories": {

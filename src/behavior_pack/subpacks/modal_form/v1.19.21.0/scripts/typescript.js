@@ -189,6 +189,7 @@ world.events.beforeChat.subscribe(data => {
   }
 });
 
+// TSConfig Editor
 function editConfiguation(source, tsconfig, schema) {
   let ActionForm = new ActionFormData();
 
@@ -309,7 +310,7 @@ function transpile(source, playerName, formSetting) {
 
     if (/[a-z]/i.test(input)) {
       const startTime = new Date().getTime();
-      if (devBuild === true) console.warn(`§6Program starts building at: ${new Date()}`)
+      if (devBuild === true) console.warn(`TypeScript: §6Program starts building at: ${new Date()}`)
       /**
        * @description
        * Checks if final character is a number to prevent memory leak
@@ -326,7 +327,7 @@ function transpile(source, playerName, formSetting) {
         for (const filename of Object.keys(diagnoseResult.files)) client(playerName, `### ${filename}\n${diagnoseResult.files[filename]}`)
 
         if (diagnoseResult.diagnostics.length > 0) {
-          if (devBuild === true) console.warn(`§cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
+          if (devBuild === true) console.warn(`TypeScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
           const formattedErrorMessage = ts.formatDiagnosticsWithColorAndContext(diagnoseResult.diagnostics, diagnoseResult.host).replace(/\[0m/g, '§r').replace(/\[7m/g, '§l').replace(/\[90m/g, '§8').replace(/\[91m/g, '§c').replace(/\[92m/g, '§a').replace(/\[93m/g, '§e').replace(/\[94m/g, '§9').replace(/\[95m/g, '§d').replace(/\[96m/g, '§b').replace(/\[97m/g, '§f');
 
           let MessageForm = new MessageFormData();
@@ -357,7 +358,7 @@ function transpile(source, playerName, formSetting) {
 
           client(playerName, formattedErrorMessage);
         } else {
-          if (devBuild === true) console.warn(`§aAll checks have passed. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
+          if (devBuild === true) console.warn(`TypeScript: §aAll checks have passed. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
           let newSetting = JSON.parse(JSON.stringify(formSettings));
 
           newSetting.ModalForm.toggle.defaultValue = toggle;
@@ -367,7 +368,7 @@ function transpile(source, playerName, formSetting) {
         }
       } catch (error) {
         if (error.stack && devBuild == true) {
-          console.warn(`§cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
+          console.warn(`TypeScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
           client(playerName, `§c${`${String(error)}\n${String(error.stack)}`}`);
 
           let MessageForm = new MessageFormData();

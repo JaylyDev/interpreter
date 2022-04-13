@@ -25,6 +25,13 @@ GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written i
 
 **Development**: (when the next beta releases) <img src="https://img.shields.io/github/release-date-pre/jaylydev/interpreter" alt="Release date pre"/>
 
+## Contributions
+You are welcome to contribute to this project!
+
+For modules / packages files, please save and edit them in `src/behavior_pack/scripts` directory
+
+The latest subpack version of the add-on is `v1.19.0`. Please make any core changes in `src/behavior_pack/subpacks/modal_form/v1.19.21.0/scripts` directory.
+
 ## Questions, Bugs and Feedbacks
 
 Want to report a bug or suggest new features for the addon? [Click Here](https://github.com/JaylyDev/interpreter/issues/new/choose)

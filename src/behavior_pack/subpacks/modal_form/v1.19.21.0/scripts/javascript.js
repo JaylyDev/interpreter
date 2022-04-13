@@ -22,6 +22,8 @@ import getAttibutions from "scripts/gametests/atrributions.js";
 
 export const prefix = "$";
 
+const devBuild = true;
+
 export const formSettings = {
   ModalForm: {
     dropdown: { defaultValueIndex: null },
@@ -56,6 +58,12 @@ world.events.beforeChat.subscribe(data => {
   }
 });
 
+/**
+ * Execute JavaScript code
+ * @param {Minecraft.Player} source 
+ * @param {string} playerName 
+ * @param {formSettings} formSetting 
+ */
 export function codeExecute (source, playerName, formSetting) {
   let setting = formSetting;
   let ModalForm = new ModalFormData();
@@ -67,7 +75,6 @@ export function codeExecute (source, playerName, formSetting) {
 
   // ModalForm display (Recommend put below ModalForm settings)
   ModalForm.show(source).then(ModalFormResponse => {
-    const devBuild = false;
     const { formValues } = ModalFormResponse;
 
     let [input, toggle] = formValues;
@@ -580,110 +587,11 @@ export function codeExecute (source, playerName, formSetting) {
           // Additional packages
           viewObj, md5, sha256, cloneJSON, Base64
         );
-        try { callback() } catch (error) {
-          // This section must be included to display in-game errors
-          // The first layer checks if the code is able to execute or not
-          // This layer catches errors throw by GameTest API
-          // like world.getDimension("overworld").runCommand("execute undefined ~~~ say this player does not exists")
-          // This returns {"statusCode": -2147352576, "statusMessage": "No targets matched selector"}
-          if (devBuild === true) {
-            var stackError = error.stack ? `\n${error.stack}` : ""
-            console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
-            client(playerName, `§c${String(error+stackError)}`);
-            
-            let MessageForm = new MessageFormData();
-      
-            // MessageForm settings
-            MessageForm.title("Scripting Error");
-            MessageForm.body(String(error+stackError));
-            MessageForm.button1("Exit");
-            MessageForm.button2("Fix Your Code");
-          
-            // MessageForm display (Recommend put below MessageForm settings)
-            MessageForm.show(source).then(MessageFormResponse => {
-              const { selection } = MessageFormResponse;
-      
-              if (selection == 0) {
-                setting.ModalForm.toggle.defaultValue = toggle;
-                setting.ModalForm.textField.defaultValue = input;
-                codeExecute(source, playerName, setting)
-              }
-            });
-          } else {
-            var stackError = error.stack ? `\n${error.stack.split("\n").slice(0,-2).join("\n")}` : ""
-            client(playerName, `§c${String(error+stackError)}`);
-      
-            let MessageForm = new MessageFormData();
-      
-            // MessageForm settings
-            MessageForm.title("Scripting Error");
-            MessageForm.body(String(error + stackError));
-            MessageForm.button1("Exit");
-            MessageForm.button2("Fix Your Code");
-          
-            // MessageForm display (Recommend put below MessageForm settings)
-            MessageForm.show(source).then(MessageFormResponse => {
-              const { selection } = MessageFormResponse;
-      
-              if (selection == 0) {
-                setting.ModalForm.toggle.defaultValue = toggle;
-                setting.ModalForm.textField.defaultValue = input;
-                codeExecute(source, playerName, setting)
-              }
-            });
-          }
-        };
+        callback()
         if (devBuild === true) console.warn(`JavaScript: §aAll checks have passed. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
-      } catch (error) {
-        if (devBuild === true) {
-          var stackError = error.stack ? `\n${error.stack}` : ""
-          console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
-          client(playerName, `§c${String(error+stackError)}`);
-          
-          let MessageForm = new MessageFormData();
-    
-          // MessageForm settings
-          MessageForm.title("Scripting Error");
-          MessageForm.body(String(error+stackError));
-          MessageForm.button1("Exit");
-          MessageForm.button2("Fix Your Code");
-        
-          // MessageForm display (Recommend put below MessageForm settings)
-          MessageForm.show(source).then(MessageFormResponse => {
-            const { selection } = MessageFormResponse;
-    
-            if (selection == 0) {
-              setting.ModalForm.toggle.defaultValue = toggle;
-              setting.ModalForm.textField.defaultValue = input;
-              codeExecute(source, playerName, setting)
-            }
-          });
-        } else {
-          var stackError = error.stack ? `\n${error.stack.split("\n").slice(0,-2).join("\n")}` : ""
-          client(playerName, `§c${String(error+stackError)}`);
-    
-          let MessageForm = new MessageFormData();
-    
-          // MessageForm settings
-          MessageForm.title("Scripting Error");
-          MessageForm.body(String(error + stackError));
-          MessageForm.button1("Exit");
-          MessageForm.button2("Fix Your Code");
-        
-          // MessageForm display (Recommend put below MessageForm settings)
-          MessageForm.show(source).then(MessageFormResponse => {
-            const { selection } = MessageFormResponse;
-    
-            if (selection == 0) {
-              setting.ModalForm.toggle.defaultValue = toggle;
-              setting.ModalForm.textField.defaultValue = input;
-              codeExecute(source, playerName, setting)
-            }
-          });
-        }
-      }
+      } catch (error) { console.error("err 2nd"); ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
     } else {
       try {
         const callback = (
@@ -694,108 +602,8 @@ export function codeExecute (source, playerName, formSetting) {
 
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
-        try { callback() } catch (error) {
-          // This section must be included to display in-game errors
-          // The first layer checks if the code is able to execute or not
-          // This layer catches errors throw by GameTest API
-          // like world.getDimension("overworld").runCommand("execute undefined ~~~ say this player does not exists")
-          // This returns {"statusCode": -2147352576, "statusMessage": "No targets matched selector"}
-          if (devBuild === true) {
-            var stackError = error.stack ? `\n${error.stack}` : ""
-            console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
-            client(playerName, `§c${String(error+stackError)}`);
-            
-            let MessageForm = new MessageFormData();
-      
-            // MessageForm settings
-            MessageForm.title("Scripting Error");
-            MessageForm.body(String(error+stackError));
-            MessageForm.button1("Exit");
-            MessageForm.button2("Fix Your Code");
-          
-            // MessageForm display (Recommend put below MessageForm settings)
-            MessageForm.show(source).then(MessageFormResponse => {
-              const { selection } = MessageFormResponse;
-      
-              if (selection == 0) {
-                setting.ModalForm.toggle.defaultValue = toggle;
-                setting.ModalForm.textField.defaultValue = input;
-                codeExecute(source, playerName, setting)
-              }
-            });
-          } else {
-            var stackError = error.stack ? `\n${error.stack.split("\n").slice(0,-2).join("\n")}` : ""
-            client(playerName, `§c${String(error+stackError)}`);
-      
-            let MessageForm = new MessageFormData();
-      
-            // MessageForm settings
-            MessageForm.title("Scripting Error");
-            MessageForm.body(String(error + stackError));
-            MessageForm.button1("Exit");
-            MessageForm.button2("Fix Your Code");
-          
-            // MessageForm display (Recommend put below MessageForm settings)
-            MessageForm.show(source).then(MessageFormResponse => {
-              const { selection } = MessageFormResponse;
-      
-              if (selection == 0) {
-                setting.ModalForm.toggle.defaultValue = toggle;
-                setting.ModalForm.textField.defaultValue = input;
-                codeExecute(source, playerName, setting)
-              }
-            });
-          }
-        };
-      } catch (error) {
-        if (devBuild === true) {
-          var stackError = error.stack ? `\n${error.stack}` : ""
-          console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
-          client(playerName, `§c${String(error+stackError)}`);
-          
-          let MessageForm = new MessageFormData();
-    
-          // MessageForm settings
-          MessageForm.title("Scripting Error");
-          MessageForm.body(String(error+stackError));
-          MessageForm.button1("Exit");
-          MessageForm.button2("Fix Your Code");
-        
-          // MessageForm display (Recommend put below MessageForm settings)
-          MessageForm.show(source).then(MessageFormResponse => {
-            const { selection } = MessageFormResponse;
-    
-            if (selection == 0) {
-              setting.ModalForm.toggle.defaultValue = toggle;
-              setting.ModalForm.textField.defaultValue = input;
-              codeExecute(source, playerName, setting)
-            }
-          });
-        } else {
-          var stackError = error.stack ? `\n${error.stack.split("\n").slice(0,-2).join("\n")}` : ""
-          
-          client(playerName, `§c${String(error+stackError)}`);
-    
-          let MessageForm = new MessageFormData();
-    
-          // MessageForm settings
-          MessageForm.title("Scripting Error");
-          MessageForm.body(String(error + stackError));
-          MessageForm.button1("Exit");
-          MessageForm.button2("Fix Your Code");
-        
-          // MessageForm display (Recommend put below MessageForm settings)
-          MessageForm.show(source).then(MessageFormResponse => {
-            const { selection } = MessageFormResponse;
-    
-            if (selection == 0) {
-              setting.ModalForm.toggle.defaultValue = toggle;
-              setting.ModalForm.textField.defaultValue = input;
-              codeExecute(source, playerName, setting)
-            }
-          });
-        }
-      }
+        callback()
+      } catch (error) { console.error("err 2nd"); ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
     }
   })
 };
@@ -810,3 +618,65 @@ world.events.beforeItemUse.subscribe(eventData => {
     codeExecute(source, playerName, formInput)
   }
 });
+
+/**
+ * Handles error when execute code
+ * Created this function to reduce source code size
+ * @param {Error} error
+ * @param {number} startTime
+ * @param {Minecraft.Player} source
+ * @param {string} playerName
+ * @param {formSettings} setting
+ * @param {boolean} toggle
+ * @param {string} input
+ * @returns {void}
+ */
+function ErrorHandiler (error, startTime, source, playerName, setting, toggle, input) {
+  let MessageForm = new MessageFormData();
+
+  if (devBuild === true) {
+    console.warn(`JavaScript: §cSome checks were not successful. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`);
+    var stackError = !!error.stack ? `\n${error.stack}` : ""
+    client(playerName, `Dev build POV:\n§c${String(error+stackError)}`);
+    
+    stackError = !!error.stack ? `\n${error.stack.split("\n").slice(0,-2).join("\n")}` : ""
+    client(playerName, `Non-dev build POV:\n§c${String(error+stackError)}`);
+    
+    // MessageForm settings
+    MessageForm.title("Scripting Error");
+    MessageForm.body(String(error + stackError));
+    MessageForm.button1("Exit");
+    MessageForm.button2("Fix Your Code");
+  
+    // MessageForm display (Recommend put below MessageForm settings)
+    MessageForm.show(source).then(MessageFormResponse => {
+      const { selection } = MessageFormResponse;
+
+      if (selection == 0) {
+        setting.ModalForm.toggle.defaultValue = toggle;
+        setting.ModalForm.textField.defaultValue = input;
+        codeExecute(source, playerName, setting);
+      }
+    });
+  } else {
+    var stackError = !!error.stack ? `\n${error.stack.split("\n").slice(0,-2).join("\n")}` : ""
+    client(playerName, `§c${String(error+stackError)}`);
+
+    // MessageForm settings
+    MessageForm.title("Scripting Error");
+    MessageForm.body(String(error + stackError));
+    MessageForm.button1("Exit");
+    MessageForm.button2("Fix Your Code");
+  
+    // MessageForm display (Recommend put below MessageForm settings)
+    MessageForm.show(source).then(MessageFormResponse => {
+      const { selection } = MessageFormResponse;
+
+      if (selection == 0) {
+        setting.ModalForm.toggle.defaultValue = toggle;
+        setting.ModalForm.textField.defaultValue = input;
+        codeExecute(source, playerName, setting)
+      }
+    });
+  }
+}
