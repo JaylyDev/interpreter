@@ -65,7 +65,7 @@ const attibutions = {
     {
       author: "JaylyMC",
       name: "interpreter",
-      version: "1.19.0",
+      version: "1.19.1",
       license: "GPL-3.0-or-later"
     }
   ]

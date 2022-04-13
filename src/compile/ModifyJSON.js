@@ -70,6 +70,8 @@ for (const index in inputDirectoryPaths) ListFiles(inputDirectoryPaths[index], f
   if (err) throw err;
   var extention = '.json';
   files.forEach(function (file) {
+    console.log(file)
+    if (!file.endsWith("package.json")) {
     var a = file.split('');
     var filename = [a[a.length - 5], a[a.length - 4], a[a.length - 3], a[a.length - 2], a[a.length - 1]].toString().replace(/,/g, '');
     if (filename.toLowerCase() == extention.toLowerCase()) {      
@@ -96,6 +98,6 @@ for (const index in inputDirectoryPaths) ListFiles(inputDirectoryPaths[index], f
       });
     } else {
       console.log(`\x1b[32mOther type of file found (ignored) \x1b[0m- ${file.replace(inputDirectoryPaths[index], '')}`);
-    };
+    }};
   });
 });
