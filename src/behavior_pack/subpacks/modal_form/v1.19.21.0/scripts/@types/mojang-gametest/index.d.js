@@ -1,4 +1,4 @@
-export const mojanggametest_d_ts =`// Type definitions for Minecraft Bedrock Edition script APIs (experimental) 0.1
+export default `// Type definitions for Minecraft Bedrock Edition script APIs (experimental) 0.1
 // Project: https://docs.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
 //                 Mike Ammerlaan <https://github.com/mammerla>
@@ -11,17 +11,6 @@ export const mojanggametest_d_ts =`// Type definitions for Minecraft Bedrock Edi
  * GameTest provides scriptable APIs for scaffolding and
  * testing content experiences in Minecraft.
  */
-declare namespace mojanggametest {
-    export enum FluidType { water = 0, lava = 1, powderSnow = 2, potion = 3, }
-    export class FenceConnectivity { readonly 'east': boolean; readonly 'north': boolean; readonly 'south': boolean; readonly 'west': boolean; }
-    export class GameTestSequence { thenExecute(callback: () => void): GameTestSequence; thenExecuteAfter(delayTicks: number, callback: () => void): GameTestSequence; thenExecuteFor(tickCount: number, callback: () => void): GameTestSequence; thenFail(errorMessage: string): void; thenIdle(delayTicks: number): GameTestSequence; thenSucceed(): void; thenWait(callback: () => void): GameTestSequence; thenWaitAfter(delayTicks: number, callback: () => void): GameTestSequence; }
-    export class RegistrationBuilder { batch(batchName: 'night' | 'day'): RegistrationBuilder; maxAttempts(attemptCount: number): RegistrationBuilder; maxTicks(tickCount: number): RegistrationBuilder; padding(paddingBlocks: number): RegistrationBuilder; required(isRequired: boolean): RegistrationBuilder; requiredSuccessfulAttempts(attemptCount: number): RegistrationBuilder; rotateTest(rotate: boolean): RegistrationBuilder; setupTicks(tickCount: number): RegistrationBuilder; structureName(structureName: string): RegistrationBuilder; tag(tag: string): RegistrationBuilder; }
-    export class SimulatedPlayer extends mojangminecraft.Player { readonly 'bodyRotation': number; readonly 'dimension': mojangminecraft.Dimension; readonly 'headLocation': mojangminecraft.Location; readonly 'headRotation': mojangminecraft.PitchYawRotation; readonly 'id': string; 'isSneaking': boolean; readonly 'location': mojangminecraft.Location; readonly 'name': string; 'nameTag': string; 'selectedSlot': number; 'target': mojangminecraft.Entity; readonly 'velocity': mojangminecraft.Vector; readonly 'viewVector': mojangminecraft.Vector; addEffect(effectType: mojangminecraft.EffectType, duration: number, amplifier: number): void; addTag(tag: string): boolean; attack(): boolean; attackEntity(entity: mojangminecraft.Entity): boolean; breakBlock(blockLocation: mojangminecraft.BlockLocation, direction?: number): boolean; getBlockFromViewVector(options?: mojangminecraft.BlockRaycastOptions): mojangminecraft.Block; getComponent(componentId: string): mojangminecraft.IEntityComponent; getComponents(): mojangminecraft.IEntityComponent[]; getEffect(effectType: mojangminecraft.EffectType): mojangminecraft.Effect; getEntitiesFromViewVector(options?: mojangminecraft.EntityRaycastOptions): mojangminecraft.Entity[]; getItemCooldown(itemCategory: string): number; getTags(): string[]; giveItem(itemStack: mojangminecraft.ItemStack, selectSlot?: boolean): boolean; hasComponent(componentId: string): boolean; hasTag(tag: string): boolean; interact(): boolean; interactWithBlock(blockLocation: mojangminecraft.BlockLocation, direction?: number): boolean; interactWithEntity(entity: mojangminecraft.Entity): boolean; jump(): boolean; kill(): void; lookAtBlock(blockLocation: mojangminecraft.BlockLocation): void; lookAtEntity(entity: mojangminecraft.Entity): void; lookAtLocation(location: mojangminecraft.Location): void; move(westEast: number, northSouth: number, speed?: number): void; moveRelative(leftRight: number, backwardForward: number, speed?: number): void; moveToBlock(blockLocation: mojangminecraft.BlockLocation, speed?: number): void; moveToLocation(location: mojangminecraft.Location, speed?: number): void; navigateToBlock(blockLocation: mojangminecraft.BlockLocation, speed?: number): mojangminecraft.NavigationResult; navigateToEntity(entity: mojangminecraft.Entity, speed?: number): mojangminecraft.NavigationResult; navigateToLocation(location: mojangminecraft.Location, speed?: number): mojangminecraft.NavigationResult; navigateToLocations(locations: mojangminecraft.Location[], speed?: number): void; playSound(soundID: string, soundOptions?: mojangminecraft.SoundOptions): void; removeTag(tag: string): boolean; rotateBody(angleInDegrees: number): void; runCommand(commandString: string): any; setBodyRotation(angleInDegrees: number): void; setGameMode(gameMode: mojangminecraft.GameMode): void; setItem(itemStack: mojangminecraft.ItemStack, slot: number, selectSlot?: boolean): boolean; setVelocity(velocity: mojangminecraft.Vector): void; startItemCooldown(itemCategory: string, tickDuration: number): void; stopBreakingBlock(): void; stopInteracting(): void; stopMoving(): void; stopUsingItem(): void; teleport(location: mojangminecraft.Location, dimension: mojangminecraft.Dimension, xRotation: number, yRotation: number,): void; teleportFacing(location: mojangminecraft.Location, dimension: mojangminecraft.Dimension, facingLocation: mojangminecraft.Location,): void; triggerEvent(eventName: string): void; useItem(itemStack: mojangminecraft.ItemStack): boolean; useItemInSlot(slot: number): boolean; useItemInSlotOnBlock(slot: number, blockLocation: mojangminecraft.BlockLocation, direction?: number, faceLocationX?: number, faceLocationY?: number,): boolean; useItemOnBlock(itemStack: mojangminecraft.ItemStack, blockLocation: mojangminecraft.BlockLocation, direction?: number, faceLocationX?: number, faceLocationY?: number,): boolean; }
-    export class Tags { static readonly 'suiteAll' = 'suite:all'; static readonly 'suiteDebug' = 'suite:debug'; static readonly 'suiteDefault' = 'suite:default'; static readonly 'suiteDisabled' = 'suite:disabled'; }
-    export class Test { assert(condition: boolean, message: string): void; assertBlockPresent(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; assertBlockState(blockLocation: mojangminecraft.BlockLocation, callback: (arg: mojangminecraft.Block) => boolean,): void; assertCanReachLocation(mob: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, canReach?: boolean,): void; assertContainerContains(itemStack: mojangminecraft.ItemStack, blockLocation: mojangminecraft.BlockLocation): void; assertContainerEmpty(blockLocation: mojangminecraft.BlockLocation): void; assertEntityHasArmor(entityTypeIdentifier: string, armorSlot: number, armorName: string, armorData: number, blockLocation: mojangminecraft.BlockLocation, hasArmor?: boolean,): void; assertEntityHasComponent(entityTypeIdentifier: string, componentIdentifier: string, blockLocation: mojangminecraft.BlockLocation, hasComponent?: boolean,): void; assertEntityInstancePresent(entity: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; assertEntityPresent(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; assertEntityPresentInArea(entityTypeIdentifier: string, isPresent?: boolean): void; assertEntityState(blockLocation: mojangminecraft.BlockLocation, entityTypeIdentifier: string, callback: (arg: mojangminecraft.Entity) => boolean,): void; assertEntityTouching(entityTypeIdentifier: string, location: mojangminecraft.Location, isTouching?: boolean): void; assertIsWaterlogged(blockLocation: mojangminecraft.BlockLocation, isWaterlogged?: boolean): void; assertItemEntityCountIs(itemType: mojangminecraft.ItemType, blockLocation: mojangminecraft.BlockLocation, searchDistance: number, count: number,): void; assertItemEntityPresent(itemType: mojangminecraft.ItemType, blockLocation: mojangminecraft.BlockLocation, searchDistance: number, isPresent?: boolean,): void; assertRedstonePower(blockLocation: mojangminecraft.BlockLocation, power: number): void; fail(errorMessage: string): void; failIf(callback: () => void): void; getBlock(blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Block; getDimension(): mojangminecraft.Dimension; getFenceConnectivity(blockLocation: mojangminecraft.BlockLocation): FenceConnectivity; getTestDirection(): mojangminecraft.Direction; idle(tickDelay: number): Promise<void>; killAllEntities(): void; pressButton(blockLocation: mojangminecraft.BlockLocation): void; print(text: string): void; pullLever(blockLocation: mojangminecraft.BlockLocation): void; pulseRedstone(blockLocation: mojangminecraft.BlockLocation, duration: number): void; relativeBlockLocation(worldBlockLocation: mojangminecraft.BlockLocation): mojangminecraft.BlockLocation; relativeLocation(worldLocation: mojangminecraft.Location): mojangminecraft.Location; removeSimulatedPlayer(simulatedPlayer: SimulatedPlayer): void; rotateDirection(direction: mojangminecraft.Direction): mojangminecraft.Direction; rotateVector(vector: mojangminecraft.Vector): mojangminecraft.Vector; runAfterDelay(delayTicks: number, callback: () => void): void; runAtTickTime(tick: number, callback: () => void): void; setBlockPermutation(blockData: mojangminecraft.BlockPermutation, blockLocation: mojangminecraft.BlockLocation,): void; setBlockType(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation): void; setFluidContainer(location: mojangminecraft.BlockLocation, type: number): void; setTntFuse(entity: mojangminecraft.Entity, fuseLength: number): void; spawn(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Entity; spawnAtLocation(entityTypeIdentifier: string, location: mojangminecraft.Location): mojangminecraft.Entity; spawnItem(itemStack: mojangminecraft.ItemStack, location: mojangminecraft.Location): mojangminecraft.Entity; spawnSimulatedPlayer(blockLocation: mojangminecraft.BlockLocation, name?: string, gameMode?: mojangminecraft.GameMode,): SimulatedPlayer; spawnWithoutBehaviors(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation,): mojangminecraft.Entity; spawnWithoutBehaviorsAtLocation(entityTypeIdentifier: string, location: mojangminecraft.Location,): mojangminecraft.Entity; spreadFromFaceTowardDirection(blockLocation: mojangminecraft.BlockLocation, fromFace: mojangminecraft.Direction, direction: mojangminecraft.Direction,): void; startSequence(): GameTestSequence; succeed(): void; succeedIf(callback: () => void): void; succeedOnTick(tick: number): void; succeedOnTickWhen(tick: number, callback: () => void): void; succeedWhen(callback: () => void): void; succeedWhenBlockPresent(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; succeedWhenEntityHasComponent(entityTypeIdentifier: string, componentIdentifier: string, blockLocation: mojangminecraft.BlockLocation, hasComponent: boolean,): void; succeedWhenEntityPresent(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; triggerInternalBlockEvent(blockLocation: mojangminecraft.BlockLocation, event: string, eventParameters?: number[],): void; until(callback: () => void): Promise<void>; walkTo(mob: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, speedModifier?: number): void; walkToLocation(mob: mojangminecraft.Entity, location: mojangminecraft.Location, speedModifier?: number): void; worldBlockLocation(relativeBlockLocation: mojangminecraft.BlockLocation): mojangminecraft.BlockLocation; worldLocation(relativeLocation: mojangminecraft.Location): mojangminecraft.Location; }
-    export function register(testClassName: string, testName: string, testFunction: (arg: Test) => void,): RegistrationBuilder;
-    export function registerAsync(testClassName: string, testName: string, testFunction: (arg: Test) => Promise<void>,): RegistrationBuilder;
-}
 /**
  * Represents the type of fluid for use within a fluid
  * containing block, like a cauldron.
@@ -284,7 +273,7 @@ declare class RegistrationBuilder {
  * player. This type derives much of its structure and methods
  * from the {@link mojang-minecraft.Player} type.
  */
-declare class SimulatedPlayer extends mojangminecraft.Player {
+declare class SimulatedPlayer extends Player {
     /**
      * Rotation of the body in degrees. Range is between -180 and
      * 180 degrees.
@@ -295,17 +284,17 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Dimension that the simulated player is currently within.
      * @throws This property can throw when used.
      */
-    readonly 'dimension': mojangminecraft.Dimension;
+    readonly 'dimension': Dimension;
     /**
      * Location of the center of the head component of the player.
      * @throws This property can throw when used.
      */
-    readonly 'headLocation': mojangminecraft.Location;
+    readonly 'headLocation': Location;
     /**
      * Rotation of the head across pitch and yaw angles.
      * @throws This property can throw when used.
      */
-    readonly 'headRotation': mojangminecraft.PitchYawRotation;
+    readonly 'headRotation': PitchYawRotation;
     /**
      * Identifier for the player.
      * @throws This property can throw when used.
@@ -319,7 +308,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Current location of the player.
      * @throws This property can throw when used.
      */
-    readonly 'location': mojangminecraft.Location;
+    readonly 'location': Location;
     /**
      * Name of the player.
      * @throws This property can throw when used.
@@ -337,17 +326,17 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Retrieves or sets an entity that is used as the target of
      * AI-related behaviors, like attacking.
      */
-    'target': mojangminecraft.Entity;
+    'target': Entity;
     /**
      * Current speed of the player across X, Y, and Z dimensions.
      * @throws This property can throw when used.
      */
-    readonly 'velocity': mojangminecraft.Vector;
+    readonly 'velocity': Vector;
     /**
      * Vector of the current view of the player.
      * @throws This property can throw when used.
      */
-    readonly 'viewVector': mojangminecraft.Vector;
+    readonly 'viewVector': Vector;
     /**
      * @remarks
      * Adds an effect, like poison, to the entity.
@@ -359,7 +348,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Optional amplification of the effect to apply.
      * @throws This function can throw errors.
      */
-    addEffect(effectType: mojangminecraft.EffectType, duration: number, amplifier: number): void;
+    addEffect(effectType: EffectType, duration: number, amplifier: number): void;
     /**
      * @remarks
      * Adds a specified tag to a simulated player.
@@ -387,7 +376,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param entity
      * @throws This function can throw errors.
      */
-    attackEntity(entity: mojangminecraft.Entity): boolean;
+    attackEntity(entity: Entity): boolean;
     /**
      * @remarks
      * Destroys the block at blockLocation, respecting the rules of
@@ -400,7 +389,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Direction to place the specified item within.
      * @throws This function can throw errors.
      */
-    breakBlock(blockLocation: mojangminecraft.BlockLocation, direction?: number): boolean;
+    breakBlock(blockLocation: BlockLocation, direction?: number): boolean;
     /**
      * @remarks
      * Gets the first block that intersects with the vector of the
@@ -409,7 +398,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Additional options for processing this raycast query.
      * @throws This function can throw errors.
      */
-    getBlockFromViewVector(options?: mojangminecraft.BlockRaycastOptions): mojangminecraft.Block;
+    getBlockFromViewVector(options?: BlockRaycastOptions): Block;
     /**
      * @remarks
      * Gets a component (that represents additional capabilities)
@@ -420,13 +409,13 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * 'minecraft:' is assumed. If the component is not present on
      * the entity, undefined is returned.
      */
-    getComponent(componentId: string): mojangminecraft.IEntityComponent;
+    getComponent(componentId: string): IEntityComponent;
     /**
      * @remarks
      * Returns all components that are both present on this entity
      * and supported by the API.
      */
-    getComponents(): mojangminecraft.IEntityComponent[];
+    getComponents(): IEntityComponent[];
     /**
      * @remarks
      * Returns the effect for the specified EffectType on the
@@ -437,7 +426,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * effect is not present.
      * @throws This function can throw errors.
      */
-    getEffect(effectType: mojangminecraft.EffectType): mojangminecraft.Effect;
+    getEffect(effectType: EffectType): Effect;
     /**
      * @remarks
      * Gets the first entity that intersects with the vector of the
@@ -446,7 +435,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Additional options for processing this raycast query.
      * @throws This function can throw errors.
      */
-    getEntitiesFromViewVector(options?: mojangminecraft.EntityRaycastOptions): mojangminecraft.Entity[];
+    getEntitiesFromViewVector(options?: EntityRaycastOptions): Entity[];
     /**
      * @remarks
      * Gets the current item cooldown time for a particular
@@ -472,7 +461,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Whether to set the selected slot once given.
      * @throws This function can throw errors.
      */
-    giveItem(itemStack: mojangminecraft.ItemStack, selectSlot?: boolean): boolean;
+    giveItem(itemStack: ItemStack, selectSlot?: boolean): boolean;
     /**
      * @remarks
      * Returns true if the specified component is present on this
@@ -510,7 +499,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Direction to place the specified item within.
      * @throws This function can throw errors.
      */
-    interactWithBlock(blockLocation: mojangminecraft.BlockLocation, direction?: number): boolean;
+    interactWithBlock(blockLocation: BlockLocation, direction?: number): boolean;
     /**
      * @remarks
      * Causes the simulated player to interact with a mob. Returns
@@ -519,7 +508,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Entity to interact with.
      * @throws This function can throw errors.
      */
-    interactWithEntity(entity: mojangminecraft.Entity): boolean;
+    interactWithEntity(entity: Entity): boolean;
     /**
      * @remarks
      * Causes the simulated player to jump.
@@ -541,7 +530,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param blockLocation
      * @throws This function can throw errors.
      */
-    lookAtBlock(blockLocation: mojangminecraft.BlockLocation): void;
+    lookAtBlock(blockLocation: BlockLocation): void;
     /**
      * @remarks
      * Rotates the simulated player's head/body to look at the
@@ -549,7 +538,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param entity
      * @throws This function can throw errors.
      */
-    lookAtEntity(entity: mojangminecraft.Entity): void;
+    lookAtEntity(entity: Entity): void;
     /**
      * @remarks
      * Rotates the simulated player's head/body to look at the
@@ -557,7 +546,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param location
      * @throws This function can throw errors.
      */
-    lookAtLocation(location: mojangminecraft.Location): void;
+    lookAtLocation(location: Location): void;
     /**
      * @remarks
      * Orders the simulated player to walk in the given direction
@@ -588,7 +577,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param speed
      * @throws This function can throw errors.
      */
-    moveToBlock(blockLocation: mojangminecraft.BlockLocation, speed?: number): void;
+    moveToBlock(blockLocation: BlockLocation, speed?: number): void;
     /**
      * @remarks
      * Orders the simulated player to move to the given location in
@@ -598,7 +587,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param speed
      * @throws This function can throw errors.
      */
-    moveToLocation(location: mojangminecraft.Location, speed?: number): void;
+    moveToLocation(location: Location, speed?: number): void;
     /**
      * @remarks
      * Orders the simulated player to move to a specific block
@@ -611,7 +600,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param speed
      * @throws This function can throw errors.
      */
-    navigateToBlock(blockLocation: mojangminecraft.BlockLocation, speed?: number): mojangminecraft.NavigationResult;
+    navigateToBlock(blockLocation: BlockLocation, speed?: number): NavigationResult;
     /**
      * @remarks
      * Will use navigation to follow the selected entity to within
@@ -621,7 +610,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param speed
      * @throws This function can throw errors.
      */
-    navigateToEntity(entity: mojangminecraft.Entity, speed?: number): mojangminecraft.NavigationResult;
+    navigateToEntity(entity: Entity, speed?: number): NavigationResult;
     /**
      * @remarks
      * Orders the simulated player to move to a specific location
@@ -634,7 +623,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @param speed
      * @throws This function can throw errors.
      */
-    navigateToLocation(location: mojangminecraft.Location, speed?: number): mojangminecraft.NavigationResult;
+    navigateToLocation(location: Location, speed?: number): NavigationResult;
     /**
      * @remarks
      * Use navigation to follow the route provided via the
@@ -646,7 +635,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Net speed to use for doing the navigation.
      * @throws This function can throw errors.
      */
-    navigateToLocations(locations: mojangminecraft.Location[], speed?: number): void;
+    navigateToLocations(locations: Location[], speed?: number): void;
     /**
      * @remarks
      * This method is inherited from Player, but is inoperative in
@@ -657,7 +646,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Additional optional options for the sound.
      * @throws This function can throw errors.
      */
-    playSound(soundID: string, soundOptions?: mojangminecraft.SoundOptions): void;
+    playSound(soundID: string, soundOptions?: SoundOptions): void;
     /**
      * @remarks
      * Removes a specified tag from a simulated player.
@@ -709,7 +698,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Game mode to set.
      * @throws This function can throw errors.
      */
-    setGameMode(gameMode: mojangminecraft.GameMode): void;
+    setGameMode(gameMode: GameMode): void;
     /**
      * @remarks
      * Sets a particular item for the simulated player.
@@ -721,7 +710,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Whether to set the selected slot once set.
      * @throws This function can throw errors.
      */
-    setItem(itemStack: mojangminecraft.ItemStack, slot: number, selectSlot?: boolean): boolean;
+    setItem(itemStack: ItemStack, slot: number, selectSlot?: boolean): boolean;
     /**
      * @remarks
      * Sets a velocity for the entity to move with.
@@ -729,7 +718,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * X/Y/Z components of the velocity.
      * @throws This function can throw errors.
      */
-    setVelocity(velocity: mojangminecraft.Vector): void;
+    setVelocity(velocity: Vector): void;
     /**
      * @remarks
      * Sets the item cooldown time for a particular cooldown
@@ -781,8 +770,8 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @throws This function can throw errors.
      */
     teleport(
-        location: mojangminecraft.Location,
-        dimension: mojangminecraft.Dimension,
+        location: Location,
+        dimension: Dimension,
         xRotation: number,
         yRotation: number,
     ): void;
@@ -799,9 +788,9 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @throws This function can throw errors.
      */
     teleportFacing(
-        location: mojangminecraft.Location,
-        dimension: mojangminecraft.Dimension,
-        facingLocation: mojangminecraft.Location,
+        location: Location,
+        dimension: Dimension,
+        facingLocation: Location,
     ): void;
     /**
      * @remarks
@@ -823,7 +812,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * Item to use.
      * @throws This function can throw errors.
      */
-    useItem(itemStack: mojangminecraft.ItemStack): boolean;
+    useItem(itemStack: ItemStack): boolean;
     /**
      * @remarks
      * Causes the simulated player to hold and use an item in their
@@ -852,7 +841,7 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      */
     useItemInSlotOnBlock(
         slot: number,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         direction?: number,
         faceLocationX?: number,
         faceLocationY?: number,
@@ -875,8 +864,8 @@ declare class SimulatedPlayer extends mojangminecraft.Player {
      * @throws This function can throw errors.
      */
     useItemOnBlock(
-        itemStack: mojangminecraft.ItemStack,
-        blockLocation: mojangminecraft.BlockLocation,
+        itemStack: ItemStack,
+        blockLocation: BlockLocation,
         direction?: number,
         faceLocationX?: number,
         faceLocationY?: number,
@@ -943,8 +932,8 @@ declare class Test {
      * @throws This function can throw errors.
      */
     assertBlockPresent(
-        blockType: mojangminecraft.BlockType,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockType: BlockType,
+        blockLocation: BlockLocation,
         isPresent?: boolean,
     ): void;
     /**
@@ -966,8 +955,8 @@ declare class Test {
      * \`\`\`
      */
     assertBlockState(
-        blockLocation: mojangminecraft.BlockLocation,
-        callback: (arg: mojangminecraft.Block) => boolean,
+        blockLocation: BlockLocation,
+        callback: (arg: Block) => boolean,
     ): void;
     /**
      * @remarks
@@ -986,8 +975,8 @@ declare class Test {
      * @throws This function can throw errors.
      */
     assertCanReachLocation(
-        mob: mojangminecraft.Entity,
-        blockLocation: mojangminecraft.BlockLocation,
+        mob: Entity,
+        blockLocation: BlockLocation,
         canReach?: boolean,
     ): void;
     /**
@@ -1004,7 +993,7 @@ declare class Test {
      * chest) to test the contents of.
      * @throws This function can throw errors.
      */
-    assertContainerContains(itemStack: mojangminecraft.ItemStack, blockLocation: mojangminecraft.BlockLocation): void;
+    assertContainerContains(itemStack: ItemStack, blockLocation: BlockLocation): void;
     /**
      * @remarks
      * Tests that a container (e.g., a chest) at the specified
@@ -1014,7 +1003,7 @@ declare class Test {
      * chest) to test is empty of contents.
      * @throws This function can throw errors.
      */
-    assertContainerEmpty(blockLocation: mojangminecraft.BlockLocation): void;
+    assertContainerEmpty(blockLocation: BlockLocation): void;
     /**
      * @remarks
      * Tests that an entity has a specific piece of armor equipped.
@@ -1045,7 +1034,7 @@ declare class Test {
         armorSlot: number,
         armorName: string,
         armorData: number,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         hasArmor?: boolean,
     ): void;
     /**
@@ -1075,7 +1064,7 @@ declare class Test {
     assertEntityHasComponent(
         entityTypeIdentifier: string,
         componentIdentifier: string,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         hasComponent?: boolean,
     ): void;
     /**
@@ -1094,8 +1083,8 @@ declare class Test {
      * @throws This function can throw errors.
      */
     assertEntityInstancePresent(
-        entity: mojangminecraft.Entity,
-        blockLocation: mojangminecraft.BlockLocation,
+        entity: Entity,
+        blockLocation: BlockLocation,
         isPresent?: boolean,
     ): void;
     /**
@@ -1118,7 +1107,7 @@ declare class Test {
      */
     assertEntityPresent(
         entityTypeIdentifier: string,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         isPresent?: boolean,
     ): void;
     /**
@@ -1164,9 +1153,9 @@ declare class Test {
      * \`\`\`
      */
     assertEntityState(
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         entityTypeIdentifier: string,
-        callback: (arg: mojangminecraft.Entity) => boolean,
+        callback: (arg: Entity) => boolean,
     ): void;
     /**
      * @remarks
@@ -1185,7 +1174,7 @@ declare class Test {
      * not testing the specified location.
      * @throws This function can throw errors.
      */
-    assertEntityTouching(entityTypeIdentifier: string, location: mojangminecraft.Location, isTouching?: boolean): void;
+    assertEntityTouching(entityTypeIdentifier: string, location: Location, isTouching?: boolean): void;
     /**
      * @remarks
      * Depending on the value of isWaterlogged, tests that a block
@@ -1199,7 +1188,7 @@ declare class Test {
      * be waterlogged.
      * @throws This function can throw errors.
      */
-    assertIsWaterlogged(blockLocation: mojangminecraft.BlockLocation, isWaterlogged?: boolean): void;
+    assertIsWaterlogged(blockLocation: BlockLocation, isWaterlogged?: boolean): void;
     /**
      * @remarks
      * Tests that items of a particular type and count are present
@@ -1221,8 +1210,8 @@ declare class Test {
      * \`\`\`
      */
     assertItemEntityCountIs(
-        itemType: mojangminecraft.ItemType,
-        blockLocation: mojangminecraft.BlockLocation,
+        itemType: ItemType,
+        blockLocation: BlockLocation,
         searchDistance: number,
         count: number,
     ): void;
@@ -1245,8 +1234,8 @@ declare class Test {
      * @throws This function can throw errors.
      */
     assertItemEntityPresent(
-        itemType: mojangminecraft.ItemType,
-        blockLocation: mojangminecraft.BlockLocation,
+        itemType: ItemType,
+        blockLocation: BlockLocation,
         searchDistance: number,
         isPresent?: boolean,
     ): void;
@@ -1260,7 +1249,7 @@ declare class Test {
      * Expected power level.
      * @throws This function can throw errors.
      */
-    assertRedstonePower(blockLocation: mojangminecraft.BlockLocation, power: number): void;
+    assertRedstonePower(blockLocation: BlockLocation, power: number): void;
     /**
      * @remarks
      * Marks the current test as a failure case.
@@ -1287,13 +1276,13 @@ declare class Test {
      * Location of the block to retrieve.
      * @throws This function can throw errors.
      */
-    getBlock(blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Block;
+    getBlock(blockLocation: BlockLocation): Block;
     /**
      * @remarks
      * Gets the dimension of this test.
      * @throws This function can throw errors.
      */
-    getDimension(): mojangminecraft.Dimension;
+    getDimension(): Dimension;
     /**
      * @remarks
      * If the block at the specified block location is a fence,
@@ -1303,14 +1292,14 @@ declare class Test {
      * Location of the block to retrieve.
      * @throws This function can throw errors.
      */
-    getFenceConnectivity(blockLocation: mojangminecraft.BlockLocation): FenceConnectivity;
+    getFenceConnectivity(blockLocation: BlockLocation): FenceConnectivity;
     /**
      * @remarks
      * Returns the direction of the current test - see the
      * {@link mojang-minecraft}.Direction enum for more information on
      * potential values (north, east, south, west - values 2-5).
      */
-    getTestDirection(): mojangminecraft.Direction;
+    getTestDirection(): Direction;
     /**
      * @remarks
      * This asynchronous function will wait for the specified time
@@ -1334,7 +1323,7 @@ declare class Test {
      * Will throw an error if a button is not present at the
      * specified position.
      */
-    pressButton(blockLocation: mojangminecraft.BlockLocation): void;
+    pressButton(blockLocation: BlockLocation): void;
     /**
      * @remarks
      * Displays the specified message to all players.
@@ -1352,7 +1341,7 @@ declare class Test {
      * Will throw an error if a lever is not present at the
      * specified position.
      */
-    pullLever(blockLocation: mojangminecraft.BlockLocation): void;
+    pullLever(blockLocation: BlockLocation): void;
     /**
      * @remarks
      * Sends a Redstone pulse at a particular location by creating
@@ -1363,7 +1352,7 @@ declare class Test {
      * Number of ticks to pulse Redstone.
      * @throws This function can throw errors.
      */
-    pulseRedstone(blockLocation: mojangminecraft.BlockLocation, duration: number): void;
+    pulseRedstone(blockLocation: BlockLocation, duration: number): void;
     /**
      * @remarks
      * From a BlockLocation, returns a new BlockLocation with
@@ -1378,7 +1367,7 @@ declare class Test {
      * A location relative to the GameTest command block.
      * @throws This function can throw errors.
      */
-    relativeBlockLocation(worldBlockLocation: mojangminecraft.BlockLocation): mojangminecraft.BlockLocation;
+    relativeBlockLocation(worldBlockLocation: BlockLocation): BlockLocation;
     /**
      * @remarks
      * From a location, returns a new location with coordinates
@@ -1393,7 +1382,7 @@ declare class Test {
      * A location relative to the GameTest command block.
      * @throws This function can throw errors.
      */
-    relativeLocation(worldLocation: mojangminecraft.Location): mojangminecraft.Location;
+    relativeLocation(worldLocation: Location): Location;
     /**
      * @remarks
      * Removes a simulated player from the world.
@@ -1414,7 +1403,7 @@ declare class Test {
      * opposite of the test direction, and so on.
      * @throws This function can throw errors.
      */
-    rotateDirection(direction: mojangminecraft.Direction): mojangminecraft.Direction;
+    rotateDirection(direction: Direction): Direction;
     /**
      * @remarks
      * Returns a relative vector given the current rotation of
@@ -1428,7 +1417,7 @@ declare class Test {
      * opposite of the test vector, and so on.
      * @throws This function can throw errors.
      */
-    rotateVector(vector: mojangminecraft.Vector): mojangminecraft.Vector;
+    rotateVector(vector: Vector): Vector;
     /**
      * @remarks
      * Runs a specific callback after a specified delay of ticks
@@ -1464,8 +1453,8 @@ declare class Test {
      * @throws This function can throw errors.
      */
     setBlockPermutation(
-        blockData: mojangminecraft.BlockPermutation,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockData: BlockPermutation,
+        blockLocation: BlockLocation,
     ): void;
     /**
      * @remarks
@@ -1477,7 +1466,7 @@ declare class Test {
      * Location of the block to set.
      * @throws This function can throw errors.
      */
-    setBlockType(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation): void;
+    setBlockType(blockType: BlockType, blockLocation: BlockLocation): void;
     /**
      * @remarks
      * For blocks that are fluid containers - like a cauldron -
@@ -1489,7 +1478,7 @@ declare class Test {
      * list of values.
      * @throws This function can throw errors.
      */
-    setFluidContainer(location: mojangminecraft.BlockLocation, type: number): void;
+    setFluidContainer(location: BlockLocation, type: number): void;
     /**
      * @remarks
      * Sets the fuse of an explodable entity.
@@ -1499,7 +1488,7 @@ declare class Test {
      * Length of time, in ticks, before the entity explodes.
      * @throws This function can throw errors.
      */
-    setTntFuse(entity: mojangminecraft.Entity, fuseLength: number): void;
+    setTntFuse(entity: Entity, fuseLength: number): void;
     /**
      * @remarks
      * Spawns an entity at a location.
@@ -1519,7 +1508,7 @@ declare class Test {
      *
      * \`\`\`
      */
-    spawn(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Entity;
+    spawn(entityTypeIdentifier: string, blockLocation: BlockLocation): Entity;
     /**
      * @remarks
      * Spawns an entity at a location.
@@ -1538,7 +1527,7 @@ declare class Test {
      *        test.spawn("minecraft:pig<minecraft:ageable_grow_up>", new Location(1.5, 2, 1.5));
      * \`\`\`
      */
-    spawnAtLocation(entityTypeIdentifier: string, location: mojangminecraft.Location): mojangminecraft.Entity;
+    spawnAtLocation(entityTypeIdentifier: string, location: Location): Entity;
     /**
      * @remarks
      * Spawns an item entity at a specified location.
@@ -1557,7 +1546,7 @@ declare class Test {
      *
      * \`\`\`
      */
-    spawnItem(itemStack: mojangminecraft.ItemStack, location: mojangminecraft.Location): mojangminecraft.Entity;
+    spawnItem(itemStack: ItemStack, location: Location): Entity;
     /**
      * @remarks
      * Creates a new simulated player within the world.
@@ -1569,9 +1558,9 @@ declare class Test {
      * @throws This function can throw errors.
      */
     spawnSimulatedPlayer(
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         name?: string,
-        gameMode?: mojangminecraft.GameMode,
+        gameMode?: GameMode,
     ): SimulatedPlayer;
     /**
      * @remarks
@@ -1585,8 +1574,8 @@ declare class Test {
      */
     spawnWithoutBehaviors(
         entityTypeIdentifier: string,
-        blockLocation: mojangminecraft.BlockLocation,
-    ): mojangminecraft.Entity;
+        blockLocation: BlockLocation,
+    ): Entity;
     /**
      * @remarks
      * Spawns an entity at a location without any AI behaviors.
@@ -1599,8 +1588,8 @@ declare class Test {
      */
     spawnWithoutBehaviorsAtLocation(
         entityTypeIdentifier: string,
-        location: mojangminecraft.Location,
-    ): mojangminecraft.Entity;
+        location: Location,
+    ): Entity;
     /**
      * @remarks
      * Tests that a particular item entity is present at a
@@ -1619,9 +1608,9 @@ declare class Test {
      * \`\`\`
      */
     spreadFromFaceTowardDirection(
-        blockLocation: mojangminecraft.BlockLocation,
-        fromFace: mojangminecraft.Direction,
-        direction: mojangminecraft.Direction,
+        blockLocation: BlockLocation,
+        fromFace: Direction,
+        direction: Direction,
     ): void;
     /**
      * @remarks
@@ -1701,8 +1690,8 @@ declare class Test {
      * @throws This function can throw errors.
      */
     succeedWhenBlockPresent(
-        blockType: mojangminecraft.BlockType,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockType: BlockType,
+        blockLocation: BlockLocation,
         isPresent?: boolean,
     ): void;
     /**
@@ -1727,7 +1716,7 @@ declare class Test {
     succeedWhenEntityHasComponent(
         entityTypeIdentifier: string,
         componentIdentifier: string,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         hasComponent: boolean,
     ): void;
     /**
@@ -1750,7 +1739,7 @@ declare class Test {
      */
     succeedWhenEntityPresent(
         entityTypeIdentifier: string,
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         isPresent?: boolean,
     ): void;
     /**
@@ -1767,7 +1756,7 @@ declare class Test {
      * @throws This function can throw errors.
      */
     triggerInternalBlockEvent(
-        blockLocation: mojangminecraft.BlockLocation,
+        blockLocation: BlockLocation,
         event: string,
         eventParameters?: number[],
     ): void;
@@ -1795,7 +1784,7 @@ declare class Test {
      * Adjustable modifier to the mob's walking speed.
      * @throws This function can throw errors.
      */
-    walkTo(mob: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, speedModifier?: number): void;
+    walkTo(mob: Entity, blockLocation: BlockLocation, speedModifier?: number): void;
     /**
      * @remarks
      * Forces a mob to walk to a particular location. Usually used
@@ -1810,7 +1799,7 @@ declare class Test {
      * Adjustable modifier to the mob's walking speed.
      * @throws This function can throw errors.
      */
-    walkToLocation(mob: mojangminecraft.Entity, location: mojangminecraft.Location, speedModifier?: number): void;
+    walkToLocation(mob: Entity, location: Location, speedModifier?: number): void;
     /**
      * @remarks
      * From a BlockLocation with coordinates relative to the
@@ -1823,7 +1812,7 @@ declare class Test {
      * An absolute location relative to the GameTest command block.
      * @throws This function can throw errors.
      */
-    worldBlockLocation(relativeBlockLocation: mojangminecraft.BlockLocation): mojangminecraft.BlockLocation;
+    worldBlockLocation(relativeBlockLocation: BlockLocation): BlockLocation;
     /**
      * @remarks
      * From a location with coordinates relative to the GameTest
@@ -1836,7 +1825,7 @@ declare class Test {
      * An absolute location relative to the GameTest command block.
      * @throws This function can throw errors.
      */
-    worldLocation(relativeLocation: mojangminecraft.Location): mojangminecraft.Location;
+    worldLocation(relativeLocation: Location): Location;
 }
 /**
  * @remarks
@@ -1887,3 +1876,15 @@ declare function registerAsync(
     testName: string,
     testFunction: (arg: Test) => Promise<void>,
 ): RegistrationBuilder;`
+
+export const Namespace = `declare namespace mojanggametest {
+    export enum FluidType { water = 0, lava = 1, powderSnow = 2, potion = 3, }
+    export class FenceConnectivity { readonly 'east': boolean; readonly 'north': boolean; readonly 'south': boolean; readonly 'west': boolean; }
+    export class GameTestSequence { thenExecute(callback: () => void): GameTestSequence; thenExecuteAfter(delayTicks: number, callback: () => void): GameTestSequence; thenExecuteFor(tickCount: number, callback: () => void): GameTestSequence; thenFail(errorMessage: string): void; thenIdle(delayTicks: number): GameTestSequence; thenSucceed(): void; thenWait(callback: () => void): GameTestSequence; thenWaitAfter(delayTicks: number, callback: () => void): GameTestSequence; }
+    export class RegistrationBuilder { batch(batchName: 'night' | 'day'): RegistrationBuilder; maxAttempts(attemptCount: number): RegistrationBuilder; maxTicks(tickCount: number): RegistrationBuilder; padding(paddingBlocks: number): RegistrationBuilder; required(isRequired: boolean): RegistrationBuilder; requiredSuccessfulAttempts(attemptCount: number): RegistrationBuilder; rotateTest(rotate: boolean): RegistrationBuilder; setupTicks(tickCount: number): RegistrationBuilder; structureName(structureName: string): RegistrationBuilder; tag(tag: string): RegistrationBuilder; }
+    export class SimulatedPlayer extends mojangminecraft.Player { readonly 'bodyRotation': number; readonly 'dimension': mojangminecraft.Dimension; readonly 'headLocation': mojangminecraft.Location; readonly 'headRotation': mojangminecraft.PitchYawRotation; readonly 'id': string; 'isSneaking': boolean; readonly 'location': mojangminecraft.Location; readonly 'name': string; 'nameTag': string; 'selectedSlot': number; 'target': mojangminecraft.Entity; readonly 'velocity': mojangminecraft.Vector; readonly 'viewVector': mojangminecraft.Vector; addEffect(effectType: mojangminecraft.EffectType, duration: number, amplifier: number): void; addTag(tag: string): boolean; attack(): boolean; attackEntity(entity: mojangminecraft.Entity): boolean; breakBlock(blockLocation: mojangminecraft.BlockLocation, direction?: number): boolean; getBlockFromViewVector(options?: mojangminecraft.BlockRaycastOptions): mojangminecraft.Block; getComponent(componentId: string): mojangminecraft.IEntityComponent; getComponents(): mojangminecraft.IEntityComponent[]; getEffect(effectType: mojangminecraft.EffectType): mojangminecraft.Effect; getEntitiesFromViewVector(options?: mojangminecraft.EntityRaycastOptions): mojangminecraft.Entity[]; getItemCooldown(itemCategory: string): number; getTags(): string[]; giveItem(itemStack: mojangminecraft.ItemStack, selectSlot?: boolean): boolean; hasComponent(componentId: string): boolean; hasTag(tag: string): boolean; interact(): boolean; interactWithBlock(blockLocation: mojangminecraft.BlockLocation, direction?: number): boolean; interactWithEntity(entity: mojangminecraft.Entity): boolean; jump(): boolean; kill(): void; lookAtBlock(blockLocation: mojangminecraft.BlockLocation): void; lookAtEntity(entity: mojangminecraft.Entity): void; lookAtLocation(location: mojangminecraft.Location): void; move(westEast: number, northSouth: number, speed?: number): void; moveRelative(leftRight: number, backwardForward: number, speed?: number): void; moveToBlock(blockLocation: mojangminecraft.BlockLocation, speed?: number): void; moveToLocation(location: mojangminecraft.Location, speed?: number): void; navigateToBlock(blockLocation: mojangminecraft.BlockLocation, speed?: number): mojangminecraft.NavigationResult; navigateToEntity(entity: mojangminecraft.Entity, speed?: number): mojangminecraft.NavigationResult; navigateToLocation(location: mojangminecraft.Location, speed?: number): mojangminecraft.NavigationResult; navigateToLocations(locations: mojangminecraft.Location[], speed?: number): void; playSound(soundID: string, soundOptions?: mojangminecraft.SoundOptions): void; removeTag(tag: string): boolean; rotateBody(angleInDegrees: number): void; runCommand(commandString: string): any; setBodyRotation(angleInDegrees: number): void; setGameMode(gameMode: mojangminecraft.GameMode): void; setItem(itemStack: mojangminecraft.ItemStack, slot: number, selectSlot?: boolean): boolean; setVelocity(velocity: mojangminecraft.Vector): void; startItemCooldown(itemCategory: string, tickDuration: number): void; stopBreakingBlock(): void; stopInteracting(): void; stopMoving(): void; stopUsingItem(): void; teleport(location: mojangminecraft.Location, dimension: mojangminecraft.Dimension, xRotation: number, yRotation: number,): void; teleportFacing(location: mojangminecraft.Location, dimension: mojangminecraft.Dimension, facingLocation: mojangminecraft.Location,): void; triggerEvent(eventName: string): void; useItem(itemStack: mojangminecraft.ItemStack): boolean; useItemInSlot(slot: number): boolean; useItemInSlotOnBlock(slot: number, blockLocation: mojangminecraft.BlockLocation, direction?: number, faceLocationX?: number, faceLocationY?: number,): boolean; useItemOnBlock(itemStack: mojangminecraft.ItemStack, blockLocation: mojangminecraft.BlockLocation, direction?: number, faceLocationX?: number, faceLocationY?: number,): boolean; }
+    export class Tags { static readonly 'suiteAll' = 'suite:all'; static readonly 'suiteDebug' = 'suite:debug'; static readonly 'suiteDefault' = 'suite:default'; static readonly 'suiteDisabled' = 'suite:disabled'; }
+    export class Test { assert(condition: boolean, message: string): void; assertBlockPresent(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; assertBlockState(blockLocation: mojangminecraft.BlockLocation, callback: (arg: mojangminecraft.Block) => boolean,): void; assertCanReachLocation(mob: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, canReach?: boolean,): void; assertContainerContains(itemStack: mojangminecraft.ItemStack, blockLocation: mojangminecraft.BlockLocation): void; assertContainerEmpty(blockLocation: mojangminecraft.BlockLocation): void; assertEntityHasArmor(entityTypeIdentifier: string, armorSlot: number, armorName: string, armorData: number, blockLocation: mojangminecraft.BlockLocation, hasArmor?: boolean,): void; assertEntityHasComponent(entityTypeIdentifier: string, componentIdentifier: string, blockLocation: mojangminecraft.BlockLocation, hasComponent?: boolean,): void; assertEntityInstancePresent(entity: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; assertEntityPresent(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; assertEntityPresentInArea(entityTypeIdentifier: string, isPresent?: boolean): void; assertEntityState(blockLocation: mojangminecraft.BlockLocation, entityTypeIdentifier: string, callback: (arg: mojangminecraft.Entity) => boolean,): void; assertEntityTouching(entityTypeIdentifier: string, location: mojangminecraft.Location, isTouching?: boolean): void; assertIsWaterlogged(blockLocation: mojangminecraft.BlockLocation, isWaterlogged?: boolean): void; assertItemEntityCountIs(itemType: mojangminecraft.ItemType, blockLocation: mojangminecraft.BlockLocation, searchDistance: number, count: number,): void; assertItemEntityPresent(itemType: mojangminecraft.ItemType, blockLocation: mojangminecraft.BlockLocation, searchDistance: number, isPresent?: boolean,): void; assertRedstonePower(blockLocation: mojangminecraft.BlockLocation, power: number): void; fail(errorMessage: string): void; failIf(callback: () => void): void; getBlock(blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Block; getDimension(): mojangminecraft.Dimension; getFenceConnectivity(blockLocation: mojangminecraft.BlockLocation): FenceConnectivity; getTestDirection(): mojangminecraft.Direction; idle(tickDelay: number): Promise<void>; killAllEntities(): void; pressButton(blockLocation: mojangminecraft.BlockLocation): void; print(text: string): void; pullLever(blockLocation: mojangminecraft.BlockLocation): void; pulseRedstone(blockLocation: mojangminecraft.BlockLocation, duration: number): void; relativeBlockLocation(worldBlockLocation: mojangminecraft.BlockLocation): mojangminecraft.BlockLocation; relativeLocation(worldLocation: mojangminecraft.Location): mojangminecraft.Location; removeSimulatedPlayer(simulatedPlayer: SimulatedPlayer): void; rotateDirection(direction: mojangminecraft.Direction): mojangminecraft.Direction; rotateVector(vector: mojangminecraft.Vector): mojangminecraft.Vector; runAfterDelay(delayTicks: number, callback: () => void): void; runAtTickTime(tick: number, callback: () => void): void; setBlockPermutation(blockData: mojangminecraft.BlockPermutation, blockLocation: mojangminecraft.BlockLocation,): void; setBlockType(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation): void; setFluidContainer(location: mojangminecraft.BlockLocation, type: number): void; setTntFuse(entity: mojangminecraft.Entity, fuseLength: number): void; spawn(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Entity; spawnAtLocation(entityTypeIdentifier: string, location: mojangminecraft.Location): mojangminecraft.Entity; spawnItem(itemStack: mojangminecraft.ItemStack, location: mojangminecraft.Location): mojangminecraft.Entity; spawnSimulatedPlayer(blockLocation: mojangminecraft.BlockLocation, name?: string, gameMode?: mojangminecraft.GameMode,): SimulatedPlayer; spawnWithoutBehaviors(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation,): mojangminecraft.Entity; spawnWithoutBehaviorsAtLocation(entityTypeIdentifier: string, location: mojangminecraft.Location,): mojangminecraft.Entity; spreadFromFaceTowardDirection(blockLocation: mojangminecraft.BlockLocation, fromFace: mojangminecraft.Direction, direction: mojangminecraft.Direction,): void; startSequence(): GameTestSequence; succeed(): void; succeedIf(callback: () => void): void; succeedOnTick(tick: number): void; succeedOnTickWhen(tick: number, callback: () => void): void; succeedWhen(callback: () => void): void; succeedWhenBlockPresent(blockType: mojangminecraft.BlockType, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; succeedWhenEntityHasComponent(entityTypeIdentifier: string, componentIdentifier: string, blockLocation: mojangminecraft.BlockLocation, hasComponent: boolean,): void; succeedWhenEntityPresent(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation, isPresent?: boolean,): void; triggerInternalBlockEvent(blockLocation: mojangminecraft.BlockLocation, event: string, eventParameters?: number[],): void; until(callback: () => void): Promise<void>; walkTo(mob: mojangminecraft.Entity, blockLocation: mojangminecraft.BlockLocation, speedModifier?: number): void; walkToLocation(mob: mojangminecraft.Entity, location: mojangminecraft.Location, speedModifier?: number): void; worldBlockLocation(relativeBlockLocation: mojangminecraft.BlockLocation): mojangminecraft.BlockLocation; worldLocation(relativeLocation: mojangminecraft.Location): mojangminecraft.Location; }
+    export function register(testClassName: string, testName: string, testFunction: (arg: Test) => void,): RegistrationBuilder;
+    export function registerAsync(testClassName: string, testName: string, testFunction: (arg: Test) => Promise<void>,): RegistrationBuilder;
+}`

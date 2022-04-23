@@ -1,6 +1,6 @@
 {
   "name": "interpreter",
-  "version": "1.19.1",
+  "version": "1.19.2",
   "description": "Interpreter in Minecraft",
   "main": "src/behavior_pack/scripts/gametests/terminal.js",
   "directories": {
@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/jaylydev/interpreter/issues"
   },
-  "homepage": "https://github.com/jaylydev/interpreter#readme"
+  "homepage": "https://github.com/jaylydev/interpreter#readme",
+  "dependencies": {
+    "@types/mojang-gametest": "^0.1.4",
+    "@types/mojang-minecraft": "^0.1.5",
+    "jsonschema": "^1.4.0",
+    "terser": "^5.12.1",
+    "typescript": "^4.6.3"
+  }
 }

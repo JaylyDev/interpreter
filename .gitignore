@@ -15,3 +15,6 @@ developer
 # Don't upload cache folder thanks
 tests/bin
 build/compile
+build/behavior_pack
+build/resource_pack
+node_modules 

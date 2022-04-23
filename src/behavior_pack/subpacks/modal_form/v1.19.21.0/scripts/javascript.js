@@ -5,13 +5,13 @@
 // Created by: https://github.com/JaylyDev
 
 import { world, ItemStack, MinecraftItemTypes } from "mojang-minecraft";
-import { players, whitelist } from "scripts/credentials/access.js";
+import { players, whitelist, devBuild, addon_prefix as prefix } from "scripts/credentials/access.js";
 import { client } from 'scripts/gametests/commands/message.js';
 // import * as _Minecraft_old from "Minecraft";
 // import * as _GameTest_old from "GameTest";
 import * as Minecraft from "mojang-minecraft";
 import * as GameTest from "mojang-gametest";
-import * as UI from "mojang-minecraft-ui";
+import * as mcui from "mojang-minecraft-ui";
 import { viewObj } from 'scripts/viewObj.js';
 import { md5 } from 'scripts/blueimp-md5/md5.js';
 import { SHA256 as sha256 } from 'scripts/sha256.js';
@@ -19,10 +19,6 @@ import { ModalFormData, MessageFormData } from "mojang-minecraft-ui";
 import { cloneJSON } from "scripts/clonejson.js";
 import { Base64 } from "scripts/base64.js";
 import getAttibutions from "scripts/gametests/atrributions.js";
-
-export const prefix = "$";
-
-const devBuild = true;
 
 export const formSettings = {
   ModalForm: {
@@ -84,526 +80,34 @@ export function codeExecute (source, playerName, formSetting) {
     if (toggle == true) {
       if (devBuild === true) console.warn(`JavaScript: §6Program starts at: ${new Date()}`)
       try {
-        const callback = (
-          new Function(
-            /**
-             * @module
-             * mojang-minecraft
-             * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
-             */
-            // Enumerations
-            "Direction",
-            "GameMode",
-    
-            // Classes (in alphabetical order)
-            "BeforeChatEvent",
-            "BeforeChatEventSignal",
-            "BeforeDataDrivenEntityTriggerEvent",
-            "BeforeDataDrivenEntityTriggerEventSignal",
-            "BeforeExplosionEvent",
-            "BeforeExplosionEventSignal",
-            "BeforeItemDefinitionEventSignal",
-            "BeforeItemDefinitionTriggeredEvent",
-            "BeforeItemUseEvent",
-            "BeforeItemUseEventSignal",
-            "BeforeItemUseOnEvent",
-            "BeforeItemUseOnEventSignal",
-            "BeforePistonActivateEvent",
-            "BeforePistonActivateEventSignal",
-            "Block",
-            "BlockAreaSize",
-            "BlockBreakEvent",
-            "BlockBreakEventSignal",
-            "BlockComponent",
-            "BlockEvent",
-            "BlockExplodeEvent",
-            "BlockExplodeEventSignal",
-            "BlockHitInformation",
-            "BlockInventoryComponent",
-            "BlockInventoryComponentContainer",
-            "BlockLavaContainerComponent",
-            "BlockLocation",
-            "BlockPermutation",
-            "BlockPistonComponent",
-            "BlockPlaceEvent",
-            "BlockPlaceEventSignal",
-            "BlockPotionContainerComponent",
-            "BlockProperties",
-            "BlockRaycastOptions",
-            "BlockRecordPlayerComponent",
-            "BlockSnowContainerComponent",
-            "BlockType",
-            "BlockWaterContainerComponent",
-            "BoolBlockProperty",
-            "ChatEvent",
-            "ChatEventSignal",
-            "Color",
-            "Container",
-            "DataDrivenEntityTriggerEvent",
-            "DataDrivenEntityTriggerEventSignal",
-            "DefinitionModifier",
-            "Dimension",
-            "DynamicPropertiesDefinition",
-            "Effect",
-            "EffectAddEvent",
-            "EffectAddEventSignal",
-            "EffectType",
-            "Enchantment",
-            "EnchantmentList",
-            "EnchantmentSlot",
-            "EnchantmentType",
-            "Entity",
-            "EntityAddRiderComponent",
-            "EntityAgeableComponent",
-            "EntityBreathableComponent",
-            "EntityCanClimbComponent",
-            "EntityCanFlyComponent",
-            "EntityCanPowerJumpComponent",
-            "EntityColorComponent",
-            "EntityCreateEvent",
-            "EntityCreateEventSignal",
-            "EntityDataDrivenTriggerEventOptions",
-            "EntityDefinitionFeedItem",
-            "EntityEventOptions",
-            "EntityFireImmuneComponent",
-            "EntityFloatsInLiquidComponent",
-            "EntityFlyingSpeedComponent",
-            "EntityFrictionModifierComponent",
-            "EntityGroundOffsetComponent",
-            "EntityHealableComponent",
-            "EntityHealthComponent",
-            "EntityHitEvent",
-            "EntityHitEventSignal",
-            "EntityHitInformation",
-            "EntityHurtEvent",
-            "EntityHurtEventSignal",
-            "EntityInventoryComponent",
-            "EntityIsBabyComponent",
-            "EntityIsChargedComponent",
-            "EntityIsChestedComponent",
-            "EntityIsDyableComponent",
-            "EntityIsHiddenWhenInvisibleComponent",
-            "EntityIsIgnitedComponent",
-            "EntityIsIllagerCaptainComponent",
-            "EntityIsSaddledComponent",
-            "EntityIsShakingComponent",
-            "EntityIsShearedComponent",
-            "EntityIsStackableComponent",
-            "EntityIsStunnedComponent",
-            "EntityIsTamedComponent",
-            "EntityItemComponent",
-            "EntityIterator",
-            "EntityLavaMovementComponent",
-            "EntityLeashableComponent",
-            "EntityMarkVariantComponent",
-            "EntityMountTamingComponent",
-            "EntityMovementAmphibiousComponent",
-            "EntityMovementBasicComponent",
-            "EntityMovementComponent",
-            "EntityMovementFlyComponent",
-            "EntityMovementGenericComponent",
-            "EntityMovementGlideComponent",
-            "EntityMovementHoverComponent",
-            "EntityMovementJumpComponent",
-            "EntityMovementSkipComponent",
-            "EntityMovementSwayComponent",
-            "EntityNavigationClimbComponent",
-            "EntityNavigationFloatComponent",
-            "EntityNavigationFlyComponent",
-            "EntityNavigationGenericComponent",
-            "EntityNavigationHoverComponent",
-            "EntityNavigationWalkComponent",
-            "EntityPushThroughComponent",
-            "EntityQueryOptions",
-            "EntityQueryScoreOptions",
-            "EntityRaycastOptions",
-            "EntityRideableComponent",
-            "EntityScaleComponent",
-            "EntitySkinIdComponent",
-            "EntityStrengthComponent",
-            "EntityTameableComponent",
-            "EntityType",
-            "EntityTypeIterator",
-            "EntityTypes",
-            "EntityUnderwaterMovementComponent",
-            "EntityVariantComponent",
-            "EntityWantsJockeyComponent",
-            "Events",
-            "ExplosionEvent",
-            "ExplosionEventSignal",
-            "ExplosionOptions",
-            "FeedItem",
-            "FeedItemEffect",
-            "FilterGroup",
-            "FluidContainer",
-            "IBlockProperty",
-            "IEntityComponent",
-            "IntBlockProperty",
-            "InventoryComponentContainer",
-            "ItemCompleteChargeEvent",
-            "ItemCompleteChargeEventSignal",
-            "ItemCooldownComponent",
-            "ItemDefinitionEventSignal",
-            "ItemDefinitionTriggeredEvent",
-            "ItemDurabilityComponent",
-            "ItemEnchantsComponent",
-            "ItemFoodComponent",
-            "ItemReleaseChargeEvent",
-            "ItemReleaseChargeEventSignal",
-            "Items",
-            "ItemStack",
-            "ItemStartChargeEvent",
-            "ItemStartChargeEventSignal",
-            "ItemStartUseOnEvent",
-            "ItemStartUseOnEventSignal",
-            "ItemStopChargeEvent",
-            "ItemStopChargeEventSignal",
-            "ItemStopUseOnEvent",
-            "ItemStopUseOnEventSignal",
-            "ItemType",
-            "ItemUseEvent",
-            "ItemUseEventSignal",
-            "ItemUseOnEvent",
-            "ItemUseOnEventSignal",
-            "LeverActionEvent",
-            "LeverActivateEventSignal",
-            "Location",
-            "MinecraftBlockTypes",
-            "MinecraftDimensionTypes",
-            "MinecraftEffectTypes",
-            "MinecraftEnchantmentTypes",
-            "MinecraftEntityTypes",
-            "MinecraftItemTypes",
-            "MolangVariableMap",
-            "MusicOptions",
-            "NavigationResult",
-            "NumberRange",
-            "PistonActivateEvent",
-            "PistonActivateEventSignal",
-            "PitchYawRotation",
-            "Player",
-            "PlayerInventoryComponentContainer",
-            "PlayerIterator",
-            "PlayerJoinEvent",
-            "PlayerJoinEventSignal",
-            "PlayerLeaveEvent",
-            "PlayerLeaveEventSignal",
-            "ProjectileHitEvent",
-            "ProjectileHitEventSignal",
-            "PropertyRegistry",
-            "ScreenDisplay",
-            "SculkSpreader",
-            "Seat",
-            "SoundOptions",
-            "StringBlockProperty",
-            "TickEvent",
-            "TickEventSignal",
-            "TitleDisplayOptions",
-            "Trigger",
-            "Vector",
-            "WeatherChangeEvent",
-            "WeatherChangeEventSignal",
-            "World",
-            "WorldInitializeEvent",
-            "WorldInitializeEventSignal",
-
-            // Constants
-            "TicksPerSecond",
-            "world",
-    
-            /**
-             * @module
-             * mojang-gametest
-             * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
-             */
-            "FluidType", "FenceConnectivity", "GameTestSequence", "RegistrationBuilder", "SimulatedPlayer", "Tags", "Test", "register",
-    
-            /**
-             * @module
-             * mojang-minecraft-ui
-             * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
-             */
-            "ActionFormData", "ActionFormResponse", "FormResponse", "MessageFormData", "MessageFormResponse", "ModalFormData", "ModalFormResponse",
-    
-            // Additional variables
-            "viewObj",  "md5",  "sha256", "cloneJSON", "Base64",
-    
-            // Response
-            `return (function () { ${input} });`
-          )
-        )(
-          /**
-           * @module
-           * mojang-minecraft
-           * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
-           */
-          // Enumerations
-          Minecraft.Direction,
-          Minecraft.GameMode,
-          
-          // Classes (in alphabetical order)
-          Minecraft.BeforeChatEvent,
-          Minecraft.BeforeChatEventSignal,
-          Minecraft.BeforeDataDrivenEntityTriggerEvent,
-          Minecraft.BeforeDataDrivenEntityTriggerEventSignal,
-          Minecraft.BeforeExplosionEvent,
-          Minecraft.BeforeExplosionEventSignal,
-          Minecraft.BeforeItemDefinitionEventSignal,
-          Minecraft.BeforeItemDefinitionTriggeredEvent,
-          Minecraft.BeforeItemUseEvent,
-          Minecraft.BeforeItemUseEventSignal,
-          Minecraft.BeforeItemUseOnEvent,
-          Minecraft.BeforeItemUseOnEventSignal,
-          Minecraft.BeforePistonActivateEvent,
-          Minecraft.BeforePistonActivateEventSignal,
-          Minecraft.Block,
-          Minecraft.BlockAreaSize,
-          Minecraft.BlockBreakEvent,
-          Minecraft.BlockBreakEventSignal,
-          Minecraft.BlockComponent,
-          Minecraft.BlockEvent,
-          Minecraft.BlockExplodeEvent,
-          Minecraft.BlockExplodeEventSignal,
-          Minecraft.BlockHitInformation,
-          Minecraft.BlockInventoryComponent,
-          Minecraft.BlockInventoryComponentContainer,
-          Minecraft.BlockLavaContainerComponent,
-          Minecraft.BlockLocation,
-          Minecraft.BlockPermutation,
-          Minecraft.BlockPistonComponent,
-          Minecraft.BlockPlaceEvent,
-          Minecraft.BlockPlaceEventSignal,
-          Minecraft.BlockPotionContainerComponent,
-          Minecraft.BlockProperties,
-          Minecraft.BlockRaycastOptions,
-          Minecraft.BlockRecordPlayerComponent,
-          Minecraft.BlockSnowContainerComponent,
-          Minecraft.BlockType,
-          Minecraft.BlockWaterContainerComponent,
-          Minecraft.BoolBlockProperty,
-          Minecraft.ChatEvent,
-          Minecraft.ChatEventSignal,
-          Minecraft.Color,
-          Minecraft.Container,
-          Minecraft.DataDrivenEntityTriggerEvent,
-          Minecraft.DataDrivenEntityTriggerEventSignal,
-          Minecraft.DefinitionModifier,
-          Minecraft.Dimension,
-          Minecraft.DynamicPropertiesDefinition,
-          Minecraft.Effect,
-          Minecraft.EffectAddEvent,
-          Minecraft.EffectAddEventSignal,
-          Minecraft.EffectType,
-          Minecraft.Enchantment,
-          Minecraft.EnchantmentList,
-          Minecraft.EnchantmentSlot,
-          Minecraft.EnchantmentType,
-          Minecraft.Entity,
-          Minecraft.EntityAddRiderComponent,
-          Minecraft.EntityAgeableComponent,
-          Minecraft.EntityBreathableComponent,
-          Minecraft.EntityCanClimbComponent,
-          Minecraft.EntityCanFlyComponent,
-          Minecraft.EntityCanPowerJumpComponent,
-          Minecraft.EntityColorComponent,
-          Minecraft.EntityCreateEvent,
-          Minecraft.EntityCreateEventSignal,
-          Minecraft.EntityDataDrivenTriggerEventOptions,
-          Minecraft.EntityDefinitionFeedItem,
-          Minecraft.EntityEventOptions,
-          Minecraft.EntityFireImmuneComponent,
-          Minecraft.EntityFloatsInLiquidComponent,
-          Minecraft.EntityFlyingSpeedComponent,
-          Minecraft.EntityFrictionModifierComponent,
-          Minecraft.EntityGroundOffsetComponent,
-          Minecraft.EntityHealableComponent,
-          Minecraft.EntityHealthComponent,
-          Minecraft.EntityHitEvent,
-          Minecraft.EntityHitEventSignal,
-          Minecraft.EntityHitInformation,
-          Minecraft.EntityHurtEvent,
-          Minecraft.EntityHurtEventSignal,
-          Minecraft.EntityInventoryComponent,
-          Minecraft.EntityIsBabyComponent,
-          Minecraft.EntityIsChargedComponent,
-          Minecraft.EntityIsChestedComponent,
-          Minecraft.EntityIsDyableComponent,
-          Minecraft.EntityIsHiddenWhenInvisibleComponent,
-          Minecraft.EntityIsIgnitedComponent,
-          Minecraft.EntityIsIllagerCaptainComponent,
-          Minecraft.EntityIsSaddledComponent,
-          Minecraft.EntityIsShakingComponent,
-          Minecraft.EntityIsShearedComponent,
-          Minecraft.EntityIsStackableComponent,
-          Minecraft.EntityIsStunnedComponent,
-          Minecraft.EntityIsTamedComponent,
-          Minecraft.EntityItemComponent,
-          Minecraft.EntityIterator,
-          Minecraft.EntityLavaMovementComponent,
-          Minecraft.EntityLeashableComponent,
-          Minecraft.EntityMarkVariantComponent,
-          Minecraft.EntityMountTamingComponent,
-          Minecraft.EntityMovementAmphibiousComponent,
-          Minecraft.EntityMovementBasicComponent,
-          Minecraft.EntityMovementComponent,
-          Minecraft.EntityMovementFlyComponent,
-          Minecraft.EntityMovementGenericComponent,
-          Minecraft.EntityMovementGlideComponent,
-          Minecraft.EntityMovementHoverComponent,
-          Minecraft.EntityMovementJumpComponent,
-          Minecraft.EntityMovementSkipComponent,
-          Minecraft.EntityMovementSwayComponent,
-          Minecraft.EntityNavigationClimbComponent,
-          Minecraft.EntityNavigationFloatComponent,
-          Minecraft.EntityNavigationFlyComponent,
-          Minecraft.EntityNavigationGenericComponent,
-          Minecraft.EntityNavigationHoverComponent,
-          Minecraft.EntityNavigationWalkComponent,
-          Minecraft.EntityPushThroughComponent,
-          Minecraft.EntityQueryOptions,
-          Minecraft.EntityQueryScoreOptions,
-          Minecraft.EntityRaycastOptions,
-          Minecraft.EntityRideableComponent,
-          Minecraft.EntityScaleComponent,
-          Minecraft.EntitySkinIdComponent,
-          Minecraft.EntityStrengthComponent,
-          Minecraft.EntityTameableComponent,
-          Minecraft.EntityType,
-          Minecraft.EntityTypeIterator,
-          Minecraft.EntityTypes,
-          Minecraft.EntityUnderwaterMovementComponent,
-          Minecraft.EntityVariantComponent,
-          Minecraft.EntityWantsJockeyComponent,
-          Minecraft.Events,
-          Minecraft.ExplosionEvent,
-          Minecraft.ExplosionEventSignal,
-          Minecraft.ExplosionOptions,
-          Minecraft.FeedItem,
-          Minecraft.FeedItemEffect,
-          Minecraft.FilterGroup,
-          Minecraft.FluidContainer,
-          Minecraft.IBlockProperty,
-          Minecraft.IEntityComponent,
-          Minecraft.IntBlockProperty,
-          Minecraft.InventoryComponentContainer,
-          Minecraft.ItemCompleteChargeEvent,
-          Minecraft.ItemCompleteChargeEventSignal,
-          Minecraft.ItemCooldownComponent,
-          Minecraft.ItemDefinitionEventSignal,
-          Minecraft.ItemDefinitionTriggeredEvent,
-          Minecraft.ItemDurabilityComponent,
-          Minecraft.ItemEnchantsComponent,
-          Minecraft.ItemFoodComponent,
-          Minecraft.ItemReleaseChargeEvent,
-          Minecraft.ItemReleaseChargeEventSignal,
-          Minecraft.Items,
-          Minecraft.ItemStack,
-          Minecraft.ItemStartChargeEvent,
-          Minecraft.ItemStartChargeEventSignal,
-          Minecraft.ItemStartUseOnEvent,
-          Minecraft.ItemStartUseOnEventSignal,
-          Minecraft.ItemStopChargeEvent,
-          Minecraft.ItemStopChargeEventSignal,
-          Minecraft.ItemStopUseOnEvent,
-          Minecraft.ItemStopUseOnEventSignal,
-          Minecraft.ItemType,
-          Minecraft.ItemUseEvent,
-          Minecraft.ItemUseEventSignal,
-          Minecraft.ItemUseOnEvent,
-          Minecraft.ItemUseOnEventSignal,
-          Minecraft.LeverActionEvent,
-          Minecraft.LeverActivateEventSignal,
-          Minecraft.Location,
-          Minecraft.MinecraftBlockTypes,
-          Minecraft.MinecraftDimensionTypes,
-          Minecraft.MinecraftEffectTypes,
-          Minecraft.MinecraftEnchantmentTypes,
-          Minecraft.MinecraftEntityTypes,
-          Minecraft.MinecraftItemTypes,
-          Minecraft.MolangVariableMap,
-          Minecraft.MusicOptions,
-          Minecraft.NavigationResult,
-          Minecraft.NumberRange,
-          Minecraft.PistonActivateEvent,
-          Minecraft.PistonActivateEventSignal,
-          Minecraft.PitchYawRotation,
-          Minecraft.Player,
-          Minecraft.PlayerInventoryComponentContainer,
-          Minecraft.PlayerIterator,
-          Minecraft.PlayerJoinEvent,
-          Minecraft.PlayerJoinEventSignal,
-          Minecraft.PlayerLeaveEvent,
-          Minecraft.PlayerLeaveEventSignal,
-          Minecraft.ProjectileHitEvent,
-          Minecraft.ProjectileHitEventSignal,
-          Minecraft.PropertyRegistry,
-          Minecraft.ScreenDisplay,
-          Minecraft.SculkSpreader,
-          Minecraft.Seat,
-          Minecraft.SoundOptions,
-          Minecraft.StringBlockProperty,
-          Minecraft.TickEvent,
-          Minecraft.TickEventSignal,
-          Minecraft.TitleDisplayOptions,
-          Minecraft.Trigger,
-          Minecraft.Vector,
-          Minecraft.WeatherChangeEvent,
-          Minecraft.WeatherChangeEventSignal,
-          Minecraft.World,
-          Minecraft.WorldInitializeEvent,
-          Minecraft.WorldInitializeEventSignal,
-
-          // Constants
-          Minecraft.TicksPerSecond,
-          Minecraft.world,
-
-          /**
-           * @module
-           * mojang-gametest
-           * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
-           */
-          GameTest.FluidType,
-          GameTest.FenceConnectivity,
-          GameTest.GameTestSequence,
-          GameTest.RegistrationBuilder,
-          GameTest.SimulatedPlayer,
-          GameTest.Tags,
-          GameTest.Test,
-          GameTest.register,
-    
-          /**
-           * @module
-           * mojang-minecraft-ui
-           * References: https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
-           */
-          UI.ActionFormData,
-          UI.ActionFormResponse,
-          UI.FormResponse,
-          UI.MessageFormData,
-          UI.MessageFormResponse,
-          UI.ModalFormData,
-          UI.ModalFormResponse,  
-    
-          // Additional packages
-          viewObj, md5, sha256, cloneJSON, Base64
-        );
-        callback()
+        const ctx = {
+          ...Minecraft, // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
+          ...GameTest,  // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
+          ...mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
+          viewObj, md5, sha256, cloneJSON, Base64 
+        }
+        const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
         if (devBuild === true) console.warn(`JavaScript: §aAll checks have passed. Time Duration: ${(new Date().getTime() - startTime) / 1000} seconds`)
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
-      } catch (error) { console.error("err 2nd"); ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
+      } catch (error) { ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
     } else {
       try {
-        const callback = (
-          new Function( "mojangminecraft", "mojanggametest", "mojangminecraftui", "viewObj", "md5", "sha256", "cloneJSON", "Base64",
-            `return (function () { ${input} });`
-          )
-        )(Minecraft, GameTest, UI, viewObj, md5, sha256, cloneJSON, Base64);
+        const ctx = {
+          mojangminecraft: Minecraft,   // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
+          mojanggametest: GameTest,     // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
+          mojangminecraftui: mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
+          viewObj: viewObj,
+          md5: md5,
+          sha256: sha256,
+          cloneJSON: cloneJSON,
+          Base64: Base64
+        }
+        const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
 
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
-        callback()
-      } catch (error) { console.error("err 2nd"); ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
+      } catch (error) { ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
     }
   })
 };
@@ -643,16 +147,16 @@ function ErrorHandiler (error, startTime, source, playerName, setting, toggle, i
     client(playerName, `Non-dev build POV:\n§c${String(error+stackError)}`);
     
     // MessageForm settings
-    MessageForm.title("Scripting Error");
-    MessageForm.body(String(error + stackError));
-    MessageForm.button1("Exit");
-    MessageForm.button2("Fix Your Code");
+    MessageForm.title("Scripting Error")
+      .body(String(error + stackError))
+      .button1("Exit")
+      .button2("Fix Your Code");
   
     // MessageForm display (Recommend put below MessageForm settings)
     MessageForm.show(source).then(MessageFormResponse => {
       const { selection } = MessageFormResponse;
 
-      if (selection == 0) {
+      if (selection === 0) {
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
         codeExecute(source, playerName, setting);
@@ -663,16 +167,16 @@ function ErrorHandiler (error, startTime, source, playerName, setting, toggle, i
     client(playerName, `§c${String(error+stackError)}`);
 
     // MessageForm settings
-    MessageForm.title("Scripting Error");
-    MessageForm.body(String(error + stackError));
-    MessageForm.button1("Exit");
-    MessageForm.button2("Fix Your Code");
+    MessageForm.title("Scripting Error")
+    .body(String(error + stackError))
+    .button1("Exit")
+    .button2("Fix Your Code");
   
     // MessageForm display (Recommend put below MessageForm settings)
     MessageForm.show(source).then(MessageFormResponse => {
       const { selection } = MessageFormResponse;
 
-      if (selection == 0) {
+      if (selection === 0) {
         setting.ModalForm.toggle.defaultValue = toggle;
         setting.ModalForm.textField.defaultValue = input;
         codeExecute(source, playerName, setting)

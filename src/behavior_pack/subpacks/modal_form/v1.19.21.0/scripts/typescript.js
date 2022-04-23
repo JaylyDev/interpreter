@@ -5,8 +5,8 @@
 //               typescript@4.6.2 <https://www.typescriptlang.org/>
 // Created by: https://github.com/JaylyDev
 
-import { world, ItemStack, MinecraftItemTypes } from "mojang-minecraft"
-import { players, whitelist } from "scripts/credentials/access.js"
+import { world, ItemStack, MinecraftItemTypes, Player } from "mojang-minecraft"
+import { players, whitelist, devBuild, addon_prefix as prefix } from "scripts/credentials/access.js"
 import { client } from 'scripts/gametests/commands/message.js'
 import { codeExecute } from "./javascript.js"
 import ts from "scripts/typescript/typescript.js"
@@ -76,9 +76,9 @@ import { lib_esnext_string_d_ts } from "scripts/typescript/lib.esnext.string.d.j
 import { lib_scripthost_d_ts } from "scripts/typescript/lib.scripthost.d.js"
 import { lib_webworker_importscripts_d_ts } from "scripts/typescript/lib.webworker.importscripts.d.js"
 import { lib_webworker_iterable_d_ts } from "scripts/typescript/lib.webworker.iterable.d.js"
-import { mojangminecraftui_d_ts } from "./@types/mojang-minecraft-ui/index.d.js"
-import { mojangminecraft_d_ts } from "./@types/mojang-minecraft/index.d.js"
-import { mojanggametest_d_ts } from "./@types/mojang-gametest/index.d.js"
+import * as mojangminecraftui_d_ts from "./@types/mojang-minecraft-ui/index.d.js"
+import * as mojangminecraft_d_ts from "./@types/mojang-minecraft/index.d.js"
+import * as mojanggametest_d_ts from "./@types/mojang-gametest/index.d.js"
 import { ModalFormData, MessageFormData, ActionFormData } from "mojang-minecraft-ui"
 import { base64_d_ts } from "scripts/base64.d.js"
 import { clonejson_d_ts } from "scripts/clonejson.d.js"
@@ -86,9 +86,6 @@ import { sha256_d_ts } from "scripts/sha256.d.js"
 import { viewObj_d_ts } from "scripts/viewObj.d.js"
 import { blueimp_md5_d_ts } from "scripts/blueimp-md5/index.d.js"
 import { Validator } from "./jsonschema/lib/index.js";
-
-export const prefix = "$";
-const devBuild = false;
 
 class tsconfig {
   static validate = () => new Validator().validate(this.value, this.schema);
@@ -99,15 +96,16 @@ class tsconfig {
 /**
   * @param {string} sourceText - Typescript code for debugging
   * @param {ts.compilerOptions} compilerOptions
+  * @param {boolean} NamespaceToggle
   * @returns {object} `{files, diagnostics, host}`
   * @throws This function can throw errors
   */
-function typescriptCompiler (sourceText, compilerOptions) {
+function typescriptCompiler (sourceText, compilerOptions, NamespaceToggle) {
   // List of files ready to load into debugger
   const files = {
     "scriptEngine.ts": sourceText,
     "lib.d.ts": lib_d_ts, "lib.dom.d.ts": lib_dom_d_ts, "lib.dom.iterable.d.ts": lib_dom_iterable_d_ts,"lib.es2015.collection.d.ts": lib_es2015_collection_d_ts, "lib.es2015.core.d.ts": lib_es2015_core_d_ts, "lib.es2015.d.ts": lib_es2015_d_ts, "lib.es2015.generator.d.ts": lib_es2015_generator_d_ts, "lib.es2015.iterable.d.ts": lib_es2015_iterable_d_ts, "lib.es2015.promise.d.ts": lib_es2015_promise_d_ts, "lib.es2015.proxy.d.ts": lib_es2015_proxy_d_ts, "lib.es2015.reflect.d.ts": lib_es2015_reflect_d_ts, "lib.es2015.symbol.d.ts": lib_es2015_symbol_d_ts, "lib.es2015.symbol.wellknown.d.ts": lib_es2015_symbol_wellknown_d_ts, "lib.es2016.array.include.d.ts": lib_es2016_array_include_d_ts, "lib.es2016.d.ts": lib_es2016_d_ts, "lib.es2016.full.d.ts": lib_es2016_full_d_ts, "lib.es2017.d.ts": lib_es2017_d_ts, "lib.es2017.full.d.ts": lib_es2017_full_d_ts, "lib.es2017.intl.d.ts": lib_es2017_intl_d_ts, "lib.es2017.object.d.ts": lib_es2017_object_d_ts, "lib.es2017.sharedmemory.d.ts": lib_es2017_sharedmemory_d_ts, "lib.es2017.string.d.ts": lib_es2017_string_d_ts, "lib.es2017.typedarrays.d.ts": lib_es2017_typedarrays_d_ts, "lib.es2018.asyncgenerator.d.ts": lib_es2018_asyncgenerator_d_ts, "lib.es2018.asynciterable.d.ts": lib_es2018_asynciterable_d_ts, "lib.es2018.d.ts": lib_es2018_d_ts, "lib.es2018.full.d.ts": lib_es2018_full_d_ts, "lib.es2018.intl.d.ts": lib_es2018_intl_d_ts, "lib.es2018.promise.d.ts": lib_es2018_promise_d_ts, "lib.es2018.regexp.d.ts": lib_es2018_regexp_d_ts, "lib.es2019.array.d.ts": lib_es2019_array_d_ts, "lib.es2019.d.ts": lib_es2019_d_ts, "lib.es2019.full.d.ts": lib_es2019_full_d_ts, "lib.es2019.object.d.ts": lib_es2019_object_d_ts, "lib.es2019.string.d.ts": lib_es2019_string_d_ts, "lib.es2019.symbol.d.ts": lib_es2019_symbol_d_ts, "lib.es2020.bigint.d.ts": lib_es2020_bigint_d_ts, "lib.es2020.d.ts": lib_es2020_d_ts, "lib.es2020.full.d.ts": lib_es2020_full_d_ts, "lib.es2020.intl.d.ts": lib_es2020_intl_d_ts, "lib.es2020.promise.d.ts": lib_es2020_promise_d_ts, "lib.es2020.sharedmemory.d.ts": lib_es2020_sharedmemory_d_ts, "lib.es2020.string.d.ts": lib_es2020_string_d_ts, "lib.es2020.symbol.wellknown.d.ts": lib_es2020_symbol_wellknown_d_ts, "lib.es2021.d.ts": lib_es2021_d_ts, "lib.es2021.full.d.ts": lib_es2021_full_d_ts, "lib.es2021.intl.d.ts": lib_es2021_intl_d_ts, "lib.es2021.promise.d.ts": lib_es2021_promise_d_ts, "lib.es2021.string.d.ts": lib_es2021_string_d_ts, "lib.es2021.weakref.d.ts": lib_es2021_weakref_d_ts, "lib.es2022.array.d.ts": lib_es2022_array_d_ts, "lib.es2022.d.ts": lib_es2022_d_ts, "lib.es2022.error.d.ts": lib_es2022_error_d_ts, "lib.es2022.full.d.ts": lib_es2022_full_d_ts, "lib.es2022.object.d.ts": lib_es2022_object_d_ts, "lib.es2022.string.d.ts": lib_es2022_string_d_ts, "lib.es5.d.ts": lib_es5_d_ts, "lib.es6.d.ts": lib_es6_d_ts, "lib.esnext.d.ts": lib_esnext_d_ts, "lib.esnext.full.d.ts": lib_esnext_full_d_ts, "lib.esnext.intl.d.ts": lib_esnext_intl_d_ts, "lib.esnext.promise.d.ts": lib_esnext_promise_d_ts, "lib.esnext.string.d.ts": lib_esnext_string_d_ts, "lib.scripthost.d.ts": lib_scripthost_d_ts, "lib.webworker.importscripts.d.ts": lib_webworker_importscripts_d_ts, "lib.webworker.iterable.d.ts": lib_webworker_iterable_d_ts,
-    "mojang-minecraft.d.ts": mojangminecraft_d_ts, "mojang-gametest.d.ts": mojanggametest_d_ts, "mojang-minecraft-ui.d.ts": mojangminecraftui_d_ts,
+    "mojang-minecraft.d.ts": NamespaceToggle === true ? mojangminecraft_d_ts.default : mojangminecraft_d_ts.Namespace, "mojang-gametest.d.ts": NamespaceToggle === true ? mojanggametest_d_ts.default : mojanggametest_d_ts.Namespace, "mojang-minecraft-ui.d.ts": NamespaceToggle === true ? mojangminecraftui_d_ts.default : mojangminecraftui_d_ts.Namespace,
     "base64.d.ts": base64_d_ts, "clonetson.d.ts": clonejson_d_ts, "sha256.d.ts": sha256_d_ts, "viewObj.d.ts": viewObj_d_ts, "md5.d.ts": blueimp_md5_d_ts
   };
   // Create a Program with an in-memory emit
@@ -189,13 +187,18 @@ world.events.beforeChat.subscribe(data => {
   }
 });
 
-// TSConfig Editor
+/** 
+ * TSConfig Editor
+ * @param {Player} source
+ * @param {tsconfig.value} tsconfig
+ * @param {tsconfig.schema} schema
+ */ 
 function editConfiguation(source, tsconfig, schema) {
   let ActionForm = new ActionFormData();
 
   // ActionForm settings
-  ActionForm.title("TypeScript Configulation");
-  ActionForm.body("TSConfig indicates that the TypeScript project.\n§9https://typescriptlang.org/tsconfig");
+  ActionForm.title("TypeScript Configulation")
+            .body("TSConfig indicates that the TypeScript project.\n§9https://typescriptlang.org/tsconfig");
   for (const option of Object.keys(tsconfig.compilerOptions)) {
     ActionForm.button(`${option} [${schema.definitions.compilerOptionsDefinition.properties.compilerOptions.properties[option].type}]`)
   };
@@ -217,6 +220,7 @@ function editConfiguation(source, tsconfig, schema) {
         client(source.name, `Object: ${property.type === "object"}\n`)
       }
 
+      // Check if property has ENUM & ENUM Verifier
       if (!!property.enum) {
         let configForm = new ActionFormData();
         configForm.title("TypeScript Configulation")
@@ -292,6 +296,12 @@ function editConfiguation(source, tsconfig, schema) {
   return tsconfig;
 }
 
+/**
+ * 
+ * @param {Player} source 
+ * @param {string} playerName 
+ * @param {formSettings} formSetting 
+ */
 function transpile(source, playerName, formSetting) {
   let setting = formSetting;
   let ModalForm = new ModalFormData();
@@ -322,7 +332,7 @@ function transpile(source, playerName, formSetting) {
       client(playerName, `==========\n### scriptEngine.ts\n${input}`)
 
       try {
-        const diagnoseResult = typescriptCompiler (input, ts.convertCompilerOptionsFromJson(tsconfig.value.compilerOptions).options);
+        const diagnoseResult = typescriptCompiler (input, ts.convertCompilerOptionsFromJson(tsconfig.value.compilerOptions).options, toggle);
         const output = diagnoseResult.files['scriptEngine.js'].replace(/\u000d\n/g, '\n');
         for (const filename of Object.keys(diagnoseResult.files)) client(playerName, `### ${filename}\n${diagnoseResult.files[filename]}`)
 

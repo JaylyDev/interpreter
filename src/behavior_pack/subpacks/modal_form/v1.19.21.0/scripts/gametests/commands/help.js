@@ -8,7 +8,7 @@
 
 import { world } from 'mojang-minecraft';
 import { players, whitelist } from "scripts/credentials/access.js";
-import { prefix } from "scripts/javascript.js";
+import { addon_prefix as prefix } from "scripts/credentials/access.js";
 import * as message from 'scripts/gametests/commands/message.js';
 
 const definitions = [
