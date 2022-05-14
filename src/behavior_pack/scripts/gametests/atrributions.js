@@ -58,9 +58,9 @@ const attibutions = {
     },
     {
       author: "Jake Shirley, Mike Ammerlaan",
-      name: "@types/mojang-minecraft-ui",
-      version: null,
-      license: "MIT"
+      name: "atsepkov",
+      version: "0.5.62",
+      license: "BSD-2-Clause"
     },
     {
       author: "JaylyMC",

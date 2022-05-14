@@ -28,8 +28,6 @@ GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written i
 ## Contributions
 You are welcome to contribute to this project!
 
-For modules / packages files, please save and edit them in `src/behavior_pack/scripts` directory
-
 The latest subpack version of the add-on is `v1.19.2`. Please make any core changes in `src/behavior_pack/subpacks/modal_form/v1.19.21.0/scripts` directory.
 
 ## Questions, Bugs and Feedbacks

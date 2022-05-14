@@ -8,7 +8,7 @@
    Copyright (c) Microsoft Corporation.
    ***************************************************************************** */
 
-import * as mojangminecraft from "mojang-minecraft";
+import * as mojangminecraft from "Minecraft";
 export class ActionFormData {
     body(bodyText) {};
     button(text, iconPath) {};

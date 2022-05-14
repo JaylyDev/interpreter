@@ -52,12 +52,14 @@ function readDirectory(dirPath)
     });
 }
 
+const compressFile = (filePath) => !filePath.endsWith("scripts\\typescript\\typescript.js") && !filePath.endsWith("scripts\\rapydscript\\lib\\rapydscript.js") && !filePath.includes("interpreter\\build\\compile")
+
 async function obfuscate(filePath)
 {
     console.log(filePath);
     const content = Fs.readFileSync(filePath).toString(); // Read the files content.
     var result = {};
-    if (!filePath.endsWith("scripts\\typescript\\typescript.js") && !filePath.includes("interpreter\\build\\compile")) {
+    if (compressFile(filePath)) {
         result = await minify(content, {module:true}); // Generated minified and obfuscated code
     } else result.code = content;
 

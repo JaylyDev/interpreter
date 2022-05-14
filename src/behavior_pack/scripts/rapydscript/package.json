@@ -1,0 +1,50 @@
+{
+  "name": "rapydscript",
+  "description": "Python-inspired, decluttered version of JavaScript with optional static typing, automatic optimizations and enhanced error-checking.",
+  "homepage": "http://atsepkov.github.io/RapydScript",
+  "keywords": [
+    "javascript",
+    "rapydscript",
+    "language",
+    "compiler"
+  ],
+  "main": "lib/rapydscript.js",
+  "scripts": {
+    "test": "bin/rapydscript --test",
+    "test6": "bin/rapydscript --test --es6",
+    "preversion": "npm test",
+    "version": "",
+    "postversion": "git push && npm publish",
+    "build-self": "bin/rapydscript --self"
+  },
+  "version": "0.5.62",
+  "license": "BSD-2-Clause",
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "maintainers": [
+    {
+      "name": "Alexander Tsepkov",
+      "email": "atsepkov@rapydscript.com",
+      "web": "http://rapydscript.com"
+    },
+    {
+      "name": "Valeriy Kucherov",
+      "email": "valq7711@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsepkov/RapydScript.git"
+  },
+  "dependencies": {},
+  "bin": {
+    "rapydscript": "bin/rapydscript"
+  },
+  "devDependencies": {
+    "benchmark": "^2.1.1",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "zombie": "^4.2.1"
+  }
+}

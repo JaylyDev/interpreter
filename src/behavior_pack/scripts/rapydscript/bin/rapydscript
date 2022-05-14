@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+// vim:ft=javascript:ts=4:et
+
+"use strict";
+
+var start_time = new Date().getTime();
+var path = require('path');
+
+function load(mod) {
+    var lib;
+    try {
+        lib = require('../tools/' + mod);
+    } catch (e) {
+        if (/Cannot find module/.test(e)) {
+            lib = require('../lib/' + mod);
+        } else {
+//            throw '../tools/' + mod + '.js: ' + e;
+            throw e
+        }
+    }
+    return lib;
+}
+
+var argv = load('cli').argv;
+
+var base_path = path.normalize(path.join(path.dirname(module.filename), ".."));
+var src_path = path.join(base_path, 'src');         // source code
+var lib_path = path.join(base_path, 'lib');         // compiled library
+var import_path = path.join(base_path, 'src/lib');  // source code for imported libraries
+
+if (argv.self) {
+    if (argv.files.length > 0) {
+        console.error("WARN: Ignoring input files since --self was passed");
+    }
+    load('self')(base_path, src_path, lib_path, start_time);
+    process.exit(0);
+} else if (argv.test) {
+    load('test')(argv, base_path, src_path, lib_path);
+} else if (argv.test_all) {
+    load('test')(argv, base_path, src_path, lib_path, 'full');
+} else if (argv.bench) {
+    load('test')(argv, base_path, src_path, lib_path, 'bench');
+} else if (argv.lint) {
+    load('lint').cli(argv, base_path, src_path, lib_path);
+} else if (argv.files.length === 0 && process.stdin.isTTY) {
+    load('repl')({
+        'es6': argv.ecmascript6,
+        'lib_path': lib_path,
+        'import_path': import_path,
+    });
+} else {
+    load('compile')(start_time, argv, base_path, src_path, lib_path);
+}

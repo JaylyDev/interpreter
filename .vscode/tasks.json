@@ -4,11 +4,7 @@
         {
             "label": "compiler",
             "command": "${workspaceFolder}\\src\\compile\\run_without_py.bat",
-            "type": "shell",
-            "presentation": {
-                "revealProblems": "onProblem",
-                "close": true
-            }
+            "type": "shell"
         }
     ]
 }

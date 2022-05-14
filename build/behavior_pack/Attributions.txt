@@ -11,3 +11,4 @@ These are the packages used in GameTest Interpreter add-on
 - @types/mojang-minecraft
 - @types/mojang-gametest
 - mojang-minecraft-ui typings
+- rapydscript

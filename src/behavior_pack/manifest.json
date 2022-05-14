@@ -5,22 +5,26 @@
     "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.2§r | By §9JaylyMC§r",
     "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
     // Version format: [MC minor, MC patch, Addon patch]
-    "version": [19, 0, 211],
+    "version": [19, 0, 298],
     "min_engine_version": [1, 17, 0]
   },
   "modules": [
+    // These 2 modules must be included in the src folder
+    // When building, program asks you to choose target version
+    // Target version removes one module or the other
     {
-      "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.2§r | By §9JaylyMC§r",
-      "type": "data",
+      "description": "resourcePack.vanilla_server.gametest.description",
+      "type": "javascript",
+      "entry": "scripts/gametests/terminal.js",
       "uuid": "4c321bd7-ea43-402e-80d7-0811c7df49e1",
-      "version": [19, 0, 211]
+      "version": [19, 0, 298]
     },
     {
-      "description": "",
+      "description": "resourcePack.vanilla_server.gametest.description",
       "uuid": "256ff791-5c1e-453c-b905-e9be2b297966",
-      "version": [19, 0, 211],
-      "type": "javascript",
-      "language": "JavaScript",
+      "version": [19, 0, 298],
+      "type": "script",
+      "language": "javascript",
       "entry": "scripts/gametests/terminal.js"
     }
   ],
@@ -29,34 +33,24 @@
     "url": "https://github.com/JaylyDev"
   },
   "subpacks": [ // Minecraft sets last array as default option
-		{
-			"folder_name": "chat_screen/v1.17.3.0",
-			"name": "GameTest Framework v1.17.0",
-			"memory_tier": 1
-    },
-    {
-			"folder_name": "chat_screen/v1.17.3004.0",
-			"name": "GameTest Framework v1.17.30",
-			"memory_tier": 1
-    },
-    {
-			"folder_name": "chat_screen/v1.18.1027.0",
-			"name": "GameTest Framework v1.18.10",
-			"memory_tier": 1
-    },
+    /*
+     * SUBPACKS EXPERIMENT:
+     * We're trying to reduce the amount of resolutions in the subpacks version.
+     * Following folders in subpacks directory are not used:
+     * - chat_screen/v1.17.3.0
+     * - chat_screen/v1.17.3004.0
+     * - chat_screen/v1.18.1027.0
+     * - modal_form/v1.18.2028.0
+     * - modal_form/v1.18.3021.0
+     */
     {
 			"folder_name": "chat_screen/v1.18.2028.0",
-			"name": "GameTest Framework v1.18.20 [Chat]",
-			"memory_tier": 1
-    },
-    {
-			"folder_name": "modal_form/v1.18.2028.0",
-			"name": "GameTest Framework v1.18.20 [UI]",
+			"name": "GameTest Framework v1.17.0 [Chat]",
 			"memory_tier": 1
     },
     {
 			"folder_name": "modal_form/v1.19.21.0",
-			"name": "GameTest Framework v1.19.0",
+			"name": "GameTest Framework v1.18.20 [UI]",
 			"memory_tier": 1
     }
   ],
@@ -78,7 +72,7 @@
     },
     {
       "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
-      "version": [19, 0, 211]
+      "version": [19, 0, 298]
     }
   ]
 }

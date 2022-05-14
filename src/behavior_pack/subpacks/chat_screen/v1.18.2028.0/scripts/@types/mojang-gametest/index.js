@@ -8,7 +8,7 @@
    Copyright (c) Microsoft Corporation.
 ***************************************************************************** */
 
-import * as mojangminecraft from "mojang-minecraft";
+import * as mojangminecraft from "Minecraft";
 export class FenceConnectivity {
   "east";
   "north";

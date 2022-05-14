@@ -1,5 +1,9 @@
 const path = require('path');
 const fs = require('fs');
+const { TargetVersion } = require("./config.json");
+const ApprovedVersions = [17,19];
+
+if (!ApprovedVersions.includes(TargetVersion)) throw `Target version must be one of the following: ${ApprovedVersions}`
 
 function ListFiles(dir, done) {
   var results = [];
@@ -38,7 +42,7 @@ function ListFiles(dir, done) {
  * @param {string} value
  * @returns {string}
  */
- function obfuscateJSON(value) {
+function obfuscateJSON(value) {
   const stringRegex = /"(?:"|.)*?"/gm;
   
   const syntaxArr = value.split(stringRegex), stringArr = `"${value}"`.split(stringRegex).slice(1, -1);
@@ -70,8 +74,33 @@ for (const index in inputDirectoryPaths) ListFiles(inputDirectoryPaths[index], f
   if (err) throw err;
   var extention = '.json';
   files.forEach(function (file) {
-    console.log(file)
-    if (!file.endsWith("package.json")) {
+    if (file.endsWith("behavior_pack\\manifest.json")) {
+      console.log(`\x1b[32mTarget Version: ${TargetVersion} \x1b[0m- ${file.replace(inputDirectoryPaths[index], '')}`);
+      let manifest = JSON.parse(fs.readFileSync(`${file}`).toString().replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m));
+
+      /**
+       * TargetVersion: Value needs to be 17 or 19 in order for this to work
+       */
+      if (TargetVersion === 17) {
+        manifest.modules.splice(1, 1);
+      } else {
+        manifest.modules.splice(0, 1);
+      }
+      
+      console.log(manifest.modules);
+      let content = JSON.stringify(manifest);
+      
+      var OutputFilepath = file.replace(inputDirectoryPaths[index], outputDirectoryPaths[index]).split('\\');
+      var FileOutputDirectoryPath = OutputFilepath.slice(0, -1).toString().replace(/,/g, '/');
+      var OutputFilename = OutputFilepath.slice(OutputFilepath.length - 1, OutputFilepath.length - 0).toString().replace(/,/g, '\\');
+      fs.mkdirSync(FileOutputDirectoryPath, { recursive: true });
+      if (obfuscate == true) { content = obfuscateJSON(content); } else {};
+      if (show_credit == true){ content = credit_msg + content; } else {};
+      fs.writeFileSync(`${FileOutputDirectoryPath}\\${OutputFilename}`, content, function (err) {
+        if (err) { return console.error(err); };
+      });
+    }
+    else if (!file.endsWith("package.json")) {
     var a = file.split('');
     var filename = [a[a.length - 5], a[a.length - 4], a[a.length - 3], a[a.length - 2], a[a.length - 1]].toString().replace(/,/g, '');
     if (filename.toLowerCase() == extention.toLowerCase()) {      
@@ -96,8 +125,6 @@ for (const index in inputDirectoryPaths) ListFiles(inputDirectoryPaths[index], f
       fs.writeFileSync(`${FileOutputDirectoryPath}\\${OutputFilename}`, content, function (err) {
         if (err) { return console.error(err); };
       });
-    } else {
-      console.log(`\x1b[32mOther type of file found (ignored) \x1b[0m- ${file.replace(inputDirectoryPaths[index], '')}`);
-    }};
+    } else console.log(`\x1b[32mOther type of file found (ignored) \x1b[0m- ${file.replace(inputDirectoryPaths[index], '')}`)};
   });
 });

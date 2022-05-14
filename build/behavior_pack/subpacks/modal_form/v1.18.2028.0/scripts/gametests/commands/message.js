@@ -1,1 +1,0 @@
-import{world as e}from"mojang-minecraft";export function client(r,t){t=t.replace(/\\\"/g,'\\\\"').replace(/\"/g,'\\"'),e.getDimension("overworld").runCommand(`tellraw ${r} {"rawtext":[{"text":"§7${t}"}]}`)}export function server(r,t){t=t.replace(/\\\"/g,'\\\\"').replace(/\"/g,'\\"');for(let o of e.getPlayers())o.runCommand(`tellraw @s {"rawtext":[{"text":"[${r}: ${t}]"}]}`)}
