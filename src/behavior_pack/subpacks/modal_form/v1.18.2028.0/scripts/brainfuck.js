@@ -4,7 +4,7 @@
 // Hello you have found the secret programming language, type `$brainfuck` in chat to use it
 
 import { world, ItemStack, MinecraftItemTypes } from "mojang-minecraft";
-import { players, whitelist } from "scripts/credentials/access.js";
+import { players, whitelist, devBuild, addon_prefix as prefix } from "scripts/credentials/access.js";
 import { client } from 'scripts/gametests/commands/message.js';
 import { ModalFormData, MessageFormData } from "mojang-minecraft-ui";
 
@@ -71,8 +71,6 @@ function brainfuck(prog) {
   return output;
 }
 
-const prefix = "$";
-
 const formSettings = {
   ModalForm: {
     dropdown: { defaultValueIndex: null },
@@ -114,7 +112,6 @@ function codeExecute (source, playerName, formSetting) {
 
   // ModalForm display (Recommend put below ModalForm settings)
   ModalForm.show(source).then(ModalFormResponse => {
-    const devBuild = false;
     const { formValues } = ModalFormResponse;
 
     let [input, toggle] = formValues;

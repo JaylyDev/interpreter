@@ -22,6 +22,7 @@
   },
   "dependencies": [
     {
+      "description": "interpreter.behavior_pack",
       "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
       "version": [19, 0, 298]
     }

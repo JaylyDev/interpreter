@@ -10,12 +10,12 @@
 
 import { world } from "mojang-minecraft";
 import { players, whitelist } from "scripts/credentials/access.js";
-import { prefix } from "scripts/credentials/access.js";
+import { addon_prefix as prefix } from "scripts/credentials/access.js";
 import * as message from 'scripts/gametests/commands/message.js';
 
 class version {
   static gametest (type) { // type: ( 'string' | 'array' | 'object' )
-    const version = [ 1, 18, 30, 21 ];
+    const version = [ 1, 19, 0, 21 ];
     if (type == 'string') {
       return `${version[0]}.${version[1]}.${version[2]}.${version[3]}`;
     } else if (type == 'array') {

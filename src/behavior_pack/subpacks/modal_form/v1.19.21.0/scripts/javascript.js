@@ -11,6 +11,8 @@ import { client } from 'scripts/gametests/commands/message.js';
 // import * as _GameTest_old from "GameTest";
 import * as Minecraft from "mojang-minecraft";
 import * as GameTest from "mojang-gametest";
+// import * as mcnet from "mojang-net";
+import * as ServerAdmin from "mojang-minecraft-server-admin";
 import * as mcui from "mojang-minecraft-ui";
 import { viewObj } from 'scripts/viewObj.js';
 import { md5 } from 'scripts/blueimp-md5/md5.js';
@@ -84,6 +86,7 @@ export function codeExecute (source, playerName, formSetting) {
           ...Minecraft, // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
           ...GameTest,  // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
           ...mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
+          ...ServerAdmin,
           viewObj, md5, sha256, cloneJSON, Base64 
         }
         const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
@@ -98,6 +101,8 @@ export function codeExecute (source, playerName, formSetting) {
           mojangminecraft: Minecraft,   // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
           mojanggametest: GameTest,     // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
           mojangminecraftui: mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
+          mojangnet: {},
+          mojangminecraftserveradmin: ServerAdmin,
           viewObj: viewObj,
           md5: md5,
           sha256: sha256,

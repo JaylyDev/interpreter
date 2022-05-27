@@ -1,6 +1,6 @@
 export const players = [ "JaylyPlays", "ItsDominicPlays" ];
 
-export const whitelist = false;
+export const whitelist = true;
 
 export const devBuild = false;
 
