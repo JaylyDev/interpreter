@@ -77,16 +77,18 @@ import { lib_scripthost_d_ts } from "scripts/typescript/lib.scripthost.d.js"
 import { lib_webworker_importscripts_d_ts } from "scripts/typescript/lib.webworker.importscripts.d.js"
 import { lib_webworker_iterable_d_ts } from "scripts/typescript/lib.webworker.iterable.d.js"
 import { lib_gametest_d_ts } from "scripts/typescript/lib.gametest.d.js"
-import * as mojangminecraftui_d_ts from "./@types/mojang-minecraft-ui/index.d.js"
-import * as mojangminecraft_d_ts from "./@types/mojang-minecraft/index.d.js"
 import * as mojanggametest_d_ts from "./@types/mojang-gametest/index.d.js"
+import * as mojangminecraft_d_ts from "./@types/mojang-minecraft/index.d.js"
+import * as mojangminecraftserveradmin_d_ts from "./@types/mojang-minecraft-server-admin/index.d.js"
+import * as mojangminecraftui_d_ts from "./@types/mojang-minecraft-ui/index.d.js"
+import * as mojangnet_d_ts from "./@types/mojang-net/index.d.js"
 import { ModalFormData, MessageFormData, ActionFormData } from "mojang-minecraft-ui"
 import { base64_d_ts } from "scripts/base64.d.js"
 import { clonejson_d_ts } from "scripts/clonejson.d.js"
 import { sha256_d_ts } from "scripts/sha256.d.js"
 import { viewObj_d_ts } from "scripts/viewObj.d.js"
 import { blueimp_md5_d_ts } from "scripts/blueimp-md5/index.d.js"
-import { Validator } from "./jsonschema/lib/index.js";
+import { Validator } from "./jsonschema/lib/index.js.js";
 
 class tsconfig {
   static validate = () => new Validator().validate(this.value, this.schema);
@@ -104,7 +106,9 @@ class tsconfig {
 function typescriptCompiler (sourceText, compilerOptions, NamespaceToggle) {
   // List of files ready to load into debugger
   const files = {
+    // Source file
     "scriptEngine.ts": sourceText,
+    // Typescript typings
     "lib.d.ts": lib_d_ts, "lib.dom.d.ts": lib_dom_d_ts, "lib.dom.iterable.d.ts": "",
     "lib.es2015.collection.d.ts": lib_es2015_collection_d_ts, "lib.es2015.core.d.ts": lib_es2015_core_d_ts, "lib.es2015.d.ts": lib_es2015_d_ts, "lib.es2015.generator.d.ts": lib_es2015_generator_d_ts, "lib.es2015.iterable.d.ts": lib_es2015_iterable_d_ts, "lib.es2015.promise.d.ts": lib_es2015_promise_d_ts, "lib.es2015.proxy.d.ts": lib_es2015_proxy_d_ts, "lib.es2015.reflect.d.ts": lib_es2015_reflect_d_ts, "lib.es2015.symbol.d.ts": lib_es2015_symbol_d_ts, "lib.es2015.symbol.wellknown.d.ts": lib_es2015_symbol_wellknown_d_ts,
     "lib.es2016.array.include.d.ts": lib_es2016_array_include_d_ts, "lib.es2016.d.ts": lib_es2016_d_ts, "lib.es2016.full.d.ts": lib_es2016_full_d_ts,
@@ -114,8 +118,15 @@ function typescriptCompiler (sourceText, compilerOptions, NamespaceToggle) {
     "lib.es2020.bigint.d.ts": "", "lib.es2020.d.ts": lib_es2020_d_ts, "lib.es2020.full.d.ts": lib_es2020_full_d_ts, "lib.es2020.intl.d.ts": lib_es2020_intl_d_ts, "lib.es2020.promise.d.ts": lib_es2020_promise_d_ts, "lib.es2020.sharedmemory.d.ts": lib_es2020_sharedmemory_d_ts, "lib.es2020.string.d.ts": lib_es2020_string_d_ts, "lib.es2020.symbol.wellknown.d.ts": lib_es2020_symbol_wellknown_d_ts,
     "lib.es2021.d.ts": lib_es2021_d_ts, "lib.es2021.full.d.ts": lib_es2021_full_d_ts, "lib.es2021.intl.d.ts": lib_es2021_intl_d_ts, "lib.es2021.promise.d.ts": lib_es2021_promise_d_ts, "lib.es2021.string.d.ts": lib_es2021_string_d_ts, "lib.es2021.weakref.d.ts": lib_es2021_weakref_d_ts, "lib.es2022.array.d.ts": lib_es2022_array_d_ts, "lib.es2022.d.ts": lib_es2022_d_ts, "lib.es2022.error.d.ts": lib_es2022_error_d_ts, "lib.es2022.full.d.ts": lib_es2022_full_d_ts, "lib.es2022.object.d.ts": lib_es2022_object_d_ts, "lib.es2022.string.d.ts": lib_es2022_string_d_ts, "lib.es5.d.ts": lib_es5_d_ts, "lib.es6.d.ts": lib_es6_d_ts,
     "lib.esnext.d.ts": lib_esnext_d_ts, "lib.esnext.full.d.ts": lib_esnext_full_d_ts, "lib.esnext.intl.d.ts": lib_esnext_intl_d_ts, "lib.esnext.promise.d.ts": lib_esnext_promise_d_ts, "lib.esnext.string.d.ts": lib_esnext_string_d_ts, "lib.scripthost.d.ts": "", "lib.webworker.importscripts.d.ts": "", "lib.webworker.iterable.d.ts": "",
+    // Added this because GameTest engine is different from other tools
     "lib.gametest.d.ts": lib_gametest_d_ts,
-    "mojang-minecraft.d.ts": NamespaceToggle === true ? mojangminecraft_d_ts.default : mojangminecraft_d_ts.Namespace, "mojang-gametest.d.ts": NamespaceToggle === true ? mojanggametest_d_ts.default : mojanggametest_d_ts.Namespace, "mojang-minecraft-ui.d.ts": NamespaceToggle === true ? mojangminecraftui_d_ts.default : mojangminecraftui_d_ts.Namespace,
+    // Mojang modules typings
+    "mojang-gametest.d.ts": NamespaceToggle === true ? mojanggametest_d_ts.default : mojanggametest_d_ts.Namespace,
+    "mojang-minecraft.d.ts": NamespaceToggle === true ? mojangminecraft_d_ts.default : mojangminecraft_d_ts.Namespace,
+    "mojang-minecraft-server-admin.d.ts": NamespaceToggle === true ? mojangminecraftserveradmin_d_ts.default : mojangminecraftserveradmin_d_ts.Namespace,
+    "mojang-minecraft-ui.d.ts": NamespaceToggle === true ? mojangminecraftui_d_ts.default : mojangminecraftui_d_ts.Namespace,
+    "mojang-net.d.ts": NamespaceToggle === true ? mojangnet_d_ts.default : mojangnet_d_ts.Namespace,
+    // Interpreter's native functions
     "base64.d.ts": base64_d_ts, "clonetson.d.ts": clonejson_d_ts, "sha256.d.ts": sha256_d_ts, "viewObj.d.ts": viewObj_d_ts, "md5.d.ts": blueimp_md5_d_ts
   };
   // Create a Program with an in-memory emit

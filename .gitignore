@@ -5,9 +5,7 @@
 *.mcperf
 *.mcshortcut
 *.mctemplate
-
-# Don't ignore .mcaddon in build directory
-!build/*.mcaddon
+*.data
 
 # Ignore the developer directory
 developer
@@ -17,4 +15,4 @@ tests/bin
 build/compile
 build/behavior_pack
 build/resource_pack
-node_modules 
+node_modules

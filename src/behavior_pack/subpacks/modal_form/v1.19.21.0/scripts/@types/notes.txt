@@ -7,3 +7,15 @@ This directory contains archives of declaration files from
 @types/mojang-gametest
  - NPM: https://www.npmjs.com/package/@types/mojang-gametest
  - DefinitelyTyped: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mojang-gametest
+ 
+@types/mojang-minecraft-ui
+ - NPM: https://www.npmjs.com/package/@types/mojang-minecraft-ui
+ - DefinitelyTyped: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mojang-minecraft-ui
+ 
+@types/mojang-minecraft-server-admin
+ - NPM: https://www.npmjs.com/package/@types/mojang-minecraft-server-admin
+ - DefinitelyTyped: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mojang-minecraft-server-admin
+ 
+@types/mojang-net
+ - NPM: https://www.npmjs.com/package/@types/mojang-net
+ - DefinitelyTyped: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mojang-net

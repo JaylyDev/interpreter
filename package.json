@@ -1,11 +1,8 @@
 {
   "name": "interpreter",
-  "version": "1.19.2",
+  "version": "1.19.10",
   "description": "Interpreter in Minecraft",
   "main": "src/behavior_pack/scripts/gametests/terminal.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +23,9 @@
   "dependencies": {
     "@types/mojang-gametest": "^0.1.4",
     "@types/mojang-minecraft": "^0.1.5",
+    "@types/mojang-minecraft-ui": "^0.1.0",
+    "@types/mojang-minecraft-server-admin": "^0.1.0",
+    "@types/mojang-net": "^0.1.0",
     "jsonschema": "^1.4.0",
     "rapydscript": "^0.5.62",
     "terser": "^5.12.1",

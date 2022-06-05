@@ -7,7 +7,7 @@ GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written i
 The add-on currenly supports JavaScript, TypeScript and *BrainFuck*.
 
 Add-on infomation:
-Version: 1.19.2
+Version: 1.19.10
 Creator: JaylyMC - https://www.youtube.com/c/JaylyMC
                  - https://twitter.com/JaylyPlays
                  - https://discord.com/invite/8xzSHD84xv

@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { TargetVersion } = require("./config.json");
+const { TargetVersion } = JSON.parse(fs.readFileSync(path.join(`${__dirname}/../../config.json`)).toString().replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m));
 const ApprovedVersions = [17,19];
 
 if (!ApprovedVersions.includes(TargetVersion)) throw `Target version must be one of the following: ${ApprovedVersions}`

@@ -21,6 +21,7 @@ import { ModalFormData, MessageFormData } from "mojang-minecraft-ui";
 import { cloneJSON } from "scripts/clonejson.js";
 import { Base64 } from "scripts/base64.js";
 import getAttibutions from "scripts/gametests/atrributions.js";
+let MojangNet = {};
 
 export const formSettings = {
   ModalForm: {
@@ -62,9 +63,16 @@ world.events.beforeChat.subscribe(data => {
  * @param {string} playerName 
  * @param {formSettings} formSetting 
  */
-export function codeExecute (source, playerName, formSetting) {
+export async function codeExecute (source, playerName, formSetting) {
   let setting = formSetting;
   let ModalForm = new ModalFormData();
+  // Experimental:
+  // Attempt to create import error handle
+  await import("mojang-net").then(function (mcnet) {
+    MojangNet = mcnet;
+  }).catch(err => {
+    console.log(err)
+  });
 
   // ModalForm settings
   ModalForm.title("JavaScript Interpreter");
@@ -83,10 +91,11 @@ export function codeExecute (source, playerName, formSetting) {
       if (devBuild === true) console.warn(`JavaScript: §6Program starts at: ${new Date()}`)
       try {
         const ctx = {
-          ...Minecraft, // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
-          ...GameTest,  // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
-          ...mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
-          ...ServerAdmin,
+          ...Minecraft,   // mojang-minecraft               https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
+          ...GameTest,    // mojang-gametest                https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
+          ...mcui,        // mojang-minecraft-ui            https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
+          ...ServerAdmin, // mojang-minecraft-server-admin  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-server-admin/mojang-minecraft-server-admin
+          ...MojangNet,   // mojang-net                     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-net/mojang-net
           viewObj, md5, sha256, cloneJSON, Base64 
         }
         const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
@@ -96,13 +105,13 @@ export function codeExecute (source, playerName, formSetting) {
         setting.ModalForm.textField.defaultValue = input;
       } catch (error) { ErrorHandiler(error, startTime, source, playerName, setting, toggle, input) }
     } else {
-      try {
+      try {        
         const ctx = {
-          mojangminecraft: Minecraft,   // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
-          mojanggametest: GameTest,     // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
-          mojangminecraftui: mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
-          mojangnet: {},
-          mojangminecraftserveradmin: ServerAdmin,
+          mojangminecraft: Minecraft,               // mojang-minecraft               https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
+          mojanggametest: GameTest,                 // mojang-gametest                https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
+          mojangminecraftui: mcui,                  // mojang-minecraft-ui            https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
+          mojangminecraftserveradmin: ServerAdmin,  // mojang-minecraft-server-admin  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-server-admin/mojang-minecraft-server-admin
+          mojangnet: MojangNet,                     // mojang-net                     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-net/mojang-net
           viewObj: viewObj,
           md5: md5,
           sha256: sha256,

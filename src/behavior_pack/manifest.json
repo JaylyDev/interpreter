@@ -2,10 +2,10 @@
   "format_version": 2,
   "header": {
     "name": "GameTest interpreter [BP]",
-    "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.2§r | By §9JaylyMC§r",
+    "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.10§r | By §9JaylyMC§r",
     "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
     // Version format: [MC minor, MC patch, Addon patch]
-    "version": [19, 0, 298],
+    "version": [19, 10, 139],
     "min_engine_version": [1, 17, 0]
   },
   "modules": [
@@ -17,12 +17,12 @@
       "type": "javascript",
       "entry": "scripts/gametests/terminal.js",
       "uuid": "4c321bd7-ea43-402e-80d7-0811c7df49e1",
-      "version": [19, 0, 298]
+      "version": [19, 10, 139]
     },
     {
       "description": "resourcePack.vanilla_server.gametest.description",
       "uuid": "256ff791-5c1e-453c-b905-e9be2b297966",
-      "version": [19, 0, 298],
+      "version": [19, 10, 139],
       "type": "script",
       "language": "javascript",
       "entry": "scripts/gametests/terminal.js"
@@ -36,11 +36,6 @@
     /*
      * SUBPACKS EXPERIMENT:
      * We're trying to reduce the amount of resolutions in the subpacks version.
-     * Following folders in subpacks directory are not used:
-     * - chat_screen/v1.17.3.0
-     * - chat_screen/v1.17.3004.0
-     * - chat_screen/v1.18.1027.0
-     * - modal_form/v1.18.3021.0
      */
     {
 			"folder_name": "chat_screen/v1.18.2028.0",
@@ -91,7 +86,7 @@
     {
       "description": "interpreter.resource_pack",
       "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
-      "version": [19, 0, 298]
+      "version": [19, 10, 139]
     }
   ]
 }

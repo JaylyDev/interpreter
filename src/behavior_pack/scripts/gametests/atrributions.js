@@ -47,7 +47,7 @@ const attibutions = {
     {
       author: "Jake Shirley, Mike Ammerlaan",
       name: "@types/mojang-minecraft",
-      version: "0.1.5",
+      version: "0.1.6",
       license: "MIT"
     },
     {
@@ -58,14 +58,26 @@ const attibutions = {
     },
     {
       author: "Jake Shirley, Mike Ammerlaan",
-      name: "atsepkov",
-      version: "0.5.62",
-      license: "BSD-2-Clause"
+      name: "@types/mojang-minecraft-ui",
+      version: "0.1.0",
+      license: "MIT"
+    },
+    {
+      author: "Jake Shirley, Mike Ammerlaan",
+      name: "@types/mojang-minecraft-server-admin",
+      version: "0.1.0",
+      license: "MIT"
+    },
+    {
+      author: "Jake Shirley, Mike Ammerlaan",
+      name: "@types/mojang-net",
+      version: "0.1.0",
+      license: "MIT"
     },
     {
       author: "JaylyMC",
       name: "interpreter",
-      version: "1.19.2",
+      version: "1.19.10",
       license: "GPL-3.0-or-later"
     }
   ]

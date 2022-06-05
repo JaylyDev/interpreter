@@ -60,7 +60,14 @@ async function obfuscate(filePath)
     const content = Fs.readFileSync(filePath).toString(); // Read the files content.
     var result = {};
     if (compressFile(filePath)) {
-        result = await minify(content, {module:true}); // Generated minified and obfuscated code
+        result = await minify(content, {
+            module: true,
+            compress: {},
+            mangle: {},
+            output: {},
+            parse: {},
+            rename: {}
+        }); // Generated minified and obfuscated code
     } else result.code = content;
 
     Fs.writeFileSync(filePath, result.code); // Write obfuscted and minified code generated back to file.
