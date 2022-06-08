@@ -24,7 +24,7 @@ Copyright (c) Microsoft Corporation.
  *
  */
 declare module "mojang-minecraft" {
-    type EntityComponents = {
+    export type EntityComponents = {
         (componentName: 'minecraft:ageable' | 'ageable'): EntityAgeableComponent
         (componentName: 'minecraft:breathable' | 'breathable'): EntityBreathableComponent
         (componentName: 'minecraft:color' | 'color'): EntityColorComponent
@@ -15039,7 +15039,7 @@ declare module "mojang-minecraft" {
     * dimensions and the environment of Minecraft.
     */
     export const world: World;
-};
+}
 
 /**
  * The mojang-gametest module provides scriptable APIs for
@@ -15514,7 +15514,7 @@ declare module "mojang-gametest" {
          * 'minecraft:' is assumed. If the component is not present on
          * the entity, undefined is returned.
          */
-        getComponent(componentId: string): mojangminecraft.IEntityComponent;
+        getComponent: mojangminecraft.EntityComponents;
         /**
          * @remarks
          * Returns all components that are both present on this entity
@@ -17102,7 +17102,7 @@ declare module "mojang-gametest" {
         testName: string,
         testFunction: (arg: Test) => Promise<void>,
     ): RegistrationBuilder;
-};
+}
 
 /**
  * The \`mojang-minecraft-ui\` module contains types for
@@ -17352,7 +17352,7 @@ declare module "mojang-minecraft-ui" {
         readonly 'isCanceled': boolean;
         protected constructor();
     }
-};
+}
 
 /**
  * The \`mojang-minecraft-server-admin\` module contains types
@@ -17428,7 +17428,7 @@ declare module "mojang-minecraft-server-admin" {
      * dedicated-server configured variables.
      */
     export const variables: ServerVariables;
-};
+}
 
 /**
  * The \`mojang-net\` module contains types for executing
@@ -17594,4 +17594,4 @@ declare module "mojang-net" {
         protected constructor();
     }
     export const http: HttpClient;
-};`
+}`

@@ -24,7 +24,7 @@ Copyright (c) Microsoft Corporation.
  *
  */
 declare module "mojang-minecraft" {
-    type EntityComponents = {
+    export type EntityComponents = {
         (componentName: 'minecraft:ageable' | 'ageable'): EntityAgeableComponent
         (componentName: 'minecraft:breathable' | 'breathable'): EntityBreathableComponent
         (componentName: 'minecraft:color' | 'color'): EntityColorComponent
@@ -15039,7 +15039,7 @@ declare module "mojang-minecraft" {
     * dimensions and the environment of Minecraft.
     */
     export const world: World;
-};
+}
 
 /**
  * The mojang-gametest module provides scriptable APIs for
@@ -15295,7 +15295,7 @@ declare module "mojang-gametest" {
         /**
          * @remarks
          * Sets the name of the structure for a test to use. "xyz:bar"
-         * will load \`/structures/xyz/bar.mcstructure\` from the
+         * will load `/structures/xyz/bar.mcstructure` from the
          * behavior pack stack.
          * @param structureName
          * @returns
@@ -15306,7 +15306,7 @@ declare module "mojang-gametest" {
         /**
          * @remarks
          * Adds a tag to a test. You can run all tests with a given tag
-         * with \`/gametest runset <tag>\`.
+         * with `/gametest runset <tag>`.
          * @param tag
          * @returns
          * RegistrationBuilder object where additional configuration
@@ -15514,7 +15514,7 @@ declare module "mojang-gametest" {
          * 'minecraft:' is assumed. If the component is not present on
          * the entity, undefined is returned.
          */
-        getComponent(componentId: string): mojangminecraft.IEntityComponent;
+        getComponent: mojangminecraft.EntityComponents;
         /**
          * @remarks
          * Returns all components that are both present on this entity
@@ -15797,11 +15797,11 @@ declare module "mojang-gametest" {
          * command response values.
          * @throws This function can throw errors.
          * @example commands.js
-         * \`\`\`typescript
+         * ```typescript
          *        player.runCommand("say You got a new high score!");
          *        player.runCommand("scoreboard players set @s score 10");
          *
-         * \`\`\`
+         * ```
          */
         runCommand(commandString: string): any;
         /**
@@ -16104,11 +16104,11 @@ declare module "mojang-gametest" {
          * the block at the specified location.
          * @throws This function can throw errors.
          * @example testIfButtonNotPressed.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.assertBlockState(buttonPos, (block) => {
          *          return block.getBlockData().getProperty("button_pressed_bit") == 0;
          *        });
-         * \`\`\`
+         * ```
          */
         assertBlockState(
             blockLocation: mojangminecraft.BlockLocation,
@@ -16180,10 +16180,10 @@ declare module "mojang-gametest" {
          * armor equipped.
          * @throws This function can throw errors.
          * @example horseArmorTest.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.assertEntityHasArmor("minecraft:horse", armorSlotTorso, "diamond_horse_armor", 0, horseLocation, true);
          *
-         * \`\`\`
+         * ```
          */
         assertEntityHasArmor(
             entityTypeIdentifier: string,
@@ -16212,10 +16212,10 @@ declare module "mojang-gametest" {
          * does not.
          * @throws This function can throw errors.
          * @example sheepShearedTest.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.assertEntityHasComponent("minecraft:sheep", "minecraft:is_sheared", entityLoc, false);
          *
-         * \`\`\`
+         * ```
          */
         assertEntityHasComponent(
             entityTypeIdentifier: string,
@@ -16280,7 +16280,7 @@ declare module "mojang-gametest" {
          * tests that an entity of the specified type is not present.
          * @throws This function can throw errors.
          * @example simpleMobTest.ts
-         * \`\`\`typescript
+         * ```typescript
          *          gt.register("StarterTests", "simpleMobTest", (test: gt.Test) => {
          *            const attackerId = "fox";
          *            const victimId = "chicken";
@@ -16296,7 +16296,7 @@ declare module "mojang-gametest" {
          *          })
          *            .maxTicks(400)
          *            .structureName("gametests:mediumglass");
-         * \`\`\`
+         * ```
          */
         assertEntityPresentInArea(entityTypeIdentifier: string, isPresent?: boolean): void;
         /**
@@ -16317,14 +16317,14 @@ declare module "mojang-gametest" {
          * is thrown.
          * @throws This function can throw errors.
          * @example villagerEffectTest.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.assertEntityState(
          *          villagerPos,
          *          "minecraft:villager_v2",
          *          (entity) => entity.getEffect(MinecraftEffectTypes.regeneration).duration > 120
          *        ); // At least 6 seconds remaining in the villagers' effect
          *
-         * \`\`\`
+         * ```
          */
         assertEntityState(
             blockLocation: mojangminecraft.BlockLocation,
@@ -16378,10 +16378,10 @@ declare module "mojang-gametest" {
          * Number of items, at minimum, to look and test for.
          * @throws This function can throw errors.
          * @example findFeathers.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.assertItemEntityCountIs(Items.feather, expectedFeatherLoc, 0, 1);
          *
-         * \`\`\`
+         * ```
          */
         assertItemEntityCountIs(
             itemType: mojangminecraft.ItemType,
@@ -16674,7 +16674,7 @@ declare module "mojang-gametest" {
          * undefined.
          * @throws This function can throw errors.
          * @example simpleMobTest.ts
-         * \`\`\`typescript
+         * ```typescript
          *          gt.register("StarterTests", "simpleMobTest", (test: gt.Test) => {
          *            const attackerId = "fox";
          *            const victimId = "chicken";
@@ -16690,12 +16690,12 @@ declare module "mojang-gametest" {
          *          })
          *            .maxTicks(400)
          *            .structureName("gametests:mediumglass");
-         * \`\`\`
+         * ```
          * @example spawnAdultPig.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.spawn("minecraft:pig<minecraft:ageable_grow_up>", new BlockLocation(1, 2, 1));
          *
-         * \`\`\`
+         * ```
          */
         spawn(entityTypeIdentifier: string, blockLocation: mojangminecraft.BlockLocation): mojangminecraft.Entity;
         /**
@@ -16712,9 +16712,9 @@ declare module "mojang-gametest" {
          * undefined.
          * @throws This function can throw errors.
          * @example spawnAdultPig.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.spawn("minecraft:pig<minecraft:ageable_grow_up>", new Location(1.5, 2, 1.5));
-         * \`\`\`
+         * ```
          */
         spawnAtLocation(entityTypeIdentifier: string, location: mojangminecraft.Location): mojangminecraft.Entity;
         /**
@@ -16726,14 +16726,14 @@ declare module "mojang-gametest" {
          * Location to create the item entity at.
          * @throws This function can throw errors.
          * @example spawnEmeralds.js
-         * \`\`\`typescript
+         * ```typescript
          *        const oneEmerald = new ItemStack(MinecraftItemTypes.emerald, 1, 0);
          *        const fiveEmeralds = new ItemStack(MinecraftItemTypes.emerald, 5, 0);
          *
          *        test.spawnItem(oneEmerald, new Location(3.5, 3, 1.5));
          *        test.spawnItem(fiveEmeralds, new Location(1.5, 3, 1.5));
          *
-         * \`\`\`
+         * ```
          */
         spawnItem(itemStack: mojangminecraft.ItemStack, location: mojangminecraft.Location): mojangminecraft.Entity;
         /**
@@ -16792,9 +16792,9 @@ declare module "mojang-gametest" {
          * specify a direction.
          * @throws This function can throw errors.
          * @example spreadFromFaceTowardDirection.js
-         * \`\`\`typescript
+         * ```typescript
          *        test.spreadFromFaceTowardDirection(new BlockLocation(1, 2, 1), Direction.south, Direction.down);
-         * \`\`\`
+         * ```
          */
         spreadFromFaceTowardDirection(
             blockLocation: mojangminecraft.BlockLocation,
@@ -16861,7 +16861,7 @@ declare module "mojang-gametest" {
          * successfully, the test is marked as a success.
          * @throws This function can throw errors.
          * @example simpleMobTest.ts
-         * \`\`\`typescript
+         * ```typescript
          *          gt.register("StarterTests", "simpleMobTest", (test: gt.Test) => {
          *            const attackerId = "fox";
          *            const victimId = "chicken";
@@ -16877,7 +16877,7 @@ declare module "mojang-gametest" {
          *          })
          *            .maxTicks(400)
          *            .structureName("gametests:mediumglass");
-         * \`\`\`
+         * ```
          */
         succeedWhen(callback: () => void): void;
         /**
@@ -17051,14 +17051,14 @@ declare module "mojang-gametest" {
      * additional options for this test can be specified via
      * builder methods.
      * @example example1.js
-     * \`\`\`typescript
+     * ```typescript
      *        GameTest.register("ExampleTests", "alwaysFail", (test) => {
      *          test.fail("This test, runnable via '/gametest run ExampleTests:alwaysFail', will always fail");
      *        });
      *
-     * \`\`\`
+     * ```
      * @example simpleMobTest.ts
-     * \`\`\`typescript
+     * ```typescript
      *          gt.register("StarterTests", "simpleMobTest", (test: gt.Test) => {
      *            const attackerId = "fox";
      *            const victimId = "chicken";
@@ -17074,7 +17074,7 @@ declare module "mojang-gametest" {
      *          })
      *            .maxTicks(400)
      *            .structureName("gametests:mediumglass");
-     * \`\`\`
+     * ```
      */
     export function register(
         testClassName: string,
@@ -17102,7 +17102,7 @@ declare module "mojang-gametest" {
         testName: string,
         testFunction: (arg: Test) => Promise<void>,
     ): RegistrationBuilder;
-};
+}
 
 /**
  * The `mojang-minecraft-ui` module contains types for
@@ -17352,7 +17352,7 @@ declare module "mojang-minecraft-ui" {
         readonly 'isCanceled': boolean;
         protected constructor();
     }
-};
+}
 
 /**
  * The `mojang-minecraft-server-admin` module contains types
@@ -17428,7 +17428,7 @@ declare module "mojang-minecraft-server-admin" {
      * dedicated-server configured variables.
      */
     export const variables: ServerVariables;
-};
+}
 
 /**
  * The `mojang-net` module contains types for executing
@@ -17594,4 +17594,4 @@ declare module "mojang-net" {
         protected constructor();
     }
     export const http: HttpClient;
-};
+}
