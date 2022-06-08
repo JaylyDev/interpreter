@@ -31,7 +31,7 @@ class version {
   };
 
   static module (type) { // type: ( 'string' | 'array' | 'object' )
-    const version = [ 19, 10, 143 ];
+    const version = [ 19, 10, 157 ];
     if (type == 'string') {
       return `${version[0]}.${version[1]}.${version[2]}`;
     } else if (type == 'array') {

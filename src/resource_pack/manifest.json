@@ -5,7 +5,7 @@
     "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.10§r | By §9JaylyMC§r",
     "uuid": "5f58bc7f-b99f-4c3d-b569-97eeb2101736",
     // Version format: [MC minor, MC patch, Addon patch]
-    "version": [19, 10, 143],
+    "version": [19, 10, 157],
     "min_engine_version": [1, 17, 0]
   },
   "modules": [
@@ -13,7 +13,7 @@
       "description": "§6Interpreter in Minecraft.§r\nVersion §21.19.10§r | By §9JaylyMC§r",
       "type": "resources",
       "uuid": "7bf127eb-8348-493a-a525-66abfa00812c",
-      "version": [19, 10, 143]
+      "version": [19, 10, 157]
     }
   ],
   "metadata": {
@@ -24,7 +24,7 @@
     {
       "description": "interpreter.behavior_pack",
       "uuid": "316304e9-c125-4add-9132-ee1241a6fa28",
-      "version": [19, 10, 143]
+      "version": [19, 10, 157]
     }
   ]
 }
