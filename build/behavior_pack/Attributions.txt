@@ -8,7 +8,10 @@ These are the packages used in GameTest Interpreter add-on
 - clonejson
 - viewObj
 - SHA256
-- @types/mojang-minecraft
 - @types/mojang-gametest
-- mojang-minecraft-ui typings
+- @types/mojang-minecraft
+- @types/mojang-minecraft-server-admin
+- @types/mojang-minecraft-ui
+- @types/mojang-net
 - rapydscript
+- brainfuck function

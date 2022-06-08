@@ -1,21 +1,12 @@
 # GameTest Framework v1.18.20
 
-With the introduction of mojang-minecraft-ui module, this allows the add-on to have both **graphical user interface** and **command line interface** *for compatibility*.
-
-> **Important:** Command line interface does not support new line. Recommend you to use graphical user interface.
+With the introduction of mojang-minecraft-ui module, **graphical user interface** replaces command line interface.
 
 ## Change subpack
 
-Chat mode creates a command line interface environment
-![chat](https://media.discordapp.net/attachments/867015810312962063/963403382817718312/unknown.png)
-
-UI mode creates a graphical user interface environment **(Recommended)**
 ![ui](https://media.discordapp.net/attachments/867015810312962063/963403438182531092/unknown.png)
 
-## CLI Documentation
-For command line interface documentation, visit [this page](./cli-docs.md).
-
-## GUI Documentation
+## Documentation
 
 To get the interpreter with graphical user interface:
 

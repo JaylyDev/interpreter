@@ -2,13 +2,11 @@
 
 With the introduction of mojang-minecraft-ui module, this allows the add-on to have **graphical user interface**.
 
-> **Important:** Command line interface interpreter is removed in version 1.19.0 resolution and onwards.
-
 ## Documentation
 
 To get the interpreter with graphical user interface:
 
-1. Change the resolution of the behavior pack to **GameTest Framework v1.18.20 [UI]**
+1. Change the resolution of the behavior pack to **GameTest Framework v1.19.0 [UI]**
 ![mode](https://media.discordapp.net/attachments/867015810312962063/963424665202724994/unknown.png)
 
 2. In the chat screen, type
@@ -16,6 +14,7 @@ To get the interpreter with graphical user interface:
     ![javascript terminal](https://media.discordapp.net/attachments/867015810312962063/963408197115318324/unknown.png)
     - `$typescript` to get TypeScript interpreter.
     ![image](https://media.discordapp.net/attachments/867015810312962063/963425916866953257/unknown.png)
+    - `$python` to get Python interpreter (**Experimental**)
     - `$tsconfig` to get TSConfig editor
     - `$brainfuck` to get BrainFuck interpreter
 
@@ -54,6 +53,13 @@ mojangminecraft.world.events.beforeChat.unsubscribe(beforeChat);
 ```
 
 6. Press **`Submit`** button to execute code
+
+## Using Bedrock Dedicated Server modules
+In version 1.19.0, "mojang-net" and "mojang-minecraft-server-admin" are added into GameTest modules, however they're only used in Bedrock Dedicated Servers.
+
+BDS are required for "mojang-net" module to be activated
+
+> "mojang-minecraft-server-admin" module can be enabled in Minecraft client therefore the subpack enables it by default.
 
 ## Packages
 

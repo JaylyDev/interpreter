@@ -9,24 +9,9 @@ Since this add-on and GameTest Framework API is still experimental and in active
 ## This add-on supports the following Minecraft Bedrock versions:
 
 Choose one of the version to view further guidelines
-- [Minecraft Beta & Preview - 1.19.0.20/21 **(Recommended)**](./v1.19.0/interpreter.md)
-- [Minecraft Beta & Preview - 1.18.30.32/33](./v1.18.20/interpreter.md)
-- [Minecraft Beta & Preview - 1.18.20.27/28](./v1.18.20/interpreter.md)
-- [Minecraft 1.18.12](./cli/interpreter.md)
-- [Minecraft 1.18.10](./cli/interpreter.md)
-- [Minecraft 1.18.2](./cli/interpreter.md)
-- [Minecraft 1.18.1](./cli/interpreter.md)
-- [Minecraft Caves & Cliffs: Part II - 1.18.0](./cli/interpreter.md)
-- [Minecraft 1.17.41](./cli/interpreter.md)
-- [Minecraft 1.17.40](./cli/interpreter.md)
-- [Minecraft 1.17.34](./cli/interpreter.md)
-- [Minecraft 1.17.33 (Amazon)](./cli/interpreter.md)
-- [Minecraft 1.17.32](./cli/interpreter.md)
-- [Minecraft 1.17.30](./cli/interpreter.md)
-- [Minecraft 1.17.11](./cli/interpreter.md)
-- [Minecraft 1.17.10](./cli/interpreter.md)
-- [Minecraft 1.17.2](./cli/interpreter.md)
-- [Minecraft Caves & Cliffs: Part I - 1.17.0](./cli/interpreter.md)
+- [Minecraft 1.19.0 or above **(Recommended)**](./v1.19.0/interpreter.md)
+- [Minecraft 1.18.20 to 1.18.30](./v1.18.20/interpreter.md)
+- [Minecraft 1.17.0 to 1.18.12](./cli/interpreter.md)
 
 ## Programming languages
 This add-on supports the following programming languages:

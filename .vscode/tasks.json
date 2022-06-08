@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "compiler",
-            "command": "${workspaceFolder}\\src\\compile\\run_without_py.bat",
+            "command": "${workspaceFolder}\\src\\compile\\run_with_py.bat",
             "type": "shell"
         }
     ]

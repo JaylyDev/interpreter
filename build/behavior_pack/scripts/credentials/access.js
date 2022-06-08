@@ -1,1 +1,1 @@
-export const players=["JaylyPlays","ItsDominicPlays"];export const whitelist=!0;export const devBuild=!1;export const addon_prefix="$";
+export const players=["JaylyPlays","ItsDominicPlays"];export const whitelist=!1;export const devBuild=!1;export const addon_prefix="$";

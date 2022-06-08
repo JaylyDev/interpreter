@@ -74,6 +74,24 @@ Extension for TypeScript Interpreter
 - These definitions were written by Jake Shirley, and Mike Ammerlaan.
 - licensed under the MIT license
 
+### @types/mojang-minecraft-ui
+Extension for TypeScript Interpreter
+
+- These definitions were written by Jake Shirley, and Mike Ammerlaan.
+- licensed under the MIT license
+
+### @types/mojang-minecraft-server-admin
+Extension for TypeScript Interpreter
+
+- These definitions were written by Jake Shirley, and Mike Ammerlaan.
+- licensed under the MIT license
+
+### @types/mojang-net
+Extension for TypeScript Interpreter
+
+- These definitions were written by Jake Shirley, and Mike Ammerlaan.
+- licensed under the MIT license
+
 ### @types/mojang-gametest
 Extension for TypeScript Interpreter
 
