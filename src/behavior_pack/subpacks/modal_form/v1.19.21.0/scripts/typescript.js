@@ -1,7 +1,9 @@
 // TypeScript terminal for GameTest Framework (experimental)
-// Dependencies: @types/mojang-minecraft@0.1.4 <https://registry.npmjs.org/@types/mojang-minecraft/-/mojang-minecraft-0.1.4.tgz>
-//               @types/mojang-gametest@0.1.4 <https://registry.npmjs.org/@types/mojang-gametest/-/mojang-gametest-0.1.4.tgz>
-//               mojang-minecraft-ui
+// Dependencies: @types/mojang-minecraft@0.1.6 <https://registry.npmjs.org/@types/mojang-minecraft/-/mojang-minecraft-0.1.6.tgz>
+//               @types/mojang-gametest@0.1.5 <https://registry.npmjs.org/@types/mojang-gametest/-/mojang-gametest-0.1.4.tgz>
+//               @types/mojang-minecraft-ui@0.1.0 <https://registry.npmjs.org/@types/mojang-minecraft-ui/-/mojang-minecraft-ui-0.1.0.tgz>
+//               @types/mojang-minecraft-server-admin@0.1.0 <https://registry.npmjs.org/@types/mojang-minecraft-server-admin/-/mojang-minecraft-server-admin-0.1.0.tgz>
+//               @types/mojang-net@0.1.0 <https://registry.npmjs.org/@types/mojang-net/-/mojang-net-0.1.0.tgz>
 //               typescript@4.6.2 <https://www.typescriptlang.org/>
 // Created by: https://github.com/JaylyDev
 
@@ -88,7 +90,8 @@ import { clonejson_d_ts } from "scripts/clonejson.d.js"
 import { sha256_d_ts } from "scripts/sha256.d.js"
 import { viewObj_d_ts } from "scripts/viewObj.d.js"
 import { blueimp_md5_d_ts } from "scripts/blueimp-md5/index.d.js"
-import { Validator } from "./jsonschema/lib/index.js.js";
+import { Validator } from "./jsonschema/lib/index.js"
+import * as mojangmodules from "./@types/module.d.js"
 
 class tsconfig {
   static validate = () => new Validator().validate(this.value, this.schema);
@@ -121,6 +124,7 @@ function typescriptCompiler (sourceText, compilerOptions, NamespaceToggle) {
     // Added this because GameTest engine is different from other tools
     "lib.gametest.d.ts": lib_gametest_d_ts,
     // Mojang modules typings
+    "native.d.ts": mojangmodules.default,
     "mojang-gametest.d.ts": NamespaceToggle === true ? mojanggametest_d_ts.default : mojanggametest_d_ts.Namespace,
     "mojang-minecraft.d.ts": NamespaceToggle === true ? mojangminecraft_d_ts.default : mojangminecraft_d_ts.Namespace,
     "mojang-minecraft-server-admin.d.ts": NamespaceToggle === true ? mojangminecraftserveradmin_d_ts.default : mojangminecraftserveradmin_d_ts.Namespace,

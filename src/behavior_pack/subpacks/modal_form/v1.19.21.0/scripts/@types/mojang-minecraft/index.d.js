@@ -18887,3 +18887,5 @@ declare namespace mojangminecraft {
     export const TicksPerSecond = 20;
     export const world: World;
 };`
+
+export const module = ``
