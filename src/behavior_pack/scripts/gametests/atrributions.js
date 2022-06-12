@@ -27,12 +27,6 @@ const attibutions = {
       license: "SEE LICENSE IN https://creativecommons.org/licenses/by/2.0/uk/legalcode"
     },
     {
-      author: null,
-      name: "clonejson",
-      version: null,
-      license: "SEE LICENSE IN https://creativecommons.org/licenses/by-sa/3.0/legalcode"
-    },
-    {
       author: "Angel Marin, Paul Johnston",
       name: "SHA256",
       version: null,

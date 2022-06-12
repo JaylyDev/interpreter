@@ -11,7 +11,6 @@ import * as GameTest from "GameTest";
 import { viewObj } from 'scripts/viewObj.js';
 import { md5 } from 'scripts/blueimp-md5/md5.js';
 import { SHA256 as sha256 } from 'scripts/sha256.js';
-import { cloneJSON } from "scripts/clonejson.js";
 import { Base64 } from "scripts/base64.js";
 
 const world = Minecraft.world ?? Minecraft.World;
@@ -41,7 +40,6 @@ world.events.beforeChat.subscribe((data) => {
         viewObj: viewObj,
         md5: md5,
         sha256: sha256,
-        cloneJSON: cloneJSON,
         Base64: Base64
       }
       const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${data.message.substring(1)} });`))(ctx); callback();

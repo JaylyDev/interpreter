@@ -2,7 +2,7 @@
 // Dependencies: @types/mojang-minecraft@0.1.4 <https://registry.npmjs.org/@types/mojang-minecraft/-/mojang-minecraft-0.1.4.tgz>
 //               @types/mojang-gametest@0.1.4 <https://registry.npmjs.org/@types/mojang-gametest/-/mojang-gametest-0.1.4.tgz>
 //               mojang-minecraft-ui
-//               typescript@4.6.2 <https://www.typescriptlang.org/>
+//               typescript@4.6.3 <https://www.typescriptlang.org/>
 // Created by: https://github.com/JaylyDev
 
 import { world, ItemStack, MinecraftItemTypes, Player } from "mojang-minecraft"
@@ -82,7 +82,6 @@ import * as mojangminecraft_d_ts from "./@types/mojang-minecraft/index.d.js"
 import * as mojanggametest_d_ts from "./@types/mojang-gametest/index.d.js"
 import { ModalFormData, MessageFormData, ActionFormData } from "mojang-minecraft-ui"
 import { base64_d_ts } from "scripts/base64.d.js"
-import { clonejson_d_ts } from "scripts/clonejson.d.js"
 import { sha256_d_ts } from "scripts/sha256.d.js"
 import { viewObj_d_ts } from "scripts/viewObj.d.js"
 import { blueimp_md5_d_ts } from "scripts/blueimp-md5/index.d.js"
@@ -116,7 +115,7 @@ function typescriptCompiler (sourceText, compilerOptions, NamespaceToggle) {
     "lib.esnext.d.ts": lib_esnext_d_ts, "lib.esnext.full.d.ts": lib_esnext_full_d_ts, "lib.esnext.intl.d.ts": lib_esnext_intl_d_ts, "lib.esnext.promise.d.ts": lib_esnext_promise_d_ts, "lib.esnext.string.d.ts": lib_esnext_string_d_ts, "lib.scripthost.d.ts": "", "lib.webworker.importscripts.d.ts": "", "lib.webworker.iterable.d.ts": "",
     "lib.gametest.d.ts": lib_gametest_d_ts,
     "mojang-minecraft.d.ts": NamespaceToggle === true ? mojangminecraft_d_ts.default : mojangminecraft_d_ts.Namespace, "mojang-gametest.d.ts": NamespaceToggle === true ? mojanggametest_d_ts.default : mojanggametest_d_ts.Namespace, "mojang-minecraft-ui.d.ts": NamespaceToggle === true ? mojangminecraftui_d_ts.default : mojangminecraftui_d_ts.Namespace,
-    "base64.d.ts": base64_d_ts, "clonetson.d.ts": clonejson_d_ts, "sha256.d.ts": sha256_d_ts, "viewObj.d.ts": viewObj_d_ts, "md5.d.ts": blueimp_md5_d_ts
+    "base64.d.ts": base64_d_ts, "sha256.d.ts": sha256_d_ts, "viewObj.d.ts": viewObj_d_ts, "md5.d.ts": blueimp_md5_d_ts
   };
   // Create a Program with an in-memory emit
   const createdFiles = {};

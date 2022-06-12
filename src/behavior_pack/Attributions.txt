@@ -5,7 +5,6 @@ These are the packages used in GameTest Interpreter add-on
 - JSON Schema
 - JavaScript MD5
 - base64
-- clonejson
 - viewObj
 - SHA256
 - @types/mojang-gametest

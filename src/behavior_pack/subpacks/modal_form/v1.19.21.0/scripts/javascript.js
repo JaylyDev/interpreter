@@ -1,7 +1,9 @@
 // JavaScript terminal for GameTest Framework (experimental)
-// Dependencies: @types/mojang-minecraft@0.1.4 <https://registry.npmjs.org/@types/mojang-minecraft/-/mojang-minecraft-0.1.4.tgz>
-//               @types/mojang-gametest@0.1.4 <https://registry.npmjs.org/@types/mojang-gametest/-/mojang-gametest-0.1.4.tgz>
-//               mojang-minecraft-ui
+// Dependencies: @types/mojang-minecraft@0.1.6 <https://registry.npmjs.org/@types/mojang-minecraft/-/mojang-minecraft-0.1.6.tgz>
+//               @types/mojang-gametest@0.1.5 <https://registry.npmjs.org/@types/mojang-gametest/-/mojang-gametest-0.1.4.tgz>
+//               @types/mojang-minecraft-ui@0.1.0 <https://registry.npmjs.org/@types/mojang-minecraft-ui/-/mojang-minecraft-ui-0.1.0.tgz>
+//               @types/mojang-minecraft-server-admin@0.1.0 <https://registry.npmjs.org/@types/mojang-minecraft-server-admin/-/mojang-minecraft-server-admin-0.1.0.tgz>
+//               @types/mojang-net@0.1.0 <https://registry.npmjs.org/@types/mojang-net/-/mojang-net-0.1.0.tgz>
 // Created by: https://github.com/JaylyDev
 
 import { world, ItemStack, MinecraftItemTypes } from "mojang-minecraft";
@@ -18,7 +20,6 @@ import { viewObj } from 'scripts/viewObj.js';
 import { md5 } from 'scripts/blueimp-md5/md5.js';
 import { SHA256 as sha256 } from 'scripts/sha256.js';
 import { ModalFormData, MessageFormData } from "mojang-minecraft-ui";
-import { cloneJSON } from "scripts/clonejson.js";
 import { Base64 } from "scripts/base64.js";
 import getAttibutions from "scripts/gametests/atrributions.js";
 let MojangNet = {};
@@ -96,7 +97,7 @@ export async function codeExecute (source, playerName, formSetting) {
           ...mcui,        // mojang-minecraft-ui            https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
           ...ServerAdmin, // mojang-minecraft-server-admin  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-server-admin/mojang-minecraft-server-admin
           ...MojangNet,   // mojang-net                     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-net/mojang-net
-          viewObj, md5, sha256, cloneJSON, Base64 
+          viewObj, md5, sha256, Base64 
         }
         const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
         
@@ -115,7 +116,6 @@ export async function codeExecute (source, playerName, formSetting) {
           viewObj: viewObj,
           md5: md5,
           sha256: sha256,
-          cloneJSON: cloneJSON,
           Base64: Base64
         }
         const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()

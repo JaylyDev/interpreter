@@ -1,7 +1,5 @@
 // Python terminal for GameTest Framework (experimental)
-// Dependencies: @types/mojang-minecraft@0.1.4 <https://registry.npmjs.org/@types/mojang-minecraft/-/mojang-minecraft-0.1.4.tgz>
-//               @types/mojang-gametest@0.1.4 <https://registry.npmjs.org/@types/mojang-gametest/-/mojang-gametest-0.1.4.tgz>
-//               mojang-minecraft-ui
+// Dependencies: rapydscript <https://www.npmjs.com/package/rapydscript>
 // Created by: https://github.com/JaylyDev
 
 import { world, ItemStack, MinecraftItemTypes } from "mojang-minecraft";

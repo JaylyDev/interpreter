@@ -4,7 +4,8 @@
 //               @types/mojang-minecraft-ui@0.1.0 <https://registry.npmjs.org/@types/mojang-minecraft-ui/-/mojang-minecraft-ui-0.1.0.tgz>
 //               @types/mojang-minecraft-server-admin@0.1.0 <https://registry.npmjs.org/@types/mojang-minecraft-server-admin/-/mojang-minecraft-server-admin-0.1.0.tgz>
 //               @types/mojang-net@0.1.0 <https://registry.npmjs.org/@types/mojang-net/-/mojang-net-0.1.0.tgz>
-//               typescript@4.6.2 <https://www.typescriptlang.org/>
+//               typescript@4.6.3 <https://www.typescriptlang.org/>
+//               jsonschema <https://www.npmjs.com/package/jsonschema>
 // Created by: https://github.com/JaylyDev
 
 import { world, ItemStack, MinecraftItemTypes, Player } from "mojang-minecraft"
@@ -86,7 +87,6 @@ import * as mojangminecraftui_d_ts from "./@types/mojang-minecraft-ui/index.d.js
 import * as mojangnet_d_ts from "./@types/mojang-net/index.d.js"
 import { ModalFormData, MessageFormData, ActionFormData } from "mojang-minecraft-ui"
 import { base64_d_ts } from "scripts/base64.d.js"
-import { clonejson_d_ts } from "scripts/clonejson.d.js"
 import { sha256_d_ts } from "scripts/sha256.d.js"
 import { viewObj_d_ts } from "scripts/viewObj.d.js"
 import { blueimp_md5_d_ts } from "scripts/blueimp-md5/index.d.js"
@@ -253,7 +253,7 @@ function typescriptCompiler (sourceText, compilerOptions, NamespaceToggle) {
     "mojang-minecraft-ui.d.ts": NamespaceToggle === true ? mojangminecraftui_d_ts.default : mojangminecraftui_d_ts.Namespace,
     "mojang-net.d.ts": NamespaceToggle === true ? mojangnet_d_ts.default : mojangnet_d_ts.Namespace,
     // Interpreter's native functions
-    "base64.d.ts": base64_d_ts, "clonetson.d.ts": clonejson_d_ts, "sha256.d.ts": sha256_d_ts, "viewObj.d.ts": viewObj_d_ts, "md5.d.ts": blueimp_md5_d_ts
+    "base64.d.ts": base64_d_ts, "sha256.d.ts": sha256_d_ts, "viewObj.d.ts": viewObj_d_ts, "md5.d.ts": blueimp_md5_d_ts
   };
   // Create a Program with an in-memory emit
   const createdFiles = {};

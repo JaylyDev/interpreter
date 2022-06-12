@@ -16,7 +16,6 @@ import { viewObj } from 'scripts/viewObj.js';
 import { md5 } from 'scripts/blueimp-md5/md5.js';
 import { SHA256 as sha256 } from 'scripts/sha256.js';
 import { ModalFormData, MessageFormData } from "mojang-minecraft-ui";
-import { cloneJSON } from "scripts/clonejson.js";
 import { Base64 } from "scripts/base64.js";
 import getAttibutions from "scripts/gametests/atrributions.js";
 
@@ -84,7 +83,7 @@ export function codeExecute (source, playerName, formSetting) {
           ...Minecraft, // mojang-minecraft     https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
           ...GameTest,  // mojang-gametest      https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-gametest/mojang-gametest
           ...mcui,      // mojang-minecraft-ui  https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft-ui/mojang-minecraft-ui
-          viewObj, md5, sha256, cloneJSON, Base64 
+          viewObj, md5, sha256, Base64 
         }
         const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
         
@@ -101,7 +100,6 @@ export function codeExecute (source, playerName, formSetting) {
           viewObj: viewObj,
           md5: md5,
           sha256: sha256,
-          cloneJSON: cloneJSON,
           Base64: Base64
         }
         const callback = (new Function(`{${Object.keys(ctx).join(",")}}`, `return (function () { ${input} });`))(ctx); callback()
