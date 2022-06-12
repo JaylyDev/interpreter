@@ -52,7 +52,7 @@ function readDirectory(dirPath)
     });
 }
 
-const compressFile = (filePath) => !filePath.endsWith("scripts\\typescript\\typescript.js") && !filePath.endsWith("scripts\\rapydscript\\lib\\rapydscript.js") && !filePath.includes("interpreter\\build\\compile")
+const compressFile = (filePath) => !filePath.endsWith("scripts\\rapydscript\\lib\\rapydscript.js") && !filePath.includes("interpreter\\build\\compile")
 
 async function obfuscate(filePath)
 {
