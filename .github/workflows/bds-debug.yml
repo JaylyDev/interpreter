@@ -52,8 +52,8 @@ jobs:
 
       - name: Enable all experimental features (world settings)
         run: |
-        python ./bds/level_dat.pyc
-        node ./bds/gametest.js
+          python ./bds/level_dat.pyc
+          node ./bds/gametest.js
 
       ## BDS
       - name: Start Bedrock Server
