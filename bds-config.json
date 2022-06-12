@@ -1,0 +1,16 @@
+{
+  "behavior_packs": "build/behavior_pack",
+  "resource_packs": "build/resource_pack",
+  "world": null,
+  "server-uptime": 10,
+  "serverInitialize": {
+    "commands": []
+  },
+  "gametest_modules": [
+    "mojang-gametest",
+    "mojang-minecraft",
+    "mojang-minecraft-ui",
+    "mojang-minecraft-server-admin",
+    "mojang-net"
+  ]
+}

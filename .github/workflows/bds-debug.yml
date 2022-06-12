@@ -1,0 +1,63 @@
+name: "BDS Test"
+
+on: [push]
+
+jobs:
+  ## Windows tests
+  Windows:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        ## Fetch BDS versions via Wayback Machine: https://web.archive.org/web/*/https://www.minecraft.net/en-us/download/server/bedrock
+        ## minecraft-version: ["1.17.2.01", "1.17.11.01", "1.17.34.02", "1.17.41.01", "1.18.2.03", "1.18.12.01", "1.18.33.02", "1.19.1.01", "1.19.10.20"]
+        ## python-version: ["3.10"]
+        minecraft-version: ["1.18.33.02", "1.19.1.01", "1.19.10.20"]
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+      # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      ## Start installing
+      - name: Install dependencies
+        run: |
+          npm install
+          if (Test-Path -Path requirements.txt -PathType Leaf) {
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          }
+        working-directory: ./
+
+      - name: build
+        run: src\compile\run_with_py.bat
+        working-directory: ./
+
+      - name: Download & Install Bedrock Server ${{ matrix.minecraft-version }}
+        run: |
+          Out-File -FilePath .\bds\version.json -InputObject `"${{ matrix.minecraft-version }}`" -Encoding ASCII
+          curl --output bedrock_server.zip https://minecraft.azureedge.net/bin-win/bedrock-server-${{ matrix.minecraft-version }}.zip
+          python ./bds/extract.pyc
+          node bds/startServer.js -write=false -ignoreConfig
+        working-directory: ./
+
+      - name: Copy Minecraft packs
+        run: python ./bds/copy.pyc
+
+      - name: Enable all experimental features (world settings)
+        run: |
+        python ./bds/level_dat.pyc
+        node ./bds/gametest.js
+
+      ## BDS
+      - name: Start Bedrock Server
+        run: node bds/startServer.js
+      
+      - name: Content log check
+        run: node bds/contentlog.js

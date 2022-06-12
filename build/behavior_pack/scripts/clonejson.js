@@ -1,1 +1,0 @@
-function r(n){if("function"==typeof n)return String(n);if(null==n||"object"!=typeof n)return n;if(n instanceof Array){for(var t=[],e=0;e<n.length;++e)t[e]=r(n[e]);return t}var o={};for(var e in n)o[e]=r(n[e]);return o}export const cloneJSON=n=>r(n);
