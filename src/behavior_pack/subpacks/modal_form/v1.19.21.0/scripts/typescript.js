@@ -269,8 +269,8 @@ world.events.beforeChat.subscribe(data => {
     data.cancel = true;
 
     let item = new ItemStack(MinecraftItemTypes.enchantedBook, 1);
-    item.nameTag = "§r§dTypeScript Configulation";
-    item.setLore(["§r§5TypeScript Config", "Use this item to edit configulation"]);
+    item.nameTag = "§r§dTypeScript Configuration";
+    item.setLore(["§r§5TypeScript Config", "Use this item to edit configuration"]);
     sender.getComponent("minecraft:inventory").container.addItem(item);
     client(playerName, `You have been given a ${item.nameTag}`)
   }
@@ -286,7 +286,7 @@ function editConfiguation(source, tsconfig, schema) {
   let ActionForm = new ActionFormData();
 
   // ActionForm settings
-  ActionForm.title("TypeScript Configulation")
+  ActionForm.title("TypeScript Configuration")
             .body("TSConfig indicates that the TypeScript project.\n§9https://typescriptlang.org/tsconfig");
   for (const option of Object.keys(tsconfig.compilerOptions)) {
     ActionForm.button(`${option} [${schema.definitions.compilerOptionsDefinition.properties.compilerOptions.properties[option].type}]`)
@@ -312,7 +312,7 @@ function editConfiguation(source, tsconfig, schema) {
       // Check if property has ENUM & ENUM Verifier
       if (!!property.enum) {
         let configForm = new ActionFormData();
-        configForm.title("TypeScript Configulation")
+        configForm.title("TypeScript Configuration")
         configForm.body(`Setting: ${selectedProperty}\n\nCurrent Value: ${tsconfig.compilerOptions[selectedProperty]}`);
         var availableValues = [];
         for (const value of property.enum) { configForm.button(value); availableValues.push(value) }
@@ -323,7 +323,7 @@ function editConfiguation(source, tsconfig, schema) {
         });
       } else if (!!property.anyOf) { for (const option of property.anyOf) if (!!option.enum) {
         let configForm = new ActionFormData();
-        configForm.title("TypeScript Configulation")
+        configForm.title("TypeScript Configuration")
         configForm.body(`Setting: ${selectedProperty}\n\nCurrent Value: ${tsconfig.compilerOptions[selectedProperty]}`);
         var availableValues = [];
         for (const value of option.enum) { configForm.button(value); availableValues.push(value) }
@@ -335,7 +335,7 @@ function editConfiguation(source, tsconfig, schema) {
       } else if (property.type == "boolean") {
         var availableValues = [true, false];
         let configForm = new ActionFormData();
-        configForm.title("TypeScript Configulation")
+        configForm.title("TypeScript Configuration")
         configForm.body(`Setting: ${selectedProperty}\n\nCurrent Value: ${tsconfig.compilerOptions[selectedProperty]}`)
         configForm.button("True", "textures/blocks/wool_colored_lime")
         configForm.button("False", "textures/blocks/wool_colored_red")
@@ -346,7 +346,7 @@ function editConfiguation(source, tsconfig, schema) {
         });
       } else {
         let configForm = new ModalFormData();
-        configForm.title("TypeScript Configulation");
+        configForm.title("TypeScript Configuration");
         configForm.textField(`Setting: ${selectedProperty}\n\nType here to change property value`, typeof tsconfig.compilerOptions[selectedProperty] === "object" ? JSON.stringify(tsconfig.compilerOptions[selectedProperty]) : String(tsconfig.compilerOptions[selectedProperty]), typeof tsconfig.compilerOptions[selectedProperty] === "object" ? JSON.stringify(tsconfig.compilerOptions[selectedProperty]) : String(tsconfig.compilerOptions[selectedProperty]));
         configForm.show(source).then(configFormResponse => {
           const { formValues } = configFormResponse;
@@ -524,7 +524,7 @@ world.events.beforeItemUse.subscribe(eventData => {
     let formInput = formSettings;
     if (formInput.ModalForm.toggle.defaultValue == null) formInput.ModalForm.toggle.defaultValue = true;
     transpile(source, playerName, formInput)
-  } else if (item.id == 'minecraft:enchanted_book' && item.getLore()[0] === "§r§5TypeScript Config" && item.getLore()[1] === "Use this item to edit configulation") {
+  } else if (item.id == 'minecraft:enchanted_book' && item.getLore()[0] === "§r§5TypeScript Config" && item.getLore()[1] === "Use this item to edit configuration") {
 
     tsconfig.value = editConfiguation(source, tsconfig.value, tsconfig.schema);
     
