@@ -1,0 +1,25 @@
+name: scripts
+
+on: [push]
+
+jobs:
+  scripts:
+    name: 'Script Debug'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: npm install
+        run: |
+          pwd && npm install
+
+      - name: Gulp build generator
+        run: gulp
+      
+      - name: Build behavior and resource pack
+        run: node dist
+        
+      - name: Script debug
+        run: npx webpack

@@ -1,0 +1,23 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "interpreter:script_block",
+			"is_experimental": false,
+			"register_to_creative_menu": true
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/blocks/script_block.json",
+			"minecraft:destroy_time": 3,
+			"minecraft:explosion_resistance": 3,
+			"minecraft:friction": 0.6,
+			"minecraft:flammable": {
+				"flame_odds": 0,
+				"burn_odds": 0
+			},
+			"minecraft:map_color": "#FFFFFF",
+			"minecraft:block_light_absorption": 0,
+			"minecraft:block_light_emission": 0
+		}
+	}
+}

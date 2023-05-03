@@ -1,5 +1,6 @@
-# GameTest Interpreter
-> It's like using scratch in education edition in-game, but you code javascript in bedrock edition in-game
+# Script Interpreter
+
+Script Interpreter is a REPL for Minecraft Scripting, an interactive shell that allows user to input and execute JavaScript code in Minecraft.
 
 <p align="center">
   <img src="https://img.shields.io/github/downloads/jaylydev/interpreter/total.svg" alt="GitHub All Releases"/>
@@ -9,19 +10,15 @@
   <img src="https://img.shields.io/github/commit-activity/m/jaylydev/interpreter" alt="Commit Activity"/>
 </p>
 
-### Documentation: [Click Here](./docs/README.md)
 ### Now Available on [MCPEDL](https://mcpedl.com/gametest-interpreter/)
 
-GameTest Interpreter allows Minecraft: Bedrock Edition to execute code written in a programming language. The add-on currenly supports JavaScript, TypeScript and *BrainFuck*.
-
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/65847850/162752425-5ce8764b-c569-4d58-95c4-9d80a8e705ec.png" alt="JavaScript">
-  <img src="https://user-images.githubusercontent.com/65847850/162749474-475d664c-db59-4db3-aa59-6b5698b2542b.png" alt="TypeScript">
+  <img src="https://media.discordapp.net/attachments/867015810312962063/1103413968942419978/image.png" alt="script_repl">
 </p>
 
-## Latest Versions
+## Release
 
-**Release**: <a href="https://github.com/JaylyDev/interpreter/releases/latest"/>v1.19.10 <img src="https://img.shields.io/github/release-date/jaylydev/interpreter" alt="Release date"/></a>
+You can get the latest release of the add-on on [GitHub Releases](https://github.com/JaylyDev/interpreter/releases/latest).
 
 ## Contributions
 You are welcome to contribute to this project!

@@ -383,7 +383,7 @@
           "$options_dropdown_toggle_label_binding": "#dropdown_option_text",
           "$options_dropdown_toggle_label_binding_type": "collection",
           "$options_dropdown_toggle_label_binding_collection_name": "custom_form",
-          "$dropdown_scroll_content_size": ["100%", "500%"],
+          "$dropdown_scroll_content_size": ["100%", "600%"],
           "$label_bindings": [
             {
               "binding_name": "#custom_text",
@@ -450,7 +450,7 @@
     "$text_edit_box_content_binding_name": "#custom_input_text",
 
     "$option_binding_name": "#custom_input_text",
-    "$option_text_edit_control_size": [ "100%", "100px" ],
+    "$option_text_edit_control_size": [ "100%", "118px" ],
     "$text_box_enabled_binding_name": "#custom_input_enabled",
     "$text_box_name": "custom_input",
     "$label_bindings": [

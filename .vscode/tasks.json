@@ -1,10 +1,13 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "compiler",
-            "command": "${workspaceFolder}\\src\\compile\\run_with_py.bat",
-            "type": "shell"
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "gulp && node dist && npx webpack"
+		}
+	]
 }

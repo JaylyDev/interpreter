@@ -1,0 +1,40 @@
+name: Bug Report
+description: File a bug report.
+labels: ["bug"]
+body:
+  - type: input
+    attributes:
+      label: Minecraft Version
+      description: Which Minecraft version are you using?
+      placeholder: "Example: 1.19.80"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Add-On Version
+      description: Which add-on version are you using?
+      placeholder: "Example: 19.80.0"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: "Platform"
+      options:
+        - Worlds
+        - Realms
+        - Servers
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What happened?
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Detailed steps to reproduce the issue.
+      placeholder: "We need to be able to reproduce that bug in order to fix it. Please write the steps in detail."
+    validations:
+      required: true

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ES2020",
+    "baseUrl": ".",
+    "allowJs": true,
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "outDir": "../../../dist/behavior_pack/scripts",
+    "rootDir": ".",
+    "moduleResolution": "node"
+  }
+}
